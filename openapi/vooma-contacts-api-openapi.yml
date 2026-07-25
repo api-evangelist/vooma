@@ -1,0 +1,178 @@
+openapi: 3.1.0
+info:
+  title: api Carriers Contacts API
+  version: 0.1.0
+  contact: {}
+servers:
+- url: https://api.vooma.ai/v0
+  description: Vooma API
+tags:
+- name: Contacts
+paths:
+  /contacts/bulk:
+    post:
+      operationId: BulkCreateContacts
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCreateContactsPayload'
+      tags:
+      - Contacts
+      security:
+      - bearer: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCreateContactsInput'
+  /contacts/{contactId}:
+    put:
+      operationId: UpdateContact
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+      tags:
+      - Contacts
+      security:
+      - bearer: []
+      parameters:
+      - in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateContactInput'
+    delete:
+      operationId: DeleteContact
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteContactPayload'
+      tags:
+      - Contacts
+      security:
+      - bearer: []
+      parameters:
+      - in: path
+        name: contactId
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    VoomaPublicAPIv0.BulkCreateContactsInput:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/ContactData'
+          type: array
+      required:
+      - contacts
+      type: object
+    VoomaPublicAPIv0.BulkCreateContactsPayload:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+      required:
+      - contacts
+      type: object
+    CarrierContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          carrierId:
+            type: string
+        required:
+        - carrierId
+        type: object
+    CustomerContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          customerId:
+            type: string
+        required:
+        - customerId
+        type: object
+    VoomaPublicAPIv0.UpdateContactInput:
+      properties:
+        contact:
+          $ref: '#/components/schemas/ContactData'
+      required:
+      - contact
+      type: object
+    BulkCreateContactsPayload:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsPayload'
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    UpdateContactInput:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.UpdateContactInput'
+    BaseContactData:
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+      type: object
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
+    BulkCreateContactsInput:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsInput'
+    DeleteContactPayload:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.DeleteContactPayload'
+    V0Contact.Contact:
+      $ref: '#/components/schemas/MayHaveID_ContactData_'
+    VoomaPublicAPIv0.DeleteContactPayload:
+      properties:
+        success:
+          type: boolean
+      required:
+      - success
+      type: object
+    ContactData:
+      anyOf:
+      - $ref: '#/components/schemas/CarrierContactData'
+      - $ref: '#/components/schemas/CustomerContactData'
+      - $ref: '#/components/schemas/LocationContactData'
+  securitySchemes:
+    basic:
+      scheme: basic
+      type: http
+    bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+    auth0:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

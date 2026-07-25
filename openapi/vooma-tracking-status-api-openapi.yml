@@ -1,0 +1,168 @@
+openapi: 3.1.0
+info:
+  title: api Carriers Tracking Status API
+  version: 0.1.0
+  contact: {}
+servers:
+- url: https://api.vooma.ai/v0
+  description: Vooma API
+tags:
+- name: Tracking Status
+paths:
+  /tracking-status:
+    post:
+      operationId: CreateTrackingStatus
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackingStatusData'
+      tags:
+      - Tracking Status
+      security:
+      - bearer: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTrackingStatusInput'
+components:
+  schemas:
+    TrackingStatusMovement:
+      properties:
+        externalIds:
+          items:
+            $ref: '#/components/schemas/MovementExternalIdentifier'
+          type: array
+      required:
+      - externalIds
+      type: object
+    TrackingStatusLocationType.GEOCOORDINATES:
+      enum:
+      - GEOCOORDINATES
+      type: string
+    TrackingStatusLocation:
+      anyOf:
+      - $ref: '#/components/schemas/GeoCoordinatesLocation'
+      - $ref: '#/components/schemas/CityStateLocation'
+    MovementExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/MovementExternalIdentifierType'
+          - type: string
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    TrackingStatusMetadata:
+      properties:
+        currentState:
+          type: string
+        currentCity:
+          type: string
+        deliveryStatus:
+          type: string
+        trackingStatus:
+          type: string
+        timezone:
+          type: string
+        destinationEta:
+          type: string
+        destinationState:
+          type: string
+        destinationCity:
+          type: string
+        originState:
+          type: string
+        originCity:
+          type: string
+        carrierId:
+          type: string
+        carrierName:
+          type: string
+      type: object
+    TrackingStatusData:
+      properties:
+        metadata:
+          $ref: '#/components/schemas/TrackingStatusMetadata'
+        location:
+          $ref: '#/components/schemas/TrackingStatusLocation'
+        timestamp:
+          type: number
+          format: double
+        movement:
+          $ref: '#/components/schemas/TrackingStatusMovement'
+      required:
+      - location
+      - timestamp
+      - movement
+      type: object
+    CreateTrackingStatusInput:
+      properties:
+        trackingStatus:
+          $ref: '#/components/schemas/TrackingStatusData'
+      required:
+      - trackingStatus
+      type: object
+    GeoCoordinatesLocation:
+      allOf:
+      - $ref: '#/components/schemas/GeoCoordinates'
+      - properties:
+          type:
+            $ref: '#/components/schemas/TrackingStatusLocationType.GEOCOORDINATES'
+        required:
+        - type
+        type: object
+    CityStateLocation:
+      properties:
+        state:
+          type: string
+        city:
+          type: string
+        type:
+          $ref: '#/components/schemas/TrackingStatusLocationType.CITYSTATE'
+      required:
+      - state
+      - city
+      - type
+      type: object
+    TrackingStatusLocationType.CITYSTATE:
+      enum:
+      - CITYSTATE
+      type: string
+    GeoCoordinates:
+      properties:
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+      required:
+      - longitude
+      - latitude
+      type: object
+    MovementExternalIdentifierType:
+      enum:
+      - CUSTOM
+      type: string
+  securitySchemes:
+    basic:
+      scheme: basic
+      type: http
+    bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+    auth0:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

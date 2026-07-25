@@ -1,0 +1,1152 @@
+openapi: 3.1.0
+info:
+  title: api Carriers Quotes API
+  version: 0.1.0
+  contact: {}
+servers:
+- url: https://api.vooma.ai/v0
+  description: Vooma API
+tags:
+- name: Quotes
+paths:
+  /quotes/search:
+    post:
+      operationId: GetQuotes
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/V0.GetQuotesPayload'
+                - $ref: '#/components/schemas/V0.PaginatedResponse'
+      tags:
+      - Quotes
+      security:
+      - bearer: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/V0.GetQuotesInput'
+  /quotes/{quoteId}:
+    get:
+      operationId: GetQuote
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V0.GetQuotePayload'
+      tags:
+      - Quotes
+      security:
+      - bearer: []
+      parameters:
+      - in: path
+        name: quoteId
+        required: true
+        schema:
+          type: string
+components:
+  schemas:
+    TemperatureUnits:
+      enum:
+      - F
+      - C
+      type: string
+    Commodity:
+      $ref: '#/components/schemas/V0Cargo.Commodity'
+    WithId_CustomerData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        required:
+        - id
+        type: object
+      - $ref: '#/components/schemas/CustomerData'
+    V0Equipment.Equipment:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/EquipmentType'
+          - type: string
+          description: Typically one of the EquipmentType enum values but subject to change
+        equipmentLength:
+          $ref: '#/components/schemas/Dimension'
+        temperature:
+          $ref: '#/components/schemas/Temperature'
+        description:
+          type: string
+      required:
+      - type
+      type: object
+      additionalProperties: false
+    Pagination:
+      properties:
+        limit:
+          type: number
+          format: double
+        after:
+          type: string
+        before:
+          type: string
+        last:
+          type: number
+          format: double
+        first:
+          type: number
+          format: double
+      type: object
+    Rate:
+      properties:
+        id:
+          type: string
+        method:
+          anyOf:
+          - $ref: '#/components/schemas/RatingMethod'
+          - type: string
+          description: 'Typically one of the RatingMethod enum values
+
+            but subject to change'
+        amount:
+          $ref: '#/components/schemas/Amount'
+        externalIds:
+          items:
+            $ref: '#/components/schemas/RateExternalIdentifier'
+          type: array
+        components:
+          items:
+            $ref: '#/components/schemas/RateComponent'
+          type: array
+      required:
+      - id
+      - method
+      - amount
+      - externalIds
+      - components
+      type: object
+      additionalProperties: false
+    DateTimeRangeType:
+      enum:
+      - FACILITY_HOURS
+      - APPOINTMENT
+      type: string
+    AuctionType:
+      enum:
+      - AUCTION
+      - NON_AUCTION
+      type: string
+    V0.PaginatedResponse:
+      properties:
+        pageInfo:
+          properties:
+            endCursor:
+              type: string
+            startCursor:
+              type: string
+            hasPreviousPage:
+              type: boolean
+            hasNextPage:
+              type: boolean
+          type: object
+        totalCount:
+          type: number
+          format: double
+        count:
+          type: number
+          format: double
+      type: object
+    V0Reference.Reference:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/ReferenceType'
+          - type: string
+          description: 'Typically one of the ReferenceType enum values
+
+            but subject to change'
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    HazmatDetails:
+      properties:
+        classifications:
+          items:
+            $ref: '#/components/schemas/HazmatClassification'
+          type: array
+        packingGroup:
+          type: string
+        unNumber:
+          type: string
+        weight:
+          $ref: '#/components/schemas/Weight'
+        contact:
+          $ref: '#/components/schemas/HazmatContact'
+      required:
+      - classifications
+      - contact
+      type: object
+    ContactData:
+      anyOf:
+      - $ref: '#/components/schemas/CarrierContactData'
+      - $ref: '#/components/schemas/CustomerContactData'
+      - $ref: '#/components/schemas/LocationContactData'
+    RatingMethod:
+      enum:
+      - CUSTOM
+      - DAT
+      - GREENSCREENS
+      - BITFREIGHTER
+      - TRANSFIX
+      - MANUAL
+      - DIRECT_OFFER
+      type: string
+    MayHaveID_LocationContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/LocationContactData'
+    MayHaveID_Omit_LocationData.scheduling__:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/Omit_LocationData.scheduling_'
+    RateExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/RatingMethod'
+          - type: string
+          description: 'Typically one of the RatingMethod enum values
+
+            but subject to change'
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    V0.GetQuotesInput:
+      properties:
+        customFreightTags:
+          items:
+            type: string
+          type: array
+        opportunityType:
+          $ref: '#/components/schemas/OpportunityType'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        auctionTypes:
+          items:
+            $ref: '#/components/schemas/AuctionType'
+          type: array
+        freightModes:
+          items:
+            $ref: '#/components/schemas/FreightMode'
+          type: array
+        equipmentTypes:
+          items:
+            $ref: '#/components/schemas/EquipmentType'
+          type: array
+        laneFilter:
+          $ref: '#/components/schemas/LaneFilter'
+        updatedAtFilter:
+          $ref: '#/components/schemas/DateFilter'
+        dateFilter:
+          $ref: '#/components/schemas/DateFilter'
+        searchTerm:
+          type: string
+        statuses:
+          items:
+            $ref: '#/components/schemas/QuoteStatus'
+          type: array
+        customerIds:
+          items:
+            type: string
+          type: array
+      type: object
+    Document:
+      $ref: '#/components/schemas/V0.Document'
+    GeoCoordinates:
+      properties:
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+      required:
+      - longitude
+      - latitude
+      type: object
+    Omit_LocationData.scheduling_:
+      $ref: '#/components/schemas/Pick_LocationData.Exclude_keyofLocationData.scheduling__'
+      description: Construct a type with the properties of T except for those in type K.
+    DateTimeRange:
+      $ref: '#/components/schemas/V0Datetime.DateTimeRange'
+    DimensionUnits:
+      enum:
+      - IN
+      - CM
+      - FT
+      type: string
+    UserExternalIdentifierType:
+      enum:
+      - CUSTOM
+      - EMAIL
+      - PHONE
+      - VOOMA_USERNAME
+      type: string
+    FreightMode:
+      enum:
+      - TRUCKLOAD
+      - LTL
+      - PARTIAL_TRUCKLOAD
+      - INTERMODAL
+      - DRAYAGE
+      - PARCEL
+      type: string
+    Mileage:
+      properties:
+        uom:
+          $ref: '#/components/schemas/MileageUnits'
+        value:
+          type: number
+          format: double
+      required:
+      - uom
+      - value
+      type: object
+    V0User.UserData:
+      properties:
+        externalIds:
+          items:
+            $ref: '#/components/schemas/UserExternalIdentifier'
+          type: array
+      required:
+      - externalIds
+      type: object
+    Equipment:
+      $ref: '#/components/schemas/V0Equipment.Equipment'
+    RateComponentType:
+      enum:
+      - LINE_HAUL
+      - FUEL_SURCHARGE
+      - MANUAL_ADJUSTMENT
+      - MARGIN
+      - TMS_ADJUSTMENT
+      - MESSAGE_ADJUSTMENT
+      - TOTAL
+      - OTHER
+      type: string
+    UserExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/UserExternalIdentifierType'
+          - type: string
+          description: 'Typically one of the UserExternalIdentifierType enum values
+
+            but subject to change'
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    MileageUnits:
+      enum:
+      - MI
+      - KM
+      type: string
+    Pick_LocationData.Exclude_keyofLocationData.scheduling__:
+      properties:
+        externalIds:
+          items:
+            $ref: '#/components/schemas/LocationExternalIdentifier'
+          type: array
+        address:
+          $ref: '#/components/schemas/Address'
+        geoCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        hours:
+          $ref: '#/components/schemas/FacilityHours'
+        contacts:
+          items:
+            $ref: '#/components/schemas/LocationContact'
+          type: array
+        name:
+          type: string
+      required:
+      - externalIds
+      - address
+      type: object
+      description: From T, pick a set of properties whose keys are in the union K
+    Amount:
+      $ref: '#/components/schemas/V0Financials.Amount'
+    V0Datetime.DateTimeRange:
+      properties:
+        startDate:
+          type: string
+          description: Start date in YYYY-MM-DD format
+        endDate:
+          type: string
+          description: Optional end date in YYYY-MM-DD format
+        startTime:
+          type: string
+          description: Optional start time in `timzone` and HH:mm:ss format.
+        endTime:
+          type: string
+          description: Optional end time in `timezone` and HH:mm:ss format
+        timezone:
+          type: string
+          description: Optional timezone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format e.g. "America/New_York". If omitted UTC is assumed.
+        type:
+          $ref: '#/components/schemas/DateTimeRangeType'
+      required:
+      - startDate
+      type: object
+      additionalProperties: false
+    OrderStopLocation:
+      $ref: '#/components/schemas/V0Location.OrderStopLocation'
+    V0Stop.QuoteStop:
+      properties:
+        notes:
+          type: string
+        dateTimeRange:
+          $ref: '#/components/schemas/DateTimeRange'
+        location:
+          $ref: '#/components/schemas/OrderStopLocation'
+        type:
+          $ref: '#/components/schemas/StopType'
+      required:
+      - location
+      - type
+      type: object
+    Reference:
+      $ref: '#/components/schemas/V0Reference.Reference'
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
+    QuoteStatus:
+      enum:
+      - NEW
+      - QUOTED
+      - WON
+      - LOST
+      type: string
+    StopType:
+      enum:
+      - PICKUP
+      - DELIVERY
+      type: string
+    OpportunityType:
+      enum:
+      - CONFIRMED
+      - UNCONFIRMED
+      - ALL
+      type: string
+    QuoteShipmentLink:
+      properties:
+        voomaMovementId:
+          type: string
+        voomaShipmentId:
+          type: string
+          nullable: true
+        shipmentReferenceNumbers:
+          items:
+            type: string
+          type: array
+        shipmentExternalId:
+          type: string
+          nullable: true
+        confidence:
+          type: number
+          format: double
+          nullable: true
+      required:
+      - voomaMovementId
+      - shipmentReferenceNumbers
+      type: object
+      additionalProperties: false
+    LocationExternalIdentifierType:
+      enum:
+      - CUSTOM
+      - GOOGLE_PLACES
+      - TURVO
+      type: string
+    FreightModeDetails:
+      $ref: '#/components/schemas/V0Mode.FreightModeDetails'
+    LocationContact:
+      $ref: '#/components/schemas/V0Contact.LocationContact'
+    HazmatClassification:
+      properties:
+        qualifier:
+          anyOf:
+          - $ref: '#/components/schemas/HazmatClassQualifier'
+          - type: string
+        hazardClass:
+          anyOf:
+          - $ref: '#/components/schemas/HazmatClass'
+          - type: string
+      required:
+      - qualifier
+      - hazardClass
+      type: object
+    V0Contact.Contact:
+      $ref: '#/components/schemas/MayHaveID_ContactData_'
+    QuoteRoute:
+      properties:
+        stops:
+          items:
+            $ref: '#/components/schemas/QuoteStop'
+          type: array
+        mileage:
+          $ref: '#/components/schemas/Mileage'
+      required:
+      - stops
+      type: object
+    CustomerData:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+        name:
+          type: string
+        externalIds:
+          items:
+            $ref: '#/components/schemas/CustomerExternalIdentifier'
+          type: array
+      required:
+      - name
+      - externalIds
+      type: object
+    V0Dimensions.Dimensions:
+      properties:
+        height:
+          $ref: '#/components/schemas/Dimension'
+        width:
+          $ref: '#/components/schemas/Dimension'
+        length:
+          $ref: '#/components/schemas/Dimension'
+      type: object
+    HazmatClass:
+      type: string
+      enum:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+      - '7'
+      - '8'
+      - '9'
+      - '1.1'
+      - '1.2'
+      - '1.3'
+      - '1.4'
+      - '1.5'
+      - '1.6'
+      - '2.1'
+      - '2.2'
+      - '2.3'
+      - '4.1'
+      - '4.2'
+      - '4.3'
+      - '5.1'
+      - '5.2'
+      - '6.1'
+      - '6.2'
+    CustomerExternalIdentifierType:
+      enum:
+      - ALJEX
+      - AVRL
+      - BITFREIGHTER_RATING
+      - CUSTOM
+      - DAT
+      - GENLOGS
+      - GREENSCREENS
+      - HIGHWAY
+      - HOSTED_MCLEOD
+      - LEGACY_MERCURYGATE
+      - MCLEOD
+      - MCLEOD_HOSTED
+      - MERCURYGATE
+      - ORDERFUL
+      - SONAR
+      - SOFTMODAL
+      - STEDI
+      - STRATEGY_LIVE
+      - TABI
+      - TAI
+      - TEST
+      - THREE_PL
+      - TRANSFIX_RATING
+      - TURVO
+      - TRUCKSTOP
+      - VOOMA_PUBLIC_API
+      - MICROSOFT
+      - MICROSOFT_TEAMS
+      - SLACK
+      type: string
+    ReferenceType:
+      enum:
+      - ORDER_REFERENCE
+      - PURCHASE_ORDER
+      - BILL_OF_LADING
+      - INVOICE
+      - SHIPMENT
+      - SALES_ORDER
+      - TRACKING
+      - DELIVERY
+      - CUSTOMER_REFERENCE
+      - LOAD
+      - CONTAINER
+      - MASTER_BILL_OF_LADING
+      - BOOKING
+      - SEAL
+      - PICKUP
+      - APPOINTMENT
+      - ITEM_REFERENCE
+      - OTHER
+      type: string
+    UserData:
+      $ref: '#/components/schemas/V0User.UserData'
+    V0Weight.Weight:
+      properties:
+        units:
+          $ref: '#/components/schemas/WeightUnits'
+        value:
+          type: number
+          format: double
+      required:
+      - units
+      - value
+      type: object
+    V0.GetQuotePayload:
+      properties:
+        quote:
+          $ref: '#/components/schemas/Quote'
+      required:
+      - quote
+      type: object
+    Temperature:
+      properties:
+        units:
+          $ref: '#/components/schemas/TemperatureUnits'
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double
+      required:
+      - units
+      type: object
+    V0Dimensions.Dimension:
+      properties:
+        value:
+          type: number
+          format: double
+        units:
+          anyOf:
+          - $ref: '#/components/schemas/DimensionUnits'
+          - type: string
+          description: Typically one of the DimensionUnits enum values but subject to change
+      required:
+      - value
+      - units
+      type: object
+      additionalProperties: false
+    V0User.User:
+      $ref: '#/components/schemas/WithId_UserData_'
+    DayHours:
+      properties:
+        type:
+          type: string
+          enum:
+          - FACILITY_HOURS
+          nullable: false
+        timezone:
+          type: string
+        endTime:
+          type: string
+        startTime:
+          type: string
+      required:
+      - type
+      - timezone
+      - endTime
+      - startTime
+      type: object
+      additionalProperties: false
+    V0Financials.Amount:
+      properties:
+        uom:
+          $ref: '#/components/schemas/CurrencyUnits'
+        value:
+          type: number
+          format: double
+      required:
+      - uom
+      - value
+      type: object
+    QuoteStop:
+      $ref: '#/components/schemas/V0Stop.QuoteStop'
+    Weight:
+      $ref: '#/components/schemas/V0Weight.Weight'
+    V0Cargo.Commodity:
+      properties:
+        isStackable:
+          type: boolean
+        itemReference:
+          $ref: '#/components/schemas/Reference'
+        dimensions:
+          $ref: '#/components/schemas/Dimensions'
+        weight:
+          $ref: '#/components/schemas/Weight'
+        hazmat:
+          $ref: '#/components/schemas/HazmatDetails'
+        nmfcCode:
+          type: string
+        freightClass:
+          type: string
+        pieceUnits:
+          anyOf:
+          - $ref: '#/components/schemas/ShippingUnits'
+          - type: string
+        pieceQuantity:
+          type: number
+          format: double
+        handlingUnits:
+          anyOf:
+          - $ref: '#/components/schemas/ShippingUnits'
+          - type: string
+        handlingQuantity:
+          type: number
+          format: double
+        description:
+          type: string
+      required:
+      - description
+      type: object
+    QuoteTags:
+      properties:
+        isAuction:
+          type: boolean
+      required:
+      - isAuction
+      type: object
+    QuoteAutomation:
+      properties:
+        requestedByUser:
+          type: boolean
+          description: 'True if the quote was requested by a user; it may have been
+
+            requested after being identified by Vooma'
+        identifiedByVooma:
+          type: boolean
+          description: 'True if Vooma''s AI identified the opportunity, whether it was
+
+            identified prior to user request or after'
+      required:
+      - requestedByUser
+      - identifiedByVooma
+      type: object
+      additionalProperties: false
+    V0Contact.LocationContact:
+      $ref: '#/components/schemas/MayHaveID_LocationContactData_'
+    EquipmentType:
+      enum:
+      - BOX_TRUCK
+      - CARGO_VAN
+      - CONESTOGA
+      - CONTAINER
+      - DOUBLE_DROP
+      - DRY_VAN
+      - FLATBED
+      - HOT_SHOT
+      - LOW_BOY
+      - POWER_ONLY
+      - REEFER
+      - REMOVABLE_GOOSENECK
+      - SPRINTER_VAN
+      - STEP_DECK
+      - STRAIGHT_TRUCK
+      - AUTO_CARRIER
+      - VAN_OR_REEFER
+      - FLATBED_OR_STEP_DECK
+      - OTHER
+      type: string
+    WeightUnits:
+      enum:
+      - LB
+      - KG
+      type: string
+    Quote:
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/QuoteStatus'
+        freightOrder:
+          $ref: '#/components/schemas/FreightOrder'
+        carrierRate:
+          $ref: '#/components/schemas/Rate'
+        customerRate:
+          $ref: '#/components/schemas/Rate'
+        user:
+          $ref: '#/components/schemas/User'
+        additionalUsers:
+          items:
+            $ref: '#/components/schemas/User'
+          type: array
+          description: 'Includes users who may have been cc''d or who owned matching quotes
+
+            deduplicated by Vooma'
+        requestedByEmail:
+          type: string
+        tags:
+          $ref: '#/components/schemas/QuoteTags'
+        customFreightTags:
+          items:
+            type: string
+          type: array
+        responseTimeSeconds:
+          type: number
+          format: double
+          description: 'Time in seconds between when the quote request was received
+
+            and when first email response was sent from the user'
+        automation:
+          $ref: '#/components/schemas/QuoteAutomation'
+        externalIds:
+          items:
+            $ref: '#/components/schemas/QuoteExternalIdentifier'
+          type: array
+        linkedShipments:
+          items:
+            $ref: '#/components/schemas/QuoteShipmentLink'
+          type: array
+      required:
+      - id
+      - createdAt
+      - updatedAt
+      - status
+      - freightOrder
+      - additionalUsers
+      - tags
+      - automation
+      - externalIds
+      type: object
+      additionalProperties: false
+    CarrierContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          carrierId:
+            type: string
+        required:
+        - carrierId
+        type: object
+    V0Mode.FreightModeDetails:
+      properties:
+        drayageSubtype:
+          $ref: '#/components/schemas/DrayageSubtype'
+        mode:
+          $ref: '#/components/schemas/FreightMode'
+      required:
+      - mode
+      type: object
+    V0.GetQuotesPayload:
+      properties:
+        quotes:
+          items:
+            $ref: '#/components/schemas/Quote'
+          type: array
+      required:
+      - quotes
+      type: object
+    Customer:
+      $ref: '#/components/schemas/WithId_CustomerData_'
+    HazmatClassQualifier:
+      type: string
+      enum:
+      - P
+      - S
+    CustomerContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          customerId:
+            type: string
+        required:
+        - customerId
+        type: object
+    V0Location.OrderStopLocation:
+      $ref: '#/components/schemas/MayHaveID_Omit_LocationData.scheduling__'
+    Dimensions:
+      $ref: '#/components/schemas/V0Dimensions.Dimensions'
+    RateComponent:
+      properties:
+        amount:
+          $ref: '#/components/schemas/Amount'
+        type:
+          $ref: '#/components/schemas/RateComponentType'
+        description:
+          type: string
+      required:
+      - amount
+      - type
+      - description
+      type: object
+    LaneFilter:
+      properties:
+        destination:
+          $ref: '#/components/schemas/GeoCircle'
+        origin:
+          $ref: '#/components/schemas/GeoCircle'
+      type: object
+    DateFilter:
+      properties:
+        end:
+          type: string
+          format: date-time
+        start:
+          type: string
+          format: date-time
+      type: object
+    HazmatContact:
+      allOf:
+      - $ref: '#/components/schemas/Contact'
+      - properties:
+          reference:
+            $ref: '#/components/schemas/Reference'
+        type: object
+    Address:
+      properties:
+        country:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        addressTwo:
+          type: string
+        addressOne:
+          type: string
+      type: object
+    CustomerExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/CustomerExternalIdentifierType'
+          - type: string
+          description: Typically one of the CustomerExternalIdentifierType enum values, but strings are also allowed
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    ShippingUnits:
+      enum:
+      - BAGS
+      - BALES
+      - BOTTLES
+      - BOXES
+      - BUNDLES
+      - CARTONS
+      - CASES
+      - CRATES
+      - DRUMS
+      - PACKAGES
+      - PAILS
+      - PALLETS
+      - PIECES
+      - ROLLS
+      - SKIDS
+      - TRUCKLOADS
+      - TUBES
+      - UNITS
+      - VEHICLES
+      type: string
+    DrayageSubtype:
+      enum:
+      - IMPORT
+      - EXPORT
+      type: string
+    QuoteExternalIdentifier:
+      properties:
+        type:
+          type: string
+          description: The type/source of the external identifier
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    WithId_UserData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        required:
+        - id
+        type: object
+      - $ref: '#/components/schemas/UserData'
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    BaseContactData:
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+      type: object
+    FacilityHours:
+      properties:
+        sunday:
+          $ref: '#/components/schemas/DayHours'
+        saturday:
+          $ref: '#/components/schemas/DayHours'
+        friday:
+          $ref: '#/components/schemas/DayHours'
+        thursday:
+          $ref: '#/components/schemas/DayHours'
+        wednesday:
+          $ref: '#/components/schemas/DayHours'
+        tuesday:
+          $ref: '#/components/schemas/DayHours'
+        monday:
+          $ref: '#/components/schemas/DayHours'
+      type: object
+    User:
+      $ref: '#/components/schemas/V0User.User'
+    FreightOrder:
+      properties:
+        documents:
+          items:
+            $ref: '#/components/schemas/Document'
+          type: array
+        totalWeight:
+          $ref: '#/components/schemas/Weight'
+        commodities:
+          items:
+            $ref: '#/components/schemas/Commodity'
+          type: array
+        equipment:
+          $ref: '#/components/schemas/Equipment'
+        customer:
+          $ref: '#/components/schemas/Customer'
+        route:
+          $ref: '#/components/schemas/QuoteRoute'
+        freightModeDetails:
+          $ref: '#/components/schemas/FreightModeDetails'
+      required:
+      - commodities
+      - equipment
+      - customer
+      - route
+      - freightModeDetails
+      type: object
+    GeoCircle:
+      properties:
+        radiusMiles:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+      required:
+      - radiusMiles
+      - longitude
+      - latitude
+      type: object
+    CurrencyUnits:
+      enum:
+      - USD
+      - CAD
+      type: string
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
+    LocationExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/LocationExternalIdentifierType'
+          - type: string
+          description: 'Typically one of the LocationExternalIdentifierType enum values
+
+            but subject to change'
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    V0.Document:
+      properties:
+        url:
+          type: string
+        id:
+          type: string
+      required:
+      - url
+      - id
+      type: object
+    Dimension:
+      $ref: '#/components/schemas/V0Dimensions.Dimension'
+  securitySchemes:
+    basic:
+      scheme: basic
+      type: http
+    bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+    auth0:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,299 @@
+openapi: 3.1.0
+info:
+  title: api Carriers API
+  version: 0.1.0
+  contact: {}
+servers:
+- url: https://api.vooma.ai/v0
+  description: Vooma API
+tags:
+- name: Carriers
+paths:
+  /carriers/{carrierId}:
+    get:
+      operationId: GetCarrier
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCarrierPayload'
+      tags:
+      - Carriers
+      security:
+      - bearer: []
+      parameters:
+      - in: path
+        name: carrierId
+        required: true
+        schema:
+          type: string
+    put:
+      operationId: UpdateCarrier
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Carrier'
+      tags:
+      - Carriers
+      security:
+      - bearer: []
+      parameters:
+      - in: path
+        name: carrierId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCarrierInput'
+  /carriers:
+    post:
+      operationId: CreateCarrier
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Carrier'
+      tags:
+      - Carriers
+      security:
+      - bearer: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCarrierInput'
+components:
+  schemas:
+    V0Carrier.CreateCarrierInput:
+      properties:
+        carrier:
+          $ref: '#/components/schemas/CarrierData'
+      required:
+      - carrier
+      type: object
+    TemperatureUnits:
+      enum:
+      - F
+      - C
+      type: string
+    MayHaveID_CarrierData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/CarrierData'
+    CustomerContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          customerId:
+            type: string
+        required:
+        - customerId
+        type: object
+    Temperature:
+      properties:
+        units:
+          $ref: '#/components/schemas/TemperatureUnits'
+        max:
+          type: number
+          format: double
+        min:
+          type: number
+          format: double
+      required:
+      - units
+      type: object
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
+    CreateCarrierInput:
+      $ref: '#/components/schemas/V0Carrier.CreateCarrierInput'
+    Carrier:
+      $ref: '#/components/schemas/MayHaveID_CarrierData_'
+    V0Equipment.Equipment:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/EquipmentType'
+          - type: string
+          description: Typically one of the EquipmentType enum values but subject to change
+        equipmentLength:
+          $ref: '#/components/schemas/Dimension'
+        temperature:
+          $ref: '#/components/schemas/Temperature'
+        description:
+          type: string
+      required:
+      - type
+      type: object
+      additionalProperties: false
+    GetCarrierPayload:
+      $ref: '#/components/schemas/V0Carrier.GetCarrierPayload'
+    V0Dimensions.Dimension:
+      properties:
+        value:
+          type: number
+          format: double
+        units:
+          anyOf:
+          - $ref: '#/components/schemas/DimensionUnits'
+          - type: string
+          description: Typically one of the DimensionUnits enum values but subject to change
+      required:
+      - value
+      - units
+      type: object
+      additionalProperties: false
+    UpdateCarrierInput:
+      $ref: '#/components/schemas/V0Carrier.UpdateCarrierInput'
+    V0Carrier.GetCarrierPayload:
+      properties:
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+      required:
+      - carrier
+      type: object
+    ContactData:
+      anyOf:
+      - $ref: '#/components/schemas/CarrierContactData'
+      - $ref: '#/components/schemas/CustomerContactData'
+      - $ref: '#/components/schemas/LocationContactData'
+    CarrierContact:
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+        type:
+          type: string
+          enum:
+          - DRIVER
+          - DISPATCH
+      required:
+      - contact
+      - type
+      type: object
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    EquipmentType:
+      enum:
+      - BOX_TRUCK
+      - CARGO_VAN
+      - CONESTOGA
+      - CONTAINER
+      - DOUBLE_DROP
+      - DRY_VAN
+      - FLATBED
+      - HOT_SHOT
+      - LOW_BOY
+      - POWER_ONLY
+      - REEFER
+      - REMOVABLE_GOOSENECK
+      - SPRINTER_VAN
+      - STEP_DECK
+      - STRAIGHT_TRUCK
+      - AUTO_CARRIER
+      - VAN_OR_REEFER
+      - FLATBED_OR_STEP_DECK
+      - OTHER
+      type: string
+    BaseContactData:
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+      type: object
+    CarrierContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          carrierId:
+            type: string
+        required:
+        - carrierId
+        type: object
+    V0Contact.Contact:
+      $ref: '#/components/schemas/MayHaveID_ContactData_'
+    CarrierData:
+      properties:
+        equipment:
+          items:
+            $ref: '#/components/schemas/CarrierEquipment'
+          type: array
+        contacts:
+          items:
+            $ref: '#/components/schemas/CarrierContact'
+          type: array
+        dotNumber:
+          type: string
+        mcNumber:
+          type: string
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    CarrierEquipment:
+      properties:
+        trailerNumber:
+          type: string
+        truckNumber:
+          type: string
+        equipment:
+          $ref: '#/components/schemas/Equipment'
+      required:
+      - equipment
+      type: object
+    DimensionUnits:
+      enum:
+      - IN
+      - CM
+      - FT
+      type: string
+    Equipment:
+      $ref: '#/components/schemas/V0Equipment.Equipment'
+    V0Carrier.UpdateCarrierInput:
+      properties:
+        carrier:
+          $ref: '#/components/schemas/CarrierData'
+      required:
+      - carrier
+      type: object
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
+    Dimension:
+      $ref: '#/components/schemas/V0Dimensions.Dimension'
+  securitySchemes:
+    basic:
+      scheme: basic
+      type: http
+    bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+    auth0:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,41 @@
+# generated: 2026-07-21 | method: generated | source: openapi/vooma-openapi-original.json
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Vooma Public API
+  version: 1.0.0
+extends: openapi/vooma-openapi-original.json
+actions:
+  - target: $.info
+    description: Give the spec a human title and description (upstream info.title is "api").
+    update:
+      title: Vooma Public API
+      description: >-
+        REST API for integrating your own TMS with Vooma's AI agents for
+        freight. Covers carriers, contacts, customers, locations, movements,
+        quotes, shipments, and tracking status, plus 10 outbound webhook
+        events. Authenticated with an organization API key sent as a bearer
+        token; enterprise license required.
+      contact:
+        name: Vooma Support
+        email: support@vooma.ai
+      x-apievangelist:
+        provider: vooma
+        artifacts:
+          authentication: authentication/vooma-authentication.yml
+          conventions: conventions/vooma-conventions.yml
+          webhooks: asyncapi/vooma-webhooks.yml
+          data-model: data-model/vooma-data-model.yml
+          agentic-access: agentic-access/vooma-agentic-access.yml
+  - target: $.info
+    description: Flag contract-quality gaps observed in the upstream spec for a provider follow-up.
+    update:
+      x-apievangelist-gaps:
+        - No 4xx/5xx error responses are documented on any operation.
+        - Operations carry no summaries or descriptions (operationIds only).
+        - No rate-limit signaling is documented.
+        - No Idempotency-Key contract; upsert endpoints carry the idempotent-write semantics.
+  - target: $.externalDocs
+    description: Point at the developer documentation.
+    update:
+      url: https://docs.vooma.ai/api-reference/introduction
+      description: Vooma Public API documentation

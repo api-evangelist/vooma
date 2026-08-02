@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+probe: true
+url: https://trust.vooma.com/
+certifications:
+- SOC 2
+evidence:
+- source: https://trust.vooma.com/
+  kind: trust-center
+  detail: >-
+    Live Vanta-hosted trust center titled "Vooma Trust Center" (HTTP 200;
+    content rendered client-side from assets.vanta.com, so the keyword probe
+    in probe-security-programs.py records no hit — verified manually).
+- source: https://www.vooma.com/security
+  kind: security-page
+  detail: >-
+    Security page displays an AICPA SOC 2 badge and documents encryption in
+    transit and at rest, regular penetration testing and vulnerability
+    assessments, access controls, and employee security training.
+notes: >-
+  No vulnerability disclosure program, bug bounty, security.txt, or dedicated
+  security contact was found on any Vooma host as of the generated date, so no
+  vulnerability-disclosure artifact is recorded.

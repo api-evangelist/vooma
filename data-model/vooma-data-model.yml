@@ -1,0 +1,120 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/vooma-openapi-original.json
+description: >-
+  Entity-relationship graph for the Vooma Public API, derived from OpenAPI
+  schema $ref links and id-reference fields across the core resource families.
+  Entity payload shapes resolve through the *Data schemas that the
+  create/update/upsert operations accept (e.g. ShipmentData, MovementData);
+  nested references use MayHaveID_* wrapper schemas that carry either an id or
+  inline data.
+entities:
+- entity: Quote
+  schema: Quote
+- entity: Shipment
+  schema: ShipmentData
+- entity: Movement
+  schema: MovementData
+- entity: Order
+  schema: OrderData
+- entity: Carrier
+  schema: CarrierData
+- entity: Customer
+  schema: CustomerData
+- entity: Location
+  schema: LocationData
+- entity: Contact
+  schema: ContactData
+- entity: Appointment
+  schema: AppointmentData
+- entity: TrackingUpdate
+  schema: TrackingUpdate
+- entity: TrackingStatus
+  schema: TrackingStatusData
+relationships:
+- from: Shipment
+  to: Movement
+  kind: has_many
+  via: movements
+  ref: MayHaveID_MovementData_
+- from: Movement
+  to: Customer
+  kind: has_one
+  via: customer
+  ref: MayHaveID_CustomerData_
+- from: Movement
+  to: Carrier
+  kind: has_one
+  via: carrier
+  ref: AssignedCarrier
+- from: Movement
+  to: Stop
+  kind: has_many
+  via: route.stops
+  ref: MovementStopData
+- from: Stop
+  to: Location
+  kind: has_one
+  via: location
+  ref: MovementStopLocation (V0Location.Location)
+- from: Order
+  to: Customer
+  kind: has_one
+  via: customer
+  ref: MayHaveID_CustomerData_
+- from: Order
+  to: Stop
+  kind: has_many
+  via: route.stops
+  ref: OrderStopData
+- from: Quote
+  to: Movement
+  kind: belongs_to
+  via: linkedShipments[].voomaMovementId
+  ref: QuoteShipmentLink
+- from: Quote
+  to: Shipment
+  kind: belongs_to
+  via: linkedShipments[].voomaShipmentId
+  ref: QuoteShipmentLink
+- from: Quote
+  to: Stop
+  kind: has_many
+  via: freightOrder.route.stops
+  ref: QuoteStop
+- from: Customer
+  to: Contact
+  kind: has_many
+  via: contacts
+  ref: Contact
+- from: Contact
+  to: Carrier
+  kind: belongs_to
+  via: carrierId
+- from: Contact
+  to: Customer
+  kind: belongs_to
+  via: customerId
+- from: TrackingUpdate
+  to: Movement
+  kind: belongs_to
+  via: movement
+  ref: TrackingUpdateMovement
+- from: TrackingUpdate
+  to: Stop
+  kind: belongs_to
+  via: stop
+  ref: TrackingUpdateStop
+- from: TrackingUpdate
+  to: TrackingStatus
+  kind: has_one
+  via: trackingStatus
+  ref: TrackingStatus
+- from: Appointment
+  to: Stop
+  kind: belongs_to
+  via: stopIndex
+notes: >-
+  MayHaveID_* wrappers mean referenced entities (customer, movement, user) can
+  be passed inline or referenced by Vooma id, supporting the upsert-style
+  integration flows (UpsertShipment, UpsertMovement).

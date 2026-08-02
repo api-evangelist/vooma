@@ -1,0 +1,55 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/vooma-openapi-original.json
+docs: https://docs.vooma.ai/api-reference/introduction
+description: >-
+  Cross-cutting request/response conventions of the Vooma Public API, derived
+  from the published OpenAPI 3.1 document and the developer docs. Vooma
+  publishes no dedicated conventions page; everything here is grounded in the
+  spec.
+authentication:
+  style: Organization API key sent as a bearer token (http bearer, bearerFormat "API Key")
+  notes: Created by an organization admin; enterprise license required.
+  artifact: authentication/vooma-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v0
+  evidence: servers[0].url = https://api.vooma.ai/v0
+pagination:
+  style: cursor
+  request:
+    schema: Pagination
+    params: [first, last, after, before, limit]
+  response:
+    schema: V0.PaginatedResponse
+    fields: [pageInfo.startCursor, pageInfo.endCursor, pageInfo.hasNextPage, pageInfo.hasPreviousPage, count, totalCount]
+  used_by: [GetQuotes, GetCustomers]
+  notes: Relay-style connection pagination on the search endpoints (POST /quotes/search, POST /customers/search).
+idempotency:
+  header: null
+  documented: false
+  notes: >-
+    No Idempotency-Key header or documented idempotency contract. The API does
+    expose idempotent-by-design upsert endpoints (UpsertShipment at
+    POST /shipments/upsert, UpsertMovement at POST /movements/upsert) keyed on
+    external identifiers, plus PUT updates.
+external_ids:
+  style: Every core entity carries externalIds[] (*ExternalIdentifier schemas) for correlating records with your TMS.
+error_envelope:
+  documented: false
+  notes: The OpenAPI documents only 200/204 responses; no 4xx/5xx shapes, no application/problem+json. No docs error reference exists.
+request_tracing:
+  documented: false
+webhooks:
+  delivery: HTTP POST from Vooma to your server; respond 200 or 204.
+  events: 10
+  artifact: asyncapi/vooma-webhooks.yml
+rate_limits:
+  documented: false
+  notes: No rate-limit headers or policies are documented in the spec or docs.
+media_type: application/json
+cross_links:
+- authentication/vooma-authentication.yml
+- asyncapi/vooma-webhooks.yml
+- data-model/vooma-data-model.yml
+- lifecycle/vooma-lifecycle.yml

@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/vooma-openapi-original.json
+description: >-
+  Industry and cross-cutting standards conformance for the Vooma Public API,
+  derived from the published OpenAPI 3.1 document, the developer docs, and the
+  company security page.
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: Published spec at https://docs.vooma.ai/api-reference/openapi.json declares openapi 3.1.0.
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme; auth is a bearer API key (plus an unused Auth0 JWT scheme).
+- id: oidc
+  conforms: false
+  evidence: No openIdConnect scheme and no /.well-known/openid-configuration on any host (all 404).
+- id: cursor-pagination
+  conforms: true
+  evidence: Relay-style connection pagination (Pagination input first/last/after/before; PaginatedResponse pageInfo start/endCursor, hasNextPage/hasPreviousPage) on search endpoints.
+- id: webhooks
+  conforms: true
+  evidence: 10 webhook events defined in the OpenAPI webhooks section (order/carrier/customer/location/appointment/tracking lifecycle).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json; spec documents no 4xx/5xx responses at all.
+- id: idempotency-key
+  conforms: false
+  evidence: No Idempotency-Key header; upsert endpoints (POST /shipments/upsert, /movements/upsert) provide idempotent writes keyed on external ids instead.
+- id: soc2
+  conforms: true
+  evidence: AICPA SOC 2 badge published at https://www.vooma.com/security; Vanta-hosted trust center at https://trust.vooma.com.
+- id: json-api
+  conforms: false
+  evidence: Plain JSON resources; no JSON:API media type or envelope.

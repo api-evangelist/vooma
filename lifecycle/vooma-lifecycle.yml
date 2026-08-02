@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.vooma.com
+description: >-
+  API lifecycle posture for the Vooma Public API. The API is versioned in the
+  URI path at v0. Vooma operates a public status page. No versioning policy,
+  deprecation policy, Sunset/Deprecation header support (RFC 8594), SLA, or
+  dated API changelog is published as of the generated date — the docs
+  "changelog" link currently points at the Mintlify npm package versions page,
+  not a Vooma changelog. No operations in the OpenAPI are marked deprecated.
+versioning:
+  scheme: uri-path
+  current: v0
+  policy_url: null
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page: https://status.vooma.com
+changelog: null
+deprecated_operations: []

@@ -1,0 +1,11 @@
+generated: '2026-07-21'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=vooma
+description: >-
+  Search of the public package registries (npm, PyPI, GitHub org vooma-ai) for
+  first-party Vooma client libraries. None exist as of the generated date: npm
+  search for "vooma" returns zero results, PyPI has no "vooma" project (404),
+  and the vooma-ai GitHub org publishes no SDK repositories (only the Mintlify
+  docs content, an EDI test simulator, and a voice-model fork). The Vooma
+  Public API is consumed directly over REST with an organization API key.
+packages: []

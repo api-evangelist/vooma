@@ -1,0 +1,58 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/vooma-openapi-original.json
+description: Webhook event catalog for the Vooma Public API, derived from the webhooks section of the
+  published OpenAPI 3.1 document. Vooma publishes no AsyncAPI; these 10 events are delivered as HTTP POSTs
+  from Vooma to your server. Expected responses are 200 or 204.
+spec_type: Webhooks
+events:
+- event: onAppointmentUpdated
+  operationId: OnAppointmentUpdated
+  description: Sent by Vooma to your server when an appointment is updated.
+  payload_schema: AppointmentUpdatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onCarrierCreated
+  operationId: OnCarrierCreated
+  description: Sent by Vooma to your server when a carrier is created.
+  payload_schema: CarrierCreatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onCarrierUpdated
+  operationId: OnCarrierUpdated
+  description: Sent by Vooma to your server when a carrier is updated.
+  payload_schema: CarrierUpdatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onCustomerCreated
+  operationId: OnCustomerCreated
+  description: Sent by Vooma to your server when a customer is created.
+  payload_schema: CustomerCreatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onCustomerUpdated
+  operationId: OnCustomerUpdated
+  description: Sent by Vooma to your server when a customer is updated.
+  payload_schema: CustomerUpdatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onLocationCreated
+  operationId: OnLocationCreated
+  description: Sent by Vooma to your server when a location is created.
+  payload_schema: LocationCreatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onLocationUpdated
+  operationId: OnLocationUpdated
+  description: Sent by Vooma to your server when a location is updated.
+  payload_schema: LocationUpdatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onOrderCreated
+  operationId: OnOrderCreated
+  description: Sent by Vooma to your server when an order is created.
+  payload_schema: OrderCreatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onOrderUpdated
+  operationId: OnOrderUpdated
+  description: Sent by Vooma to your server when an order is updated.
+  payload_schema: OrderUpdatedEvent
+  delivery: HTTP POST to your server (application/json)
+- event: onTrackingUpdateCreated
+  operationId: OnTrackingUpdateCreated
+  description: Sent by Vooma to your server when a new tracking update is available.
+  payload_schema: TrackingUpdateEvent
+  delivery: HTTP POST to your server (application/json)

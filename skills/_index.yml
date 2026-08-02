@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: generated
+description: >-
+  Packaged Agent Skills for the Vooma Public API, generated from the published
+  OpenAPI 3.1 document and the conventions/authentication artifacts in this
+  repo. Every operationId is verified against openapi/vooma-openapi-original.json.
+skills:
+- file: vooma-sync-shipments-from-tms.md
+  name: Sync shipments from your TMS into Vooma
+  api: openapi/vooma-openapi-original.json
+  operations: [UpsertShipment, CreateShipment, GetShipment, UpdateShipment, UpsertMovement]
+- file: vooma-search-and-reconcile-quotes.md
+  name: Search quotes and reconcile them to shipments
+  api: openapi/vooma-openapi-original.json
+  operations: [GetQuotes, GetQuote, GetCustomers]
+- file: vooma-track-a-movement.md
+  name: Track a movement and schedule stop appointments
+  api: openapi/vooma-openapi-original.json
+  operations: [GetMovement, CreateTrackingStatus, ScheduleStop]
+- file: vooma-maintain-directory.md
+  name: Maintain the carrier, customer, location, and contact directory
+  api: openapi/vooma-openapi-original.json
+  operations: [CreateCarrier, UpdateCarrier, CreateCustomer, UpdateCustomer, CreateLocation, UpdateLocation, BulkCreateContacts, UpdateContact, DeleteContact]

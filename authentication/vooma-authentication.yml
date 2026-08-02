@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/vooma-openapi-original.json
+docs: https://docs.vooma.ai/api-reference/introduction
+description: >-
+  Auth profile for the Vooma Public API. All 25 REST operations require the
+  "bearer" scheme — an organization API key sent as a bearer token
+  (bearerFormat "API Key"). API keys are created by an organization admin in
+  the Vooma app and require an enterprise license. The spec also defines a
+  basic scheme and an "auth0" bearer JWT scheme (Auth0-issued user tokens for
+  the app), but no public operation references them. Webhook callbacks Vooma
+  sends to your server declare no security scheme in the spec.
+summary:
+  types:
+  - http
+  http_schemes:
+  - basic
+  - bearer
+  api_key_style: bearer token (bearerFormat "API Key")
+schemes:
+- name: basic
+  type: http
+  scheme: basic
+  sources:
+  - openapi/vooma-openapi-original.json
+- name: bearer
+  type: http
+  scheme: bearer
+  bearerFormat: API Key
+  description: Organization API key sent as a bearer token; used by all 25 public operations.
+  sources:
+  - openapi/vooma-openapi-original.json
+- name: auth0
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: Auth0-issued JWT; defined in components.securitySchemes but not referenced by any public operation.
+  sources:
+  - openapi/vooma-openapi-original.json
+notes:
+- You must be an organization admin to create an API key.
+- An enterprise license is required to develop against the Vooma Public API.
+- 'Support contact for auth failures: support@vooma.ai'

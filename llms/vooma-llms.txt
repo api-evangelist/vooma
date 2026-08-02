@@ -1,0 +1,64 @@
+# Vooma
+
+## Docs
+
+- [On Appointment Updated](https://docs.vooma.ai/api-reference/appointments/onUpdate.md): Sent by Vooma to your server when an appointment is updated.
+- [Create Carrier](https://docs.vooma.ai/api-reference/carriers/create.md)
+- [Get Carrier](https://docs.vooma.ai/api-reference/carriers/get.md)
+- [On Carrier Created](https://docs.vooma.ai/api-reference/carriers/onCreate.md): Sent by Vooma to your server when a carrier is created.
+- [On Carrier Updated](https://docs.vooma.ai/api-reference/carriers/onUpdate.md): Sent by Vooma to your server when a carrier is updated.
+- [Update Carrier](https://docs.vooma.ai/api-reference/carriers/update.md)
+- [Bulk Create Contacts](https://docs.vooma.ai/api-reference/contacts/bulk-create.md)
+- [Delete Contact](https://docs.vooma.ai/api-reference/contacts/delete.md)
+- [Update Contact](https://docs.vooma.ai/api-reference/contacts/update.md)
+- [Create Customer](https://docs.vooma.ai/api-reference/customers/create.md)
+- [Get Customer](https://docs.vooma.ai/api-reference/customers/get.md)
+- [On Customer Created](https://docs.vooma.ai/api-reference/customers/onCreate.md): Sent by Vooma to your server when a customer is created.
+- [On Customer Updated](https://docs.vooma.ai/api-reference/customers/onUpdate.md): Sent by Vooma to your server when a customer is updated.
+- [Search Customers](https://docs.vooma.ai/api-reference/customers/search.md)
+- [Update Customer](https://docs.vooma.ai/api-reference/customers/update.md)
+- [Introduction](https://docs.vooma.ai/api-reference/introduction.md): Get started developing your Vooma-powered applications
+- [Create Location](https://docs.vooma.ai/api-reference/locations/create.md)
+- [Get Location](https://docs.vooma.ai/api-reference/locations/get.md)
+- [On Location Created](https://docs.vooma.ai/api-reference/locations/onCreate.md): Sent by Vooma to your server when a location is created.
+- [On Location Updated](https://docs.vooma.ai/api-reference/locations/onUpdate.md): Sent by Vooma to your server when a location is updated.
+- [Update Location](https://docs.vooma.ai/api-reference/locations/update.md)
+- [Create Movement](https://docs.vooma.ai/api-reference/movements/create.md)
+- [Get Movement](https://docs.vooma.ai/api-reference/movements/get.md)
+- [On Tracking Update Created](https://docs.vooma.ai/api-reference/movements/onTrackingUpdateCreated.md): Sent by Vooma to your server when a new tracking update is available.
+- [Schedule Stop](https://docs.vooma.ai/api-reference/movements/scheduleStop.md)
+- [Update Movement](https://docs.vooma.ai/api-reference/movements/update.md)
+- [Upsert Movement](https://docs.vooma.ai/api-reference/movements/upsert.md)
+- [On Order Created](https://docs.vooma.ai/api-reference/orders/onCreate.md): Sent by Vooma to your server when an order is created.
+- [On Order Updated](https://docs.vooma.ai/api-reference/orders/onUpdate.md): Sent by Vooma to your server when an order is updated.
+- [Get Quote](https://docs.vooma.ai/api-reference/quotes/get.md)
+- [Search Quotes](https://docs.vooma.ai/api-reference/quotes/search.md)
+- [Create Shipment](https://docs.vooma.ai/api-reference/shipments/create.md)
+- [Get Shipment](https://docs.vooma.ai/api-reference/shipments/get.md)
+- [Update Shipment](https://docs.vooma.ai/api-reference/shipments/update.md)
+- [Upsert Shipment](https://docs.vooma.ai/api-reference/shipments/upsert.md)
+- [Create Tracking Status](https://docs.vooma.ai/api-reference/tracking-status/create.md)
+- [Development](https://docs.vooma.ai/development.md): Connect your own applications to Vooma
+- [Introduction](https://docs.vooma.ai/index.md): The next generation of freight, powered by Vooma
+- [Vooma Public API](https://docs.vooma.ai/integrations/api.md): Integration your own TMS using the Vooma Public API
+- [Communication Channels](https://docs.vooma.ai/integrations/channels.md): Provision your email providers, telephony services, and internal chat apps
+- [Partnered TMS](https://docs.vooma.ai/integrations/tms.md): Connect Vooma to your instance to start syncing data
+- [Agent Toolkits](https://docs.vooma.ai/integrations/tools.md): Authorize Vooma to use your freight-tech services
+- [Command Tower](https://docs.vooma.ai/platform/command.md): Monitor your AI workforce and gracefully handle escalations
+- [Vooma Insights](https://docs.vooma.ai/platform/insights.md): Illuminate the data from your 'shadow' TMS. All the data from your human teams and your AI agents, in one queryable warehouse
+- [SOPs](https://docs.vooma.ai/platform/sops.md): Institutionalize your best practices in AI-first documentation to automate the big tasks and the long tail of minutia
+- [Vooma Build](https://docs.vooma.ai/workflows/build.md): Free your team from manual data entry to focus on more important things
+- [Vooma Collect](https://docs.vooma.ai/workflows/collect.md): Collect, audit, and store proof of delivery and other documents
+- [Vooma Cover](https://docs.vooma.ai/workflows/cover.md): Communicate with carriers, negotiate rates, book loads
+- [Vooma Quote](https://docs.vooma.ai/workflows/quote.md): Get visibility into the lost revenue in your inbox. Quote more freight, faster
+- [Vooma Schedule](https://docs.vooma.ai/workflows/schedule.md): Better, cheaper, faster appointments... without lifting a finger
+- [Vooma Track](https://docs.vooma.ai/workflows/track.md): Faster issue detection, proactive tracking, and seamless escalation powered by AI
+
+## OpenAPI Specs
+
+- [openapi](https://docs.vooma.ai/api-reference/openapi.json)
+
+## Optional
+
+- [Documentation](https://app.vooma.ai/docs)
+- [Blog](https://www.vooma.com/resources)

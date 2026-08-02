@@ -1,0 +1,30 @@
+{
+  "provider": "vooma",
+  "sources": [
+    "vooma-carriers-api-openapi.yml",
+    "vooma-contacts-api-openapi.yml",
+    "vooma-customers-api-openapi.yml",
+    "vooma-locations-api-openapi.yml",
+    "vooma-movements-api-openapi.yml",
+    "vooma-quotes-api-openapi.yml",
+    "vooma-shipments-api-openapi.yml",
+    "vooma-tracking-status-api-openapi.yml",
+    "vooma-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "vooma-carriers-api-openapi.yml",
+    "vooma-contacts-api-openapi.yml",
+    "vooma-customers-api-openapi.yml",
+    "vooma-locations-api-openapi.yml",
+    "vooma-movements-api-openapi.yml",
+    "vooma-quotes-api-openapi.yml",
+    "vooma-shipments-api-openapi.yml",
+    "vooma-tracking-status-api-openapi.yml",
+    "vooma-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,86 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/vooma-openapi-original.json
+description: No official Vooma MCP server was found (docs, npm, GitHub org vooma-ai, MCP registries searched
+  2026-07-21). This is a candidate tool list derived from the Vooma Public API OpenAPI operations — one
+  tool per operationId, excluding the outbound webhook callback definitions.
+server:
+  name: vooma
+  transport: http
+tools:
+- name: get_carrier
+  description: GET /carriers/{carrierId}
+  source_operation: openapi/vooma-openapi-original.json#GetCarrier
+- name: update_carrier
+  description: PUT /carriers/{carrierId}
+  source_operation: openapi/vooma-openapi-original.json#UpdateCarrier
+- name: create_carrier
+  description: POST /carriers
+  source_operation: openapi/vooma-openapi-original.json#CreateCarrier
+- name: bulk_create_contacts
+  description: POST /contacts/bulk
+  source_operation: openapi/vooma-openapi-original.json#BulkCreateContacts
+- name: update_contact
+  description: PUT /contacts/{contactId}
+  source_operation: openapi/vooma-openapi-original.json#UpdateContact
+- name: delete_contact
+  description: DELETE /contacts/{contactId}
+  source_operation: openapi/vooma-openapi-original.json#DeleteContact
+- name: get_customers
+  description: POST /customers/search
+  source_operation: openapi/vooma-openapi-original.json#GetCustomers
+- name: get_customer
+  description: GET /customers/{customerId}
+  source_operation: openapi/vooma-openapi-original.json#GetCustomer
+- name: update_customer
+  description: PUT /customers/{customerId}
+  source_operation: openapi/vooma-openapi-original.json#UpdateCustomer
+- name: create_customer
+  description: POST /customers
+  source_operation: openapi/vooma-openapi-original.json#CreateCustomer
+- name: get_location
+  description: GET /locations/{locationId}
+  source_operation: openapi/vooma-openapi-original.json#GetLocation
+- name: update_location
+  description: PUT /locations/{locationId}
+  source_operation: openapi/vooma-openapi-original.json#UpdateLocation
+- name: create_location
+  description: POST /locations
+  source_operation: openapi/vooma-openapi-original.json#CreateLocation
+- name: get_movement
+  description: GET /movements/{movementId}
+  source_operation: openapi/vooma-openapi-original.json#GetMovement
+- name: update_movement
+  description: PUT /movements/{movementId}
+  source_operation: openapi/vooma-openapi-original.json#UpdateMovement
+- name: upsert_movement
+  description: POST /movements/upsert
+  source_operation: openapi/vooma-openapi-original.json#UpsertMovement
+- name: create_movement
+  description: POST /movements
+  source_operation: openapi/vooma-openapi-original.json#CreateMovement
+- name: schedule_stop
+  description: POST /movements/{movementId}/scheduleStop
+  source_operation: openapi/vooma-openapi-original.json#ScheduleStop
+- name: get_quotes
+  description: POST /quotes/search
+  source_operation: openapi/vooma-openapi-original.json#GetQuotes
+- name: get_quote
+  description: GET /quotes/{quoteId}
+  source_operation: openapi/vooma-openapi-original.json#GetQuote
+- name: get_shipment
+  description: GET /shipments/{shipmentId}
+  source_operation: openapi/vooma-openapi-original.json#GetShipment
+- name: update_shipment
+  description: PUT /shipments/{shipmentId}
+  source_operation: openapi/vooma-openapi-original.json#UpdateShipment
+- name: upsert_shipment
+  description: POST /shipments/upsert
+  source_operation: openapi/vooma-openapi-original.json#UpsertShipment
+- name: create_shipment
+  description: POST /shipments
+  source_operation: openapi/vooma-openapi-original.json#CreateShipment
+- name: create_tracking_status
+  description: POST /tracking-status
+  source_operation: openapi/vooma-openapi-original.json#CreateTrackingStatus

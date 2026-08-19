@@ -1,0 +1,465 @@
+{
+  "item": [
+    {
+      "id": "d70c66ef-4d59-4de6-be9a-76e0eda44f31",
+      "name": "Customers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3977a393-36fe-440d-9453-81719cab38a2",
+          "name": "Get Customers",
+          "request": {
+            "name": "Get Customers",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pagination\": {\n    \"limit\": \"<double>\",\n    \"after\": \"<string>\",\n    \"before\": \"<string>\",\n    \"last\": \"<double>\",\n    \"first\": \"<double>\"\n  },\n  \"filterById\": \"<string>\",\n  \"search\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "112cd788-a43f-42ba-8f54-f9eebe1ce439",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pagination\": {\n    \"limit\": 8264.210042691022,\n    \"after\": \"string\",\n    \"before\": \"string\",\n    \"last\": 1948.8881956030114,\n    \"first\": 7064.0474890643145\n  },\n  \"filterById\": \"<string>\",\n  \"search\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customers\": [\n    {\n      \"externalIds\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"id\": \"string\",\n      \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"contacts\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"externalIds\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"id\": \"string\",\n      \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"contacts\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"pageInfo\": {\n    \"endCursor\": \"string\",\n    \"startCursor\": \"string\",\n    \"hasPreviousPage\": false,\n    \"hasNextPage\": true\n  },\n  \"totalCount\": 7718.9891092407015,\n  \"count\": 5653.325780436553\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79f1826f-fad5-460e-ab38-ba82ae13296f",
+          "name": "Get Customer",
+          "request": {
+            "name": "Get Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b70a918-793c-4150-9a76-e1df33615206",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customer\": {\n    \"externalIds\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"string\"\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"string\"\n      }\n    ],\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"contacts\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11bae9c2-7885-4114-88e6-ac257ba76b70",
+          "name": "Update Customer",
+          "request": {
+            "name": "Update Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": {\n    \"name\": \"<string>\",\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9d8741a-daeb-444b-87f1-29b75613821d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    ":customerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"name\": \"string\",\n    \"externalIds\": [\n      {\n        \"type\": \"TABI\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"BITFREIGHTER_RATING\",\n        \"value\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalIds\": [\n    {\n      \"type\": \"GREENSCREENS\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"LEGACY_MERCURYGATE\",\n      \"value\": \"string\"\n    }\n  ],\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"contacts\": [\n    {\n      \"id\": \"string\"\n    },\n    {\n      \"id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6defe36-bbd8-4b05-a2b2-53b63368183f",
+          "name": "Create Customer",
+          "request": {
+            "name": "Create Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer\": {\n    \"name\": \"<string>\",\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f858d3c8-3ed5-4aac-a3fa-5674981a3916",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer\": {\n    \"name\": \"string\",\n    \"externalIds\": [\n      {\n        \"type\": \"DAT\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"STRATEGY_LIVE\",\n        \"value\": \"string\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"id\": \"string\"\n      },\n      {\n        \"id\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalIds\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": \"string\"\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": \"string\"\n    }\n  ],\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"contacts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vooma.ai/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a074314c-a069-47b8-9bf1-9569eb70a34a",
+    "name": "api Carriers Customers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

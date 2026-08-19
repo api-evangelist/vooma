@@ -1,0 +1,573 @@
+{
+  "item": [
+    {
+      "id": "d6a72311-93cb-4a2a-b231-0d8c38474d81",
+      "name": "Movements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e854824-b042-4151-971b-e103ce2543cb",
+          "name": "Get Movement",
+          "request": {
+            "name": "Get Movement",
+            "description": {},
+            "url": {
+              "path": [
+                "movements",
+                ":movementId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "movementId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fbd1109e-3c21-4f8f-afe9-3549aee73957",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "movements",
+                    ":movementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "movementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"movement\": {\n    \"cargo\": {\n      \"commodities\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"declaredValue\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"dimensions\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"totalWeight\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"customer\": {\n      \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"externalIds\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"id\": \"string\",\n      \"contacts\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"equipmentOptions\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentLength\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"temperature\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentLength\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"temperature\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"externalIds\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"string\"\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"string\"\n      }\n    ],\n    \"id\": \"string\",\n    \"references\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"route\": {\n      \"stops\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"mileage\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"tmsStatus\": \"string\",\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"externalNotes\": \"string\",\n    \"internalNotes\": \"string\",\n    \"carrier\": {\n      \"carrier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"assignedDispatch\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"assignedDriver\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"assignedEquipment\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"financials\": {\n      \"costs\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"paymentTerms\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"costNegotiationGuidance\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"accessorials\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"drayageSubtype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"responsibleUser\": {\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db990552-38a6-47a8-896f-42ef42af427c",
+          "name": "Update Movement",
+          "request": {
+            "name": "Update Movement",
+            "description": {},
+            "url": {
+              "path": [
+                "movements",
+                ":movementId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "movementId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movement\": {\n    \"cargo\": {\n      \"commodities\": [\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"declaredValue\": {\n        \"uom\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"<double>\"\n      },\n      \"dimensions\": {\n        \"height\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"width\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"length\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"totalWeight\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"<double>\"\n      }\n    },\n    \"equipmentOptions\": [\n      {\n        \"type\": \"<string>\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": \"<double>\",\n          \"min\": \"<double>\"\n        },\n        \"description\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": \"<double>\",\n          \"min\": \"<double>\"\n        },\n        \"description\": \"<string>\"\n      }\n    ],\n    \"customer\": {\n      \"name\": \"<string>\",\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"id\": \"<string>\",\n      \"contacts\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"route\": {\n      \"stops\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"mileage\": {\n        \"uom\": \"<string>\",\n        \"value\": \"<double>\"\n      }\n    },\n    \"references\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"tmsStatus\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"externalNotes\": \"<string>\",\n    \"internalNotes\": \"<string>\",\n    \"carrier\": {\n      \"carrier\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"assignedDispatch\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"assignedDriver\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"assignedEquipment\": {\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"trailerNumber\": \"<string>\",\n        \"truckNumber\": \"<string>\"\n      }\n    },\n    \"financials\": {\n      \"costs\": {\n        \"lineItems\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"paymentTerms\": \"<string>\",\n      \"costNegotiationGuidance\": {\n        \"maxPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startingPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"accessorials\": [\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"<string>\",\n      \"drayageSubtype\": \"<string>\"\n    },\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "062130d7-dc6f-4af8-b309-bbab96ff66dd",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "movements",
+                    ":movementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "movementId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"movement\": {\n    \"cargo\": {\n      \"commodities\": [\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"declaredValue\": {\n        \"uom\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": 6481.709135754093\n      },\n      \"dimensions\": {\n        \"height\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"width\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"length\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"totalWeight\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": 3509.473724949218\n      }\n    },\n    \"equipmentOptions\": [\n      {\n        \"type\": \"POWER_ONLY\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": 5244.935735192858,\n          \"min\": 3448.0404362715635\n        },\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"LOW_BOY\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": 2268.748730008622,\n          \"min\": 8724.470421505444\n        },\n        \"description\": \"string\"\n      }\n    ],\n    \"customer\": {\n      \"name\": \"string\",\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"id\": \"string\",\n      \"contacts\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"route\": {\n      \"stops\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"mileage\": {\n        \"uom\": \"MI\",\n        \"value\": 1577.0879557027472\n      }\n    },\n    \"references\": [\n      {\n        \"type\": \"BOOKING\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"DELIVERY\",\n        \"value\": \"string\"\n      }\n    ],\n    \"externalIds\": [\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      }\n    ],\n    \"tmsStatus\": \"string\",\n    \"attributes\": {\n      \"key_0\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"externalNotes\": \"string\",\n    \"internalNotes\": \"string\",\n    \"carrier\": {\n      \"carrier\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"assignedDispatch\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      \"assignedDriver\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      \"assignedEquipment\": {\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      }\n    },\n    \"financials\": {\n      \"costs\": {\n        \"lineItems\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"paymentTerms\": \"THIRD_PARTY\",\n      \"costNegotiationGuidance\": {\n        \"maxPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startingPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"accessorials\": [\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"TARPING\"\n      },\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"TARPING\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"PARTIAL_TRUCKLOAD\",\n      \"drayageSubtype\": \"IMPORT\"\n    },\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cargo\": {\n    \"commodities\": [\n      {\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isStackable\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"itemReference\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dimensions\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"weight\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hazmat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"nmfcCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"freightClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isStackable\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"itemReference\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dimensions\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"weight\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hazmat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"nmfcCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"freightClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"declaredValue\": {\n      \"uom\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": 9146.200331461314\n    },\n    \"dimensions\": {\n      \"height\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"width\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"length\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"totalWeight\": {\n      \"units\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": 2198.3616419114173\n    }\n  },\n  \"customer\": {\n    \"name\": \"string\",\n    \"externalIds\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"id\": \"string\",\n    \"contacts\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ]\n  },\n  \"equipmentOptions\": [\n    {\n      \"type\": \"DOUBLE_DROP\",\n      \"equipmentLength\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"temperature\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"max\": 892.7925119464575,\n        \"min\": 2738.843747898626\n      },\n      \"description\": \"string\"\n    },\n    {\n      \"type\": \"VAN_OR_REEFER\",\n      \"equipmentLength\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"temperature\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"max\": 4731.240312502481,\n        \"min\": 1717.2653450459795\n      },\n      \"description\": \"string\"\n    }\n  ],\n  \"externalIds\": [\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    }\n  ],\n  \"id\": \"string\",\n  \"references\": [\n    {\n      \"type\": \"OTHER\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"LOAD\",\n      \"value\": \"string\"\n    }\n  ],\n  \"route\": {\n    \"stops\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"mileage\": {\n      \"uom\": \"MI\",\n      \"value\": 5440.49522150416\n    }\n  },\n  \"tmsStatus\": \"string\",\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"externalNotes\": \"string\",\n  \"internalNotes\": \"string\",\n  \"carrier\": {\n    \"carrier\": {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"assignedDispatch\": {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DRIVER\"\n    },\n    \"assignedDriver\": {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DRIVER\"\n    },\n    \"assignedEquipment\": {\n      \"equipment\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"trailerNumber\": \"string\",\n      \"truckNumber\": \"string\"\n    }\n  },\n  \"financials\": {\n    \"costs\": {\n      \"lineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"paymentTerms\": \"THIRD_PARTY\",\n    \"costNegotiationGuidance\": {\n      \"maxPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startingPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"accessorials\": [\n    {\n      \"size\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"TARPING\"\n    },\n    {\n      \"size\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"TARPING\"\n    }\n  ],\n  \"freightModeDetails\": {\n    \"mode\": \"PARTIAL_TRUCKLOAD\",\n    \"drayageSubtype\": \"IMPORT\"\n  },\n  \"responsibleUser\": {\n    \"externalIds\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f880981-0f2e-424c-a478-fc57ca9d2101",
+          "name": "Upsert Movement",
+          "request": {
+            "name": "Upsert Movement",
+            "description": {},
+            "url": {
+              "path": [
+                "movements",
+                "upsert"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movement\": {\n    \"cargo\": {\n      \"commodities\": [\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"declaredValue\": {\n        \"uom\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"<double>\"\n      },\n      \"dimensions\": {\n        \"height\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"width\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"length\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"totalWeight\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"<double>\"\n      }\n    },\n    \"equipmentOptions\": [\n      {\n        \"type\": \"<string>\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": \"<double>\",\n          \"min\": \"<double>\"\n        },\n        \"description\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": \"<double>\",\n          \"min\": \"<double>\"\n        },\n        \"description\": \"<string>\"\n      }\n    ],\n    \"customer\": {\n      \"name\": \"<string>\",\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"id\": \"<string>\",\n      \"contacts\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"route\": {\n      \"stops\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"mileage\": {\n        \"uom\": \"<string>\",\n        \"value\": \"<double>\"\n      }\n    },\n    \"references\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"tmsStatus\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"externalNotes\": \"<string>\",\n    \"internalNotes\": \"<string>\",\n    \"carrier\": {\n      \"carrier\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"assignedDispatch\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"assignedDriver\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"assignedEquipment\": {\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"trailerNumber\": \"<string>\",\n        \"truckNumber\": \"<string>\"\n      }\n    },\n    \"financials\": {\n      \"costs\": {\n        \"lineItems\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"paymentTerms\": \"<string>\",\n      \"costNegotiationGuidance\": {\n        \"maxPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startingPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"accessorials\": [\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"<string>\",\n      \"drayageSubtype\": \"<string>\"\n    },\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1ee9d19-535c-4d70-b30b-8f7f43079f42",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "movements",
+                    "upsert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"movement\": {\n    \"cargo\": {\n      \"commodities\": [\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"declaredValue\": {\n        \"uom\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": 6481.709135754093\n      },\n      \"dimensions\": {\n        \"height\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"width\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"length\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"totalWeight\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": 3509.473724949218\n      }\n    },\n    \"equipmentOptions\": [\n      {\n        \"type\": \"POWER_ONLY\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": 5244.935735192858,\n          \"min\": 3448.0404362715635\n        },\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"LOW_BOY\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": 2268.748730008622,\n          \"min\": 8724.470421505444\n        },\n        \"description\": \"string\"\n      }\n    ],\n    \"customer\": {\n      \"name\": \"string\",\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"id\": \"string\",\n      \"contacts\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"route\": {\n      \"stops\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"mileage\": {\n        \"uom\": \"MI\",\n        \"value\": 1577.0879557027472\n      }\n    },\n    \"references\": [\n      {\n        \"type\": \"BOOKING\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"DELIVERY\",\n        \"value\": \"string\"\n      }\n    ],\n    \"externalIds\": [\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      }\n    ],\n    \"tmsStatus\": \"string\",\n    \"attributes\": {\n      \"key_0\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"externalNotes\": \"string\",\n    \"internalNotes\": \"string\",\n    \"carrier\": {\n      \"carrier\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"assignedDispatch\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      \"assignedDriver\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      \"assignedEquipment\": {\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      }\n    },\n    \"financials\": {\n      \"costs\": {\n        \"lineItems\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"paymentTerms\": \"THIRD_PARTY\",\n      \"costNegotiationGuidance\": {\n        \"maxPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startingPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"accessorials\": [\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"TARPING\"\n      },\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"TARPING\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"PARTIAL_TRUCKLOAD\",\n      \"drayageSubtype\": \"IMPORT\"\n    },\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cargo\": {\n    \"commodities\": [\n      {\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isStackable\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"itemReference\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dimensions\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"weight\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hazmat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"nmfcCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"freightClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isStackable\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"itemReference\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dimensions\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"weight\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hazmat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"nmfcCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"freightClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"declaredValue\": {\n      \"uom\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": 9146.200331461314\n    },\n    \"dimensions\": {\n      \"height\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"width\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"length\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"totalWeight\": {\n      \"units\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": 2198.3616419114173\n    }\n  },\n  \"customer\": {\n    \"name\": \"string\",\n    \"externalIds\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"id\": \"string\",\n    \"contacts\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ]\n  },\n  \"equipmentOptions\": [\n    {\n      \"type\": \"DOUBLE_DROP\",\n      \"equipmentLength\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"temperature\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"max\": 892.7925119464575,\n        \"min\": 2738.843747898626\n      },\n      \"description\": \"string\"\n    },\n    {\n      \"type\": \"VAN_OR_REEFER\",\n      \"equipmentLength\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"temperature\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"max\": 4731.240312502481,\n        \"min\": 1717.2653450459795\n      },\n      \"description\": \"string\"\n    }\n  ],\n  \"externalIds\": [\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    }\n  ],\n  \"id\": \"string\",\n  \"references\": [\n    {\n      \"type\": \"OTHER\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"LOAD\",\n      \"value\": \"string\"\n    }\n  ],\n  \"route\": {\n    \"stops\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"mileage\": {\n      \"uom\": \"MI\",\n      \"value\": 5440.49522150416\n    }\n  },\n  \"tmsStatus\": \"string\",\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"externalNotes\": \"string\",\n  \"internalNotes\": \"string\",\n  \"carrier\": {\n    \"carrier\": {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"assignedDispatch\": {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DRIVER\"\n    },\n    \"assignedDriver\": {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DRIVER\"\n    },\n    \"assignedEquipment\": {\n      \"equipment\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"trailerNumber\": \"string\",\n      \"truckNumber\": \"string\"\n    }\n  },\n  \"financials\": {\n    \"costs\": {\n      \"lineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"paymentTerms\": \"THIRD_PARTY\",\n    \"costNegotiationGuidance\": {\n      \"maxPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startingPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"accessorials\": [\n    {\n      \"size\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"TARPING\"\n    },\n    {\n      \"size\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"TARPING\"\n    }\n  ],\n  \"freightModeDetails\": {\n    \"mode\": \"PARTIAL_TRUCKLOAD\",\n    \"drayageSubtype\": \"IMPORT\"\n  },\n  \"responsibleUser\": {\n    \"externalIds\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0386d3df-5958-47b5-aea0-014324574517",
+          "name": "Create Movement",
+          "request": {
+            "name": "Create Movement",
+            "description": {},
+            "url": {
+              "path": [
+                "movements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movement\": {\n    \"cargo\": {\n      \"commodities\": [\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"declaredValue\": {\n        \"uom\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"<double>\"\n      },\n      \"dimensions\": {\n        \"height\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"width\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"length\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"totalWeight\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"<double>\"\n      }\n    },\n    \"equipmentOptions\": [\n      {\n        \"type\": \"<string>\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": \"<double>\",\n          \"min\": \"<double>\"\n        },\n        \"description\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": \"<double>\",\n          \"min\": \"<double>\"\n        },\n        \"description\": \"<string>\"\n      }\n    ],\n    \"customer\": {\n      \"name\": \"<string>\",\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"id\": \"<string>\",\n      \"contacts\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"route\": {\n      \"stops\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"mileage\": {\n        \"uom\": \"<string>\",\n        \"value\": \"<double>\"\n      }\n    },\n    \"references\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"tmsStatus\": \"<string>\",\n    \"attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"externalNotes\": \"<string>\",\n    \"internalNotes\": \"<string>\",\n    \"carrier\": {\n      \"carrier\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"assignedDispatch\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"assignedDriver\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"assignedEquipment\": {\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"trailerNumber\": \"<string>\",\n        \"truckNumber\": \"<string>\"\n      }\n    },\n    \"financials\": {\n      \"costs\": {\n        \"lineItems\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"paymentTerms\": \"<string>\",\n      \"costNegotiationGuidance\": {\n        \"maxPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startingPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"accessorials\": [\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"<string>\",\n      \"drayageSubtype\": \"<string>\"\n    },\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "740ab85a-44fa-4703-935d-11358c85d1e7",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "movements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"movement\": {\n    \"cargo\": {\n      \"commodities\": [\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isStackable\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"freightClass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"declaredValue\": {\n        \"uom\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": 6481.709135754093\n      },\n      \"dimensions\": {\n        \"height\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"width\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"length\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"totalWeight\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": 3509.473724949218\n      }\n    },\n    \"equipmentOptions\": [\n      {\n        \"type\": \"POWER_ONLY\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": 5244.935735192858,\n          \"min\": 3448.0404362715635\n        },\n        \"description\": \"string\"\n      },\n      {\n        \"type\": \"LOW_BOY\",\n        \"equipmentLength\": {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": 2268.748730008622,\n          \"min\": 8724.470421505444\n        },\n        \"description\": \"string\"\n      }\n    ],\n    \"customer\": {\n      \"name\": \"string\",\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"id\": \"string\",\n      \"contacts\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"route\": {\n      \"stops\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"mileage\": {\n        \"uom\": \"MI\",\n        \"value\": 1577.0879557027472\n      }\n    },\n    \"references\": [\n      {\n        \"type\": \"BOOKING\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"DELIVERY\",\n        \"value\": \"string\"\n      }\n    ],\n    \"externalIds\": [\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      }\n    ],\n    \"tmsStatus\": \"string\",\n    \"attributes\": {\n      \"key_0\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"externalNotes\": \"string\",\n    \"internalNotes\": \"string\",\n    \"carrier\": {\n      \"carrier\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"assignedDispatch\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      \"assignedDriver\": {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      \"assignedEquipment\": {\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      }\n    },\n    \"financials\": {\n      \"costs\": {\n        \"lineItems\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"paymentTerms\": \"THIRD_PARTY\",\n      \"costNegotiationGuidance\": {\n        \"maxPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startingPrice\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"accessorials\": [\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"TARPING\"\n      },\n      {\n        \"size\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"TARPING\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"PARTIAL_TRUCKLOAD\",\n      \"drayageSubtype\": \"IMPORT\"\n    },\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cargo\": {\n    \"commodities\": [\n      {\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isStackable\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"itemReference\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dimensions\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"weight\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hazmat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"nmfcCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"freightClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isStackable\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"itemReference\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dimensions\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"weight\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hazmat\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"nmfcCode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"freightClass\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"pieceQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingUnits\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"handlingQuantity\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"declaredValue\": {\n      \"uom\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": 9146.200331461314\n    },\n    \"dimensions\": {\n      \"height\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"width\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"length\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"totalWeight\": {\n      \"units\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": 2198.3616419114173\n    }\n  },\n  \"customer\": {\n    \"name\": \"string\",\n    \"externalIds\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"id\": \"string\",\n    \"contacts\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ]\n  },\n  \"equipmentOptions\": [\n    {\n      \"type\": \"DOUBLE_DROP\",\n      \"equipmentLength\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"temperature\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"max\": 892.7925119464575,\n        \"min\": 2738.843747898626\n      },\n      \"description\": \"string\"\n    },\n    {\n      \"type\": \"VAN_OR_REEFER\",\n      \"equipmentLength\": {\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"temperature\": {\n        \"units\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"max\": 4731.240312502481,\n        \"min\": 1717.2653450459795\n      },\n      \"description\": \"string\"\n    }\n  ],\n  \"externalIds\": [\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    }\n  ],\n  \"id\": \"string\",\n  \"references\": [\n    {\n      \"type\": \"OTHER\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"LOAD\",\n      \"value\": \"string\"\n    }\n  ],\n  \"route\": {\n    \"stops\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"mileage\": {\n      \"uom\": \"MI\",\n      \"value\": 5440.49522150416\n    }\n  },\n  \"tmsStatus\": \"string\",\n  \"attributes\": {\n    \"key_0\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"externalNotes\": \"string\",\n  \"internalNotes\": \"string\",\n  \"carrier\": {\n    \"carrier\": {\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"assignedDispatch\": {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DRIVER\"\n    },\n    \"assignedDriver\": {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DRIVER\"\n    },\n    \"assignedEquipment\": {\n      \"equipment\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"trailerNumber\": \"string\",\n      \"truckNumber\": \"string\"\n    }\n  },\n  \"financials\": {\n    \"costs\": {\n      \"lineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"paymentTerms\": \"THIRD_PARTY\",\n    \"costNegotiationGuidance\": {\n      \"maxPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startingPrice\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"accessorials\": [\n    {\n      \"size\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"TARPING\"\n    },\n    {\n      \"size\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"TARPING\"\n    }\n  ],\n  \"freightModeDetails\": {\n    \"mode\": \"PARTIAL_TRUCKLOAD\",\n    \"drayageSubtype\": \"IMPORT\"\n  },\n  \"responsibleUser\": {\n    \"externalIds\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13466804-f84b-4b21-b69b-5bce37a9691b",
+          "name": "Schedule Stop",
+          "request": {
+            "name": "Schedule Stop",
+            "description": {},
+            "url": {
+              "path": [
+                "movements",
+                ":movementId",
+                "scheduleStop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"stopIndex\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6d562947-52e4-4ba3-8982-377d66f2052f",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "movements",
+                    ":movementId",
+                    "scheduleStop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"stopIndex\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vooma.ai/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3c7bdb8d-050e-40da-ad15-de3bb292ee9d",
+    "name": "api Carriers Movements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

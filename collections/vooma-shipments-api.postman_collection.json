@@ -1,0 +1,465 @@
+{
+  "item": [
+    {
+      "id": "8926c33b-e9d0-4b88-b26a-cb7c4b7fc3d2",
+      "name": "Shipments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "475be635-507b-42c4-ad05-59e7ad21cb57",
+          "name": "Get Shipment",
+          "request": {
+            "name": "Get Shipment",
+            "description": {},
+            "url": {
+              "path": [
+                "shipments",
+                ":shipmentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shipmentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "193a5cad-1cbf-4f1a-8dc7-d067573f14e6",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    ":shipmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shipmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"shipment\": {\n    \"chargesToCustomer\": {\n      \"lineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"externalIds\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"string\"\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"string\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"drayageSubtype\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"id\": \"string\",\n    \"movements\": [\n      {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"references\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"responsibleUser\": {\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a08eab6-2e4b-4a09-9fdc-7ccf04d58af8",
+          "name": "Update Shipment",
+          "request": {
+            "name": "Update Shipment",
+            "description": {},
+            "url": {
+              "path": [
+                "shipments",
+                ":shipmentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shipmentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shipment\": {\n    \"movements\": [\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"<string>\",\n        \"tmsStatus\": \"<string>\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"externalNotes\": \"<string>\",\n        \"internalNotes\": \"<string>\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"<string>\",\n        \"tmsStatus\": \"<string>\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"externalNotes\": \"<string>\",\n        \"internalNotes\": \"<string>\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"references\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"<string>\",\n      \"drayageSubtype\": \"<string>\"\n    },\n    \"chargesToCustomer\": {\n      \"lineItems\": [\n        {\n          \"description\": \"<string>\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": \"<string>\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e3b841c-e77c-4fd5-a698-ab2093ad1dbd",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    ":shipmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shipmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shipment\": {\n    \"movements\": [\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"string\",\n        \"tmsStatus\": \"string\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"externalNotes\": \"string\",\n        \"internalNotes\": \"string\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"string\",\n        \"tmsStatus\": \"string\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"externalNotes\": \"string\",\n        \"internalNotes\": \"string\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"references\": [\n      {\n        \"type\": \"MASTER_BILL_OF_LADING\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"LOAD\",\n        \"value\": \"string\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"PARCEL\",\n      \"drayageSubtype\": \"IMPORT\"\n    },\n    \"chargesToCustomer\": {\n      \"lineItems\": [\n        {\n          \"description\": \"string\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": \"string\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      }\n    ],\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chargesToCustomer\": {\n    \"lineItems\": [\n      {\n        \"description\": \"string\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"description\": \"string\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  },\n  \"externalIds\": [\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    }\n  ],\n  \"freightModeDetails\": {\n    \"mode\": \"DRAYAGE\",\n    \"drayageSubtype\": \"IMPORT\"\n  },\n  \"id\": \"string\",\n  \"movements\": [\n    {\n      \"cargo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"equipmentOptions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"customer\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"route\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"references\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\",\n      \"tmsStatus\": \"string\",\n      \"attributes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"externalNotes\": \"string\",\n      \"internalNotes\": \"string\",\n      \"carrier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"financials\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"accessorials\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"freightModeDetails\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"responsibleUser\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"cargo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"equipmentOptions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"customer\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"route\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"references\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\",\n      \"tmsStatus\": \"string\",\n      \"attributes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"externalNotes\": \"string\",\n      \"internalNotes\": \"string\",\n      \"carrier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"financials\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"accessorials\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"freightModeDetails\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"responsibleUser\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"references\": [\n    {\n      \"type\": \"SEAL\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"DELIVERY\",\n      \"value\": \"string\"\n    }\n  ],\n  \"responsibleUser\": {\n    \"externalIds\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11b97b69-9a15-45ee-9457-e912cd5f062e",
+          "name": "Upsert Shipment",
+          "request": {
+            "name": "Upsert Shipment",
+            "description": {},
+            "url": {
+              "path": [
+                "shipments",
+                "upsert"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shipment\": {\n    \"movements\": [\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"<string>\",\n        \"tmsStatus\": \"<string>\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"externalNotes\": \"<string>\",\n        \"internalNotes\": \"<string>\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"<string>\",\n        \"tmsStatus\": \"<string>\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"externalNotes\": \"<string>\",\n        \"internalNotes\": \"<string>\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"references\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"<string>\",\n      \"drayageSubtype\": \"<string>\"\n    },\n    \"chargesToCustomer\": {\n      \"lineItems\": [\n        {\n          \"description\": \"<string>\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": \"<string>\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b980e80-65ea-4bb4-ab40-d81c609fc5c2",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    "upsert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shipment\": {\n    \"movements\": [\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"string\",\n        \"tmsStatus\": \"string\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"externalNotes\": \"string\",\n        \"internalNotes\": \"string\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"string\",\n        \"tmsStatus\": \"string\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"externalNotes\": \"string\",\n        \"internalNotes\": \"string\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"references\": [\n      {\n        \"type\": \"MASTER_BILL_OF_LADING\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"LOAD\",\n        \"value\": \"string\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"PARCEL\",\n      \"drayageSubtype\": \"IMPORT\"\n    },\n    \"chargesToCustomer\": {\n      \"lineItems\": [\n        {\n          \"description\": \"string\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": \"string\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      }\n    ],\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chargesToCustomer\": {\n    \"lineItems\": [\n      {\n        \"description\": \"string\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"description\": \"string\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  },\n  \"externalIds\": [\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    }\n  ],\n  \"freightModeDetails\": {\n    \"mode\": \"DRAYAGE\",\n    \"drayageSubtype\": \"IMPORT\"\n  },\n  \"id\": \"string\",\n  \"movements\": [\n    {\n      \"cargo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"equipmentOptions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"customer\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"route\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"references\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\",\n      \"tmsStatus\": \"string\",\n      \"attributes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"externalNotes\": \"string\",\n      \"internalNotes\": \"string\",\n      \"carrier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"financials\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"accessorials\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"freightModeDetails\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"responsibleUser\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"cargo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"equipmentOptions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"customer\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"route\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"references\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\",\n      \"tmsStatus\": \"string\",\n      \"attributes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"externalNotes\": \"string\",\n      \"internalNotes\": \"string\",\n      \"carrier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"financials\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"accessorials\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"freightModeDetails\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"responsibleUser\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"references\": [\n    {\n      \"type\": \"SEAL\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"DELIVERY\",\n      \"value\": \"string\"\n    }\n  ],\n  \"responsibleUser\": {\n    \"externalIds\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71f06e59-4b3a-41f2-bb82-e20b98cbc723",
+          "name": "Create Shipment",
+          "request": {
+            "name": "Create Shipment",
+            "description": {},
+            "url": {
+              "path": [
+                "shipments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shipment\": {\n    \"movements\": [\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"<string>\",\n        \"tmsStatus\": \"<string>\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"externalNotes\": \"<string>\",\n        \"internalNotes\": \"<string>\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"<string>\",\n        \"tmsStatus\": \"<string>\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"externalNotes\": \"<string>\",\n        \"internalNotes\": \"<string>\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"references\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"<string>\",\n      \"drayageSubtype\": \"<string>\"\n    },\n    \"chargesToCustomer\": {\n      \"lineItems\": [\n        {\n          \"description\": \"<string>\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": \"<string>\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59567c9d-95fe-4510-a3f3-0bc520601293",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"shipment\": {\n    \"movements\": [\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"string\",\n        \"tmsStatus\": \"string\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"externalNotes\": \"string\",\n        \"internalNotes\": \"string\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"cargo\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentOptions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"references\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": \"string\",\n        \"tmsStatus\": \"string\",\n        \"attributes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ],\n        \"externalNotes\": \"string\",\n        \"internalNotes\": \"string\",\n        \"carrier\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"financials\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"accessorials\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"responsibleUser\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"references\": [\n      {\n        \"type\": \"MASTER_BILL_OF_LADING\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"LOAD\",\n        \"value\": \"string\"\n      }\n    ],\n    \"freightModeDetails\": {\n      \"mode\": \"PARCEL\",\n      \"drayageSubtype\": \"IMPORT\"\n    },\n    \"chargesToCustomer\": {\n      \"lineItems\": [\n        {\n          \"description\": \"string\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"description\": \"string\",\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      }\n    ],\n    \"responsibleUser\": {\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chargesToCustomer\": {\n    \"lineItems\": [\n      {\n        \"description\": \"string\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"description\": \"string\",\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ]\n  },\n  \"externalIds\": [\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    }\n  ],\n  \"freightModeDetails\": {\n    \"mode\": \"DRAYAGE\",\n    \"drayageSubtype\": \"IMPORT\"\n  },\n  \"id\": \"string\",\n  \"movements\": [\n    {\n      \"cargo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"equipmentOptions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"customer\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"route\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"references\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\",\n      \"tmsStatus\": \"string\",\n      \"attributes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"externalNotes\": \"string\",\n      \"internalNotes\": \"string\",\n      \"carrier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"financials\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"accessorials\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"freightModeDetails\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"responsibleUser\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"cargo\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"equipmentOptions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"customer\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"route\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"references\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"externalIds\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"id\": \"string\",\n      \"tmsStatus\": \"string\",\n      \"attributes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"externalNotes\": \"string\",\n      \"internalNotes\": \"string\",\n      \"carrier\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"financials\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"accessorials\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"freightModeDetails\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"responsibleUser\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"references\": [\n    {\n      \"type\": \"SEAL\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"DELIVERY\",\n      \"value\": \"string\"\n    }\n  ],\n  \"responsibleUser\": {\n    \"externalIds\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"id\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vooma.ai/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2b7e5b12-1c09-4f6d-98da-3ff03dfb497b",
+    "name": "api Carriers Shipments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

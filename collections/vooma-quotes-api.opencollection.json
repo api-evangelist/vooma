@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api Carriers Quotes API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Quotes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetQuotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/quotes/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GetQuote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vooma.ai/v0/quotes/:quoteId",
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

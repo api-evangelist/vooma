@@ -1,0 +1,359 @@
+{
+  "item": [
+    {
+      "id": "bce3272d-0df1-4415-92df-e80eaeff21db",
+      "name": "Carriers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75d4bc67-3847-4ffd-a3eb-70c729552067",
+          "name": "Get Carrier",
+          "request": {
+            "name": "Get Carrier",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":carrierId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "carrierId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8a1ba2e3-afa8-4f9c-a5b7-79b5f6a9ef84",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":carrierId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "carrierId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"carrier\": {\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"equipment\": [\n      {\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      },\n      {\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DRIVER\"\n      }\n    ],\n    \"dotNumber\": \"string\",\n    \"mcNumber\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b3ad412-eff5-4357-8e60-d2c42a844722",
+          "name": "Update Carrier",
+          "request": {
+            "name": "Update Carrier",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers",
+                ":carrierId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "carrierId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"carrier\": {\n    \"name\": \"<string>\",\n    \"equipment\": [\n      {\n        \"equipment\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"equipmentLength\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"temperature\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"<string>\"\n        },\n        \"trailerNumber\": \"<string>\",\n        \"truckNumber\": \"<string>\"\n      },\n      {\n        \"equipment\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"equipmentLength\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"temperature\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"<string>\"\n        },\n        \"trailerNumber\": \"<string>\",\n        \"truckNumber\": \"<string>\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      }\n    ],\n    \"dotNumber\": \"<string>\",\n    \"mcNumber\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eca83462-fe75-4685-9349-cb1dbd6eccbe",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers",
+                    ":carrierId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "carrierId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrier\": {\n    \"name\": \"string\",\n    \"equipment\": [\n      {\n        \"equipment\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"equipmentLength\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"temperature\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"string\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      },\n      {\n        \"equipment\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"equipmentLength\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"temperature\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"string\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      }\n    ],\n    \"dotNumber\": \"string\",\n    \"mcNumber\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"id\": \"string\",\n  \"equipment\": [\n    {\n      \"equipment\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentLength\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"temperature\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": \"string\"\n      },\n      \"trailerNumber\": \"string\",\n      \"truckNumber\": \"string\"\n    },\n    {\n      \"equipment\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentLength\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"temperature\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": \"string\"\n      },\n      \"trailerNumber\": \"string\",\n      \"truckNumber\": \"string\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DISPATCH\"\n    },\n    {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DRIVER\"\n    }\n  ],\n  \"dotNumber\": \"string\",\n  \"mcNumber\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "afa07c8b-9571-432e-be1d-a61f7d8ab17b",
+          "name": "Create Carrier",
+          "request": {
+            "name": "Create Carrier",
+            "description": {},
+            "url": {
+              "path": [
+                "carriers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"carrier\": {\n    \"name\": \"<string>\",\n    \"equipment\": [\n      {\n        \"equipment\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"equipmentLength\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"temperature\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"<string>\"\n        },\n        \"trailerNumber\": \"<string>\",\n        \"truckNumber\": \"<string>\"\n      },\n      {\n        \"equipment\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"equipmentLength\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"temperature\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"<string>\"\n        },\n        \"trailerNumber\": \"<string>\",\n        \"truckNumber\": \"<string>\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      }\n    ],\n    \"dotNumber\": \"<string>\",\n    \"mcNumber\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a35ca507-137c-4541-a8ce-4d75e7c72295",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "carriers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"carrier\": {\n    \"name\": \"string\",\n    \"equipment\": [\n      {\n        \"equipment\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"equipmentLength\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"temperature\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"string\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      },\n      {\n        \"equipment\": {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"equipmentLength\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"temperature\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": \"string\"\n        },\n        \"trailerNumber\": \"string\",\n        \"truckNumber\": \"string\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      },\n      {\n        \"contact\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"DISPATCH\"\n      }\n    ],\n    \"dotNumber\": \"string\",\n    \"mcNumber\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"id\": \"string\",\n  \"equipment\": [\n    {\n      \"equipment\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentLength\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"temperature\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": \"string\"\n      },\n      \"trailerNumber\": \"string\",\n      \"truckNumber\": \"string\"\n    },\n    {\n      \"equipment\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentLength\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"temperature\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": \"string\"\n      },\n      \"trailerNumber\": \"string\",\n      \"truckNumber\": \"string\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DISPATCH\"\n    },\n    {\n      \"contact\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": \"DRIVER\"\n    }\n  ],\n  \"dotNumber\": \"string\",\n  \"mcNumber\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vooma.ai/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "54b6dc30-b608-4d19-8761-caaa7019742f",
+    "name": "api Carriers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

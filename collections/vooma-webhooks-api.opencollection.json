@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api Carriers Webhooks API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OnAppointmentUpdated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onAppointmentUpdated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when an appointment is updated."
+        },
+        {
+          "info": {
+            "name": "OnCarrierCreated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onCarrierCreated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when a carrier is created."
+        },
+        {
+          "info": {
+            "name": "OnCarrierUpdated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onCarrierUpdated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when a carrier is updated."
+        },
+        {
+          "info": {
+            "name": "OnCustomerCreated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onCustomerCreated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when a customer is created."
+        },
+        {
+          "info": {
+            "name": "OnCustomerUpdated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onCustomerUpdated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when a customer is updated."
+        },
+        {
+          "info": {
+            "name": "OnLocationCreated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onLocationCreated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when a location is created."
+        },
+        {
+          "info": {
+            "name": "OnLocationUpdated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onLocationUpdated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when a location is updated."
+        },
+        {
+          "info": {
+            "name": "OnOrderCreated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onOrderCreated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when an order is created."
+        },
+        {
+          "info": {
+            "name": "OnOrderUpdated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onOrderUpdated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when an order is updated."
+        },
+        {
+          "info": {
+            "name": "OnTrackingUpdateCreated",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/webhooks/onTrackingUpdateCreated",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sent by Vooma to your server when a new tracking update is available."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api Carriers Locations API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetLocation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vooma.ai/v0/locations/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "UpdateLocation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.vooma.ai/v0/locations/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "CreateLocation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/locations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

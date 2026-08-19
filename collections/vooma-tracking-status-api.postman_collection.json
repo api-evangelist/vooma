@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "c41191ee-6559-489a-8e24-05c4b469bfcc",
+      "name": "Tracking Status",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48f50b4a-1e4f-4291-851d-cad8b039b43d",
+          "name": "Create Tracking Status",
+          "request": {
+            "name": "Create Tracking Status",
+            "description": {},
+            "url": {
+              "path": [
+                "tracking-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"trackingStatus\": {\n    \"location\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\",\n      \"type\": \"<string>\"\n    },\n    \"timestamp\": \"<double>\",\n    \"movement\": {\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    \"metadata\": {\n      \"currentState\": \"<string>\",\n      \"currentCity\": \"<string>\",\n      \"deliveryStatus\": \"<string>\",\n      \"trackingStatus\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"destinationEta\": \"<string>\",\n      \"destinationState\": \"<string>\",\n      \"destinationCity\": \"<string>\",\n      \"originState\": \"<string>\",\n      \"originCity\": \"<string>\",\n      \"carrierId\": \"<string>\",\n      \"carrierName\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f49a7efb-7dc7-461c-8808-c00541ac58f4",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tracking-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"trackingStatus\": {\n    \"location\": {\n      \"latitude\": 3036.808042207407,\n      \"longitude\": 1640.4573054606874,\n      \"type\": \"GEOCOORDINATES\"\n    },\n    \"timestamp\": 1165.3949980632083,\n    \"movement\": {\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"string\"\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"string\"\n        }\n      ]\n    },\n    \"metadata\": {\n      \"currentState\": \"string\",\n      \"currentCity\": \"string\",\n      \"deliveryStatus\": \"string\",\n      \"trackingStatus\": \"string\",\n      \"timezone\": \"string\",\n      \"destinationEta\": \"string\",\n      \"destinationState\": \"string\",\n      \"destinationCity\": \"string\",\n      \"originState\": \"string\",\n      \"originCity\": \"string\",\n      \"carrierId\": \"string\",\n      \"carrierName\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"location\": {\n    \"latitude\": 4428.631356596951,\n    \"longitude\": 8383.90627830887,\n    \"type\": \"GEOCOORDINATES\"\n  },\n  \"timestamp\": 2031.4193504600996,\n  \"movement\": {\n    \"externalIds\": [\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"CUSTOM\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"metadata\": {\n    \"currentState\": \"string\",\n    \"currentCity\": \"string\",\n    \"deliveryStatus\": \"string\",\n    \"trackingStatus\": \"string\",\n    \"timezone\": \"string\",\n    \"destinationEta\": \"string\",\n    \"destinationState\": \"string\",\n    \"destinationCity\": \"string\",\n    \"originState\": \"string\",\n    \"originCity\": \"string\",\n    \"carrierId\": \"string\",\n    \"carrierName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vooma.ai/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9536c028-d9bc-4d32-adb2-2dc126f7aef6",
+    "name": "api Carriers Tracking Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

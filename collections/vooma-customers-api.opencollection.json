@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api Carriers Customers API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetCustomers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/customers/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GetCustomer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.vooma.ai/v0/customers/:customerId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "UpdateCustomer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.vooma.ai/v0/customers/:customerId",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "CreateCustomer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

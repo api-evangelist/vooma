@@ -1,0 +1,359 @@
+{
+  "item": [
+    {
+      "id": "6b9ccccd-053b-4b62-a877-2cf3ba300f3a",
+      "name": "Locations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a0492e0-41e6-444c-94cc-6605cba95ef8",
+          "name": "Get Location",
+          "request": {
+            "name": "Get Location",
+            "description": {},
+            "url": {
+              "path": [
+                "locations",
+                ":locationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1e77e62b-aaa2-4154-a42d-b0d36e8e8d26",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"location\": {\n    \"address\": {\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"addressTwo\": \"string\",\n      \"addressOne\": \"string\"\n    },\n    \"externalIds\": [\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"string\"\n      },\n      {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"value\": \"string\"\n      }\n    ],\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"contacts\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"hours\": {\n      \"sunday\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"endTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"saturday\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"endTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"friday\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"endTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"thursday\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"endTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"wednesday\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"endTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"tuesday\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"endTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"monday\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timezone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"endTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"startTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"scheduling\": {\n      \"methods\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"maxDaysAhead\": 78.90881207579858,\n      \"notes\": \"string\"\n    },\n    \"geoCoordinates\": {\n      \"longitude\": 6953.932573246649,\n      \"latitude\": 9265.18693392388\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b24a264-b287-419a-8a29-138be9388af5",
+          "name": "Update Location",
+          "request": {
+            "name": "Update Location",
+            "description": {},
+            "url": {
+              "path": [
+                "locations",
+                ":locationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location\": {\n    \"address\": {\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"addressTwo\": \"<string>\",\n      \"addressOne\": \"<string>\"\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"contacts\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ],\n    \"hours\": {\n      \"sunday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"saturday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"friday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"thursday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"wednesday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"tuesday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"monday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      }\n    },\n    \"scheduling\": {\n      \"methods\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"maxDaysAhead\": \"<double>\",\n      \"notes\": \"<string>\"\n    },\n    \"geoCoordinates\": {\n      \"longitude\": \"<double>\",\n      \"latitude\": \"<double>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "07beb01c-abd3-4711-b15c-13c2bcbb063b",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"address\": {\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"addressTwo\": \"string\",\n      \"addressOne\": \"string\"\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"TURVO\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"TURVO\",\n        \"value\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"contacts\": [\n      {\n        \"id\": \"string\"\n      },\n      {\n        \"id\": \"string\"\n      }\n    ],\n    \"hours\": {\n      \"sunday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"saturday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"friday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"thursday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"wednesday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"tuesday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"monday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      }\n    },\n    \"scheduling\": {\n      \"methods\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"maxDaysAhead\": 1855.8402239906347,\n      \"notes\": \"string\"\n    },\n    \"geoCoordinates\": {\n      \"longitude\": 1120.2720215034633,\n      \"latitude\": 2496.407945063557\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"country\": \"string\",\n    \"postalCode\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"addressTwo\": \"string\",\n    \"addressOne\": \"string\"\n  },\n  \"externalIds\": [\n    {\n      \"type\": \"GOOGLE_PLACES\",\n      \"value\": \"string\"\n    },\n    {\n      \"type\": \"CUSTOM\",\n      \"value\": \"string\"\n    }\n  ],\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"contacts\": [\n    {\n      \"id\": \"string\"\n    },\n    {\n      \"id\": \"string\"\n    }\n  ],\n  \"hours\": {\n    \"sunday\": {\n      \"type\": \"FACILITY_HOURS\",\n      \"timezone\": \"string\",\n      \"endTime\": \"string\",\n      \"startTime\": \"string\"\n    },\n    \"saturday\": {\n      \"type\": \"FACILITY_HOURS\",\n      \"timezone\": \"string\",\n      \"endTime\": \"string\",\n      \"startTime\": \"string\"\n    },\n    \"friday\": {\n      \"type\": \"FACILITY_HOURS\",\n      \"timezone\": \"string\",\n      \"endTime\": \"string\",\n      \"startTime\": \"string\"\n    },\n    \"thursday\": {\n      \"type\": \"FACILITY_HOURS\",\n      \"timezone\": \"string\",\n      \"endTime\": \"string\",\n      \"startTime\": \"string\"\n    },\n    \"wednesday\": {\n      \"type\": \"FACILITY_HOURS\",\n      \"timezone\": \"string\",\n      \"endTime\": \"string\",\n      \"startTime\": \"string\"\n    },\n    \"tuesday\": {\n      \"type\": \"FACILITY_HOURS\",\n      \"timezone\": \"string\",\n      \"endTime\": \"string\",\n      \"startTime\": \"string\"\n    },\n    \"monday\": {\n      \"type\": \"FACILITY_HOURS\",\n      \"timezone\": \"string\",\n      \"endTime\": \"string\",\n      \"startTime\": \"string\"\n    }\n  },\n  \"scheduling\": {\n    \"methods\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"maxDaysAhead\": 4261.48639174175,\n    \"notes\": \"string\"\n  },\n  \"geoCoordinates\": {\n    \"longitude\": 2560.6063420896453,\n    \"latitude\": 6569.475588623968\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cd43cf3-4baa-4d3a-8552-d381fae668c4",
+          "name": "Create Location",
+          "request": {
+            "name": "Create Location",
+            "description": {},
+            "url": {
+              "path": [
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location\": {\n    \"address\": {\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"addressTwo\": \"<string>\",\n      \"addressOne\": \"<string>\"\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"name\": \"<string>\",\n    \"contacts\": [\n      {\n        \"id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\"\n      }\n    ],\n    \"hours\": {\n      \"sunday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"saturday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"friday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"thursday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"wednesday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"tuesday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      },\n      \"monday\": {\n        \"type\": \"<string>\",\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<string>\",\n        \"startTime\": \"<string>\"\n      }\n    },\n    \"scheduling\": {\n      \"methods\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"maxDaysAhead\": \"<double>\",\n      \"notes\": \"<string>\"\n    },\n    \"geoCoordinates\": {\n      \"longitude\": \"<double>\",\n      \"latitude\": \"<double>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba3edd10-8593-4ed5-a1ef-669f29f4a669",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": {\n    \"address\": {\n      \"country\": \"string\",\n      \"postalCode\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"addressTwo\": \"string\",\n      \"addressOne\": \"string\"\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"TURVO\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"TURVO\",\n        \"value\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"contacts\": [\n      {\n        \"id\": \"string\"\n      },\n      {\n        \"id\": \"string\"\n      }\n    ],\n    \"hours\": {\n      \"sunday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"saturday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"friday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"thursday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"wednesday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"tuesday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      },\n      \"monday\": {\n        \"type\": \"FACILITY_HOURS\",\n        \"timezone\": \"string\",\n        \"endTime\": \"string\",\n        \"startTime\": \"string\"\n      }\n    },\n    \"scheduling\": {\n      \"methods\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"maxDaysAhead\": 1855.8402239906347,\n      \"notes\": \"string\"\n    },\n    \"geoCoordinates\": {\n      \"longitude\": 1120.2720215034633,\n      \"latitude\": 2496.407945063557\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"country\": \"string\",\n    \"postalCode\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"addressTwo\": \"string\",\n    \"addressOne\": \"string\"\n  },\n  \"externalIds\": [\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": \"string\"\n    },\n    {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": \"string\"\n    }\n  ],\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"contacts\": [\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  ],\n  \"hours\": {\n    \"sunday\": {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timezone\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"endTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"saturday\": {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timezone\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"endTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"friday\": {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timezone\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"endTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"thursday\": {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timezone\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"endTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"wednesday\": {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timezone\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"endTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"tuesday\": {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timezone\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"endTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"monday\": {\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timezone\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"endTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"startTime\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"scheduling\": {\n    \"methods\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ],\n    \"maxDaysAhead\": 8188.775319902108,\n    \"notes\": \"string\"\n  },\n  \"geoCoordinates\": {\n    \"longitude\": 4035.327727332362,\n    \"latitude\": 6722.7846882510075\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vooma.ai/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2dae1a44-8ccf-4f34-867b-8fef56f8a629",
+    "name": "api Carriers Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

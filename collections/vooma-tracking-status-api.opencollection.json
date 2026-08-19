@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "api Carriers Tracking Status API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tracking Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CreateTrackingStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.vooma.ai/v0/tracking-status",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

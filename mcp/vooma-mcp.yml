@@ -84,3 +84,9 @@ tools:
 - name: create_tracking_status
   description: POST /tracking-status
   source_operation: openapi/vooma-openapi-original.json#CreateTrackingStatus
+deployment:
+  mode: none
+  verified: derived
+  tools: 25
+  checked: '2026-08-12'
+  source: catalog MCP census

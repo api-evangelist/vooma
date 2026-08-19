@@ -1,0 +1,239 @@
+{
+  "item": [
+    {
+      "id": "498b1971-bba3-4cbb-8a82-8a0997768a38",
+      "name": "Quotes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b396b94-2ce1-46b1-bbe6-aece12325791",
+          "name": "Get Quotes",
+          "request": {
+            "name": "Get Quotes",
+            "description": {},
+            "url": {
+              "path": [
+                "quotes",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customFreightTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"opportunityType\": \"<string>\",\n  \"pagination\": {\n    \"limit\": \"<double>\",\n    \"after\": \"<string>\",\n    \"before\": \"<string>\",\n    \"last\": \"<double>\",\n    \"first\": \"<double>\"\n  },\n  \"auctionTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"freightModes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"equipmentTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"laneFilter\": {\n    \"destination\": {\n      \"radiusMiles\": \"<double>\",\n      \"longitude\": \"<double>\",\n      \"latitude\": \"<double>\"\n    },\n    \"origin\": {\n      \"radiusMiles\": \"<double>\",\n      \"longitude\": \"<double>\",\n      \"latitude\": \"<double>\"\n    }\n  },\n  \"updatedAtFilter\": {\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"dateFilter\": {\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"searchTerm\": \"<string>\",\n  \"statuses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"customerIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8efd5d5f-85aa-4460-9bcc-2c130437da68",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customFreightTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"opportunityType\": \"CONFIRMED\",\n  \"pagination\": {\n    \"limit\": 5376.043797450053,\n    \"after\": \"string\",\n    \"before\": \"string\",\n    \"last\": 7867.99627183464,\n    \"first\": 9837.28767443152\n  },\n  \"auctionTypes\": [\n    \"AUCTION\",\n    \"AUCTION\"\n  ],\n  \"freightModes\": [\n    \"TRUCKLOAD\",\n    \"DRAYAGE\"\n  ],\n  \"equipmentTypes\": [\n    \"CARGO_VAN\",\n    \"LOW_BOY\"\n  ],\n  \"laneFilter\": {\n    \"destination\": {\n      \"radiusMiles\": 7636.805515977797,\n      \"longitude\": 6900.336107066642,\n      \"latitude\": 913.3490151162083\n    },\n    \"origin\": {\n      \"radiusMiles\": 4822.494129527742,\n      \"longitude\": 8564.725248300158,\n      \"latitude\": 5734.170619354643\n    }\n  },\n  \"updatedAtFilter\": {\n    \"end\": \"1985-06-30T11:23:35.685Z\",\n    \"start\": \"1995-05-28T12:02:56.123Z\"\n  },\n  \"dateFilter\": {\n    \"end\": \"1996-10-28T14:55:38.422Z\",\n    \"start\": \"2023-07-22T12:56:21.156Z\"\n  },\n  \"searchTerm\": \"<string>\",\n  \"statuses\": [\n    \"QUOTED\",\n    \"WON\"\n  ],\n  \"customerIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"quotes\": [\n    {\n      \"id\": \"string\",\n      \"createdAt\": \"1987-06-09T17:06:02.948Z\",\n      \"updatedAt\": \"1967-01-06T14:28:31.193Z\",\n      \"status\": \"NEW\",\n      \"freightOrder\": {\n        \"commodities\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"stops\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mileage\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"documents\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"totalWeight\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"additionalUsers\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"tags\": {\n        \"isAuction\": true\n      },\n      \"automation\": {\n        \"requestedByUser\": true,\n        \"identifiedByVooma\": false\n      },\n      \"externalIds\": [\n        {\n          \"type\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"carrierRate\": {\n        \"id\": \"string\",\n        \"method\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"components\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"customerRate\": {\n        \"id\": \"string\",\n        \"method\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"components\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"user\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"requestedByEmail\": \"string\",\n      \"customFreightTags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"responseTimeSeconds\": 1278.7596959159087,\n      \"linkedShipments\": [\n        {\n          \"voomaMovementId\": \"string\",\n          \"shipmentReferenceNumbers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"voomaShipmentId\": \"string\",\n          \"shipmentExternalId\": \"string\",\n          \"confidence\": 6100.102563519252\n        },\n        {\n          \"voomaMovementId\": \"string\",\n          \"shipmentReferenceNumbers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"voomaShipmentId\": \"string\",\n          \"shipmentExternalId\": \"string\",\n          \"confidence\": 8828.116567075385\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"createdAt\": \"1997-11-20T06:02:31.116Z\",\n      \"updatedAt\": \"1976-07-29T21:00:45.810Z\",\n      \"status\": \"WON\",\n      \"freightOrder\": {\n        \"commodities\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"equipment\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"customer\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"route\": {\n          \"stops\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mileage\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"freightModeDetails\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"documents\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"totalWeight\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"additionalUsers\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"tags\": {\n        \"isAuction\": false\n      },\n      \"automation\": {\n        \"requestedByUser\": false,\n        \"identifiedByVooma\": true\n      },\n      \"externalIds\": [\n        {\n          \"type\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"carrierRate\": {\n        \"id\": \"string\",\n        \"method\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"components\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"customerRate\": {\n        \"id\": \"string\",\n        \"method\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"amount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"externalIds\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"components\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"user\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"requestedByEmail\": \"string\",\n      \"customFreightTags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"responseTimeSeconds\": 187.82712164566618,\n      \"linkedShipments\": [\n        {\n          \"voomaMovementId\": \"string\",\n          \"shipmentReferenceNumbers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"voomaShipmentId\": \"string\",\n          \"shipmentExternalId\": \"string\",\n          \"confidence\": 4864.985242694774\n        },\n        {\n          \"voomaMovementId\": \"string\",\n          \"shipmentReferenceNumbers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"voomaShipmentId\": \"string\",\n          \"shipmentExternalId\": \"string\",\n          \"confidence\": 978.1534632726507\n        }\n      ]\n    }\n  ],\n  \"pageInfo\": {\n    \"endCursor\": \"string\",\n    \"startCursor\": \"string\",\n    \"hasPreviousPage\": false,\n    \"hasNextPage\": true\n  },\n  \"totalCount\": 2807.4086969598757,\n  \"count\": 3003.2080471830723\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80e91a0d-4598-474f-b571-602893a125e0",
+          "name": "Get Quote",
+          "request": {
+            "name": "Get Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "quotes",
+                ":quoteId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "quoteId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "760f0a55-bbb0-4482-8212-5a5990be3e08",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes",
+                    ":quoteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "quoteId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"quote\": {\n    \"id\": \"string\",\n    \"createdAt\": \"1965-12-05T13:21:22.077Z\",\n    \"updatedAt\": \"1974-03-13T14:59:40.013Z\",\n    \"status\": \"WON\",\n    \"freightOrder\": {\n      \"commodities\": [\n        {\n          \"description\": \"string\",\n          \"isStackable\": true,\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": \"string\",\n          \"freightClass\": \"string\",\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": 7753.480559334232,\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": 7454.577892360803\n        },\n        {\n          \"description\": \"string\",\n          \"isStackable\": true,\n          \"itemReference\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"dimensions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"weight\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"hazmat\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nmfcCode\": \"string\",\n          \"freightClass\": \"string\",\n          \"pieceUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pieceQuantity\": 22.000350380735334,\n          \"handlingUnits\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"handlingQuantity\": 6575.027525904488\n        }\n      ],\n      \"equipment\": {\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"equipmentLength\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"temperature\": {\n          \"units\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"max\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"min\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"description\": \"string\"\n      },\n      \"customer\": {\n        \"externalIds\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": \"string\",\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"contacts\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"route\": {\n        \"stops\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"mileage\": {\n          \"uom\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": 4496.767680393648\n        }\n      },\n      \"freightModeDetails\": {\n        \"mode\": \"DRAYAGE\",\n        \"drayageSubtype\": \"EXPORT\"\n      },\n      \"documents\": [\n        {\n          \"url\": \"string\",\n          \"id\": \"string\"\n        },\n        {\n          \"url\": \"string\",\n          \"id\": \"string\"\n        }\n      ],\n      \"totalWeight\": {\n        \"units\": \"KG\",\n        \"value\": 4881.674452232486\n      }\n    },\n    \"additionalUsers\": [\n      {\n        \"id\": \"string\"\n      },\n      {\n        \"id\": \"string\"\n      }\n    ],\n    \"tags\": {\n      \"isAuction\": false\n    },\n    \"automation\": {\n      \"requestedByUser\": false,\n      \"identifiedByVooma\": true\n    },\n    \"externalIds\": [\n      {\n        \"type\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"carrierRate\": {\n      \"id\": \"string\",\n      \"method\": \"MANUAL\",\n      \"amount\": {\n        \"uom\": \"USD\",\n        \"value\": 8912.895802265624\n      },\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"string\"\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"string\"\n        }\n      ],\n      \"components\": [\n        {\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": \"MARGIN\",\n          \"description\": \"string\"\n        },\n        {\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": \"LINE_HAUL\",\n          \"description\": \"string\"\n        }\n      ]\n    },\n    \"customerRate\": {\n      \"id\": \"string\",\n      \"method\": \"GREENSCREENS\",\n      \"amount\": {\n        \"uom\": \"USD\",\n        \"value\": 1386.0206949476117\n      },\n      \"externalIds\": [\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"string\"\n        },\n        {\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": \"string\"\n        }\n      ],\n      \"components\": [\n        {\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": \"MESSAGE_ADJUSTMENT\",\n          \"description\": \"string\"\n        },\n        {\n          \"amount\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": \"TMS_ADJUSTMENT\",\n          \"description\": \"string\"\n        }\n      ]\n    },\n    \"user\": {\n      \"externalIds\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"id\": \"string\"\n    },\n    \"requestedByEmail\": \"string\",\n    \"customFreightTags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"responseTimeSeconds\": 253.19245936248237,\n    \"linkedShipments\": [\n      {\n        \"voomaMovementId\": \"string\",\n        \"shipmentReferenceNumbers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"voomaShipmentId\": \"string\",\n        \"shipmentExternalId\": \"string\",\n        \"confidence\": 5264.659102688894\n      },\n      {\n        \"voomaMovementId\": \"string\",\n        \"shipmentReferenceNumbers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"voomaShipmentId\": \"string\",\n        \"shipmentExternalId\": \"string\",\n        \"confidence\": 4231.303235086916\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.vooma.ai/v0",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "65425a2f-6329-4606-b676-54bd4102d2eb",
+    "name": "api Carriers Quotes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

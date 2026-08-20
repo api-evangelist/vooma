@@ -38,6 +38,15 @@ created: '2026-07-17'
 modified: '2026-07-21'
 tags:
 - Company
+- Artificial Intelligence
+- Freight
+- Logistics
+- Transportation
+- Brokers
+- TMS
+- Agents
+tags_raw:
+- Company
 - AI
 - Freight
 - Logistics
@@ -164,6 +173,8 @@ apis:
   humanURL: https://docs.vooma.ai/api-reference/introduction
   baseURL: https://api.vooma.ai/v0
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI

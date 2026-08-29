@@ -1,0 +1,36 @@
+slug: vooma
+provider: Vooma
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Tracking Status
+  spec_file: vooma-tracking-status-api-openapi.yml
+  capability_id: BC-2510.10
+  capability_id_l1: BC-2510
+  capability_name: Event Capture and Status Management
+  confidence: 0.85
+  evidence: POST /tracking-status CreateTrackingStatus; schemas TrackingStatusData, TrackingStatusMovement,
+    GeoCoordinatesLocation, MovementExternalIdentifier
+  reason: Posting tracking status events with geo/city-state location against a movement is capture of
+    shipment events and translation into statuses — shipment visibility event capture.
+- tag: Movements
+  spec_file: vooma-movements-api-openapi.yml
+  capability_id: BC-2420
+  capability_id_l1: BC-2420
+  capability_name: Transport Operations Management
+  confidence: 0.72
+  evidence: POST /movements CreateMovement; POST /movements/{movementId}/scheduleStop ScheduleStop; schemas
+    MovementStopData, MayHaveID_CarrierData_, Equipment
+  reason: Movements are the executable transport legs with stops, equipment and assigned carrier, and
+    stops can be scheduled — transport execution operations. Which sub-capability (dispatch vs line-haul)
+    is not determinable, so L1 only.

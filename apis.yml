@@ -195,6 +195,16 @@ apis:
     url: https://docs.vooma.ai/api-reference/introduction
   - type: Webhooks
     url: asyncapi/vooma-webhooks.yml
+- aid: vooma:vooma-api-api
+  name: Vooma API
+  description: The Api API from Vooma — 0 operation(s) for api.
+  humanURL: https://docs.vooma.ai/api-reference/introduction
+  baseURL: https://api.vooma.ai/v0
+  tags:
+  - Api
+  properties:
+  - type: OpenAPI
+    url: openapi/vooma-api-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

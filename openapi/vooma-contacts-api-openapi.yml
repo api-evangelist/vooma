@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: api Carriers Contacts API
+  title: api Contacts API
   version: 0.1.0
   contact: {}
 servers:
@@ -77,33 +77,10 @@ paths:
           type: string
 components:
   schemas:
-    VoomaPublicAPIv0.BulkCreateContactsInput:
-      properties:
-        contacts:
-          items:
-            $ref: '#/components/schemas/ContactData'
-          type: array
-      required:
-      - contacts
-      type: object
-    VoomaPublicAPIv0.BulkCreateContactsPayload:
-      properties:
-        contacts:
-          items:
-            $ref: '#/components/schemas/Contact'
-          type: array
-      required:
-      - contacts
-      type: object
-    CarrierContactData:
-      allOf:
-      - $ref: '#/components/schemas/BaseContactData'
-      - properties:
-          carrierId:
-            type: string
-        required:
-        - carrierId
-        type: object
+    BulkCreateContactsInput:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsInput'
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
     CustomerContactData:
       allOf:
       - $ref: '#/components/schemas/BaseContactData'
@@ -113,6 +90,15 @@ components:
         required:
         - customerId
         type: object
+    CarrierContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          carrierId:
+            type: string
+        required:
+        - carrierId
+        type: object
     VoomaPublicAPIv0.UpdateContactInput:
       properties:
         contact:
@@ -120,12 +106,31 @@ components:
       required:
       - contact
       type: object
-    BulkCreateContactsPayload:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsPayload'
-    LocationContactData:
-      $ref: '#/components/schemas/BaseContactData'
-    UpdateContactInput:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.UpdateContactInput'
+    ContactData:
+      anyOf:
+      - $ref: '#/components/schemas/CarrierContactData'
+      - $ref: '#/components/schemas/CustomerContactData'
+      - $ref: '#/components/schemas/LocationContactData'
+    VoomaPublicAPIv0.BulkCreateContactsPayload:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+      required:
+      - contacts
+      type: object
+    DeleteContactPayload:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.DeleteContactPayload'
+    VoomaPublicAPIv0.BulkCreateContactsInput:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/ContactData'
+          type: array
+      required:
+      - contacts
+      type: object
     BaseContactData:
       properties:
         name:
@@ -137,19 +142,10 @@ components:
         role:
           type: string
       type: object
-    Contact:
-      $ref: '#/components/schemas/V0Contact.Contact'
-    MayHaveID_ContactData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/ContactData'
-    BulkCreateContactsInput:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsInput'
-    DeleteContactPayload:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.DeleteContactPayload'
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    BulkCreateContactsPayload:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsPayload'
     V0Contact.Contact:
       $ref: '#/components/schemas/MayHaveID_ContactData_'
     VoomaPublicAPIv0.DeleteContactPayload:
@@ -159,11 +155,15 @@ components:
       required:
       - success
       type: object
-    ContactData:
-      anyOf:
-      - $ref: '#/components/schemas/CarrierContactData'
-      - $ref: '#/components/schemas/CustomerContactData'
-      - $ref: '#/components/schemas/LocationContactData'
+    UpdateContactInput:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.UpdateContactInput'
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
   securitySchemes:
     basic:
       scheme: basic

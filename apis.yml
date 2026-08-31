@@ -200,7 +200,8 @@ apis:
   description: The Api API from Vooma — 0 operation(s) for api.
   humanURL: https://docs.vooma.ai/api-reference/introduction
   baseURL: https://api.vooma.ai/v0
-  tags:
+  tags: []
+  tags_raw:
   - Api
   properties:
   - type: OpenAPI

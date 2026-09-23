@@ -50,9 +50,11 @@
     "vooma-openapi-original.json: declared missing tag: Quotes",
     "vooma-openapi-original.json: declared missing tag: Shipments",
     "vooma-openapi-original.json: declared missing tag: Tracking Status",
-    "vooma-openapi-original.json: declared missing tag: Webhooks"
+    "vooma-openapi-original.json: declared missing tag: Webhooks",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
+    "vooma-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "vooma-carriers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "vooma-contacts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "vooma-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",

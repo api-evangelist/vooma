@@ -222,454 +222,19 @@ webhooks:
       x-summary-source: derived
 components:
   schemas:
-    V0Weight.Weight:
-      properties:
-        units:
-          $ref: '#/components/schemas/WeightUnits'
-        value:
-          type: number
-          format: double
-      required:
-      - units
-      - value
-      type: object
-    Dunnage:
-      properties:
-        type:
-          type: string
-          enum:
-          - DUNNAGE
-          nullable: false
-      required:
-      - type
-      type: object
-    Appointment:
-      $ref: '#/components/schemas/MayHaveID_AppointmentData_'
-    MayHaveID_LocationContactData_:
+    MayHaveID_OrderStopData_:
       allOf:
       - properties:
           id:
             type: string
         type: object
-      - $ref: '#/components/schemas/LocationContactData'
-    V0TrackingUpdate.TrackingUpdateEvent:
-      properties:
-        trackingUpdate:
-          $ref: '#/components/schemas/TrackingUpdate'
-        event:
-          type: string
-          enum:
-          - trackingUpdate.created
-          nullable: false
-      required:
-      - trackingUpdate
-      - event
-      type: object
-    Team:
+      - $ref: '#/components/schemas/OrderStopData'
+    Transloading:
       properties:
         type:
           type: string
           enum:
-          - TEAM
-          nullable: false
-      required:
-      - type
-      type: object
-    HeadacheRack:
-      properties:
-        type:
-          type: string
-          enum:
-          - HEADACHE_RACK
-          nullable: false
-      required:
-      - type
-      type: object
-    V0Contact.Contact:
-      $ref: '#/components/schemas/MayHaveID_ContactData_'
-    ChargesToCustomer:
-      $ref: '#/components/schemas/V0Shipment.ChargesToCustomer'
-    OrderUpdatedEvent:
-      $ref: '#/components/schemas/V0Order.OrderUpdatedEvent'
-    FacilityHours:
-      properties:
-        sunday:
-          $ref: '#/components/schemas/DayHours'
-        saturday:
-          $ref: '#/components/schemas/DayHours'
-        friday:
-          $ref: '#/components/schemas/DayHours'
-        thursday:
-          $ref: '#/components/schemas/DayHours'
-        wednesday:
-          $ref: '#/components/schemas/DayHours'
-        tuesday:
-          $ref: '#/components/schemas/DayHours'
-        monday:
-          $ref: '#/components/schemas/DayHours'
-      type: object
-    BlindShipment:
-      properties:
-        type:
-          type: string
-          enum:
-          - BLIND_SHIPMENT
-          nullable: false
-      required:
-      - type
-      type: object
-    CurrencyUnits:
-      enum:
-      - USD
-      - CAD
-      type: string
-    WithId_UserData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        required:
-        - id
-        type: object
-      - $ref: '#/components/schemas/UserData'
-    LineItem:
-      properties:
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/LineItemType'
-          - type: string
-          description: Typically one of the LineItemType enum values but subject to change
-        description:
-          type: string
-        amount:
-          $ref: '#/components/schemas/Amount'
-      required:
-      - description
-      - amount
-      type: object
-      additionalProperties: false
-    CarrierContactData:
-      allOf:
-      - $ref: '#/components/schemas/BaseContactData'
-      - properties:
-          carrierId:
-            type: string
-        required:
-        - carrierId
-        type: object
-    LimitedAccess:
-      properties:
-        type:
-          type: string
-          enum:
-          - LIMITED_ACCESS
-          nullable: false
-      required:
-      - type
-      type: object
-    FreightMode:
-      enum:
-      - TRUCKLOAD
-      - LTL
-      - PARTIAL_TRUCKLOAD
-      - INTERMODAL
-      - DRAYAGE
-      - PARCEL
-      type: string
-    SchedulingMethod:
-      anyOf:
-      - $ref: '#/components/schemas/EmailSchedulingMethod'
-      - $ref: '#/components/schemas/PhoneSchedulingMethod'
-      - $ref: '#/components/schemas/PortalSchedulingMethod'
-    CarrierData:
-      properties:
-        equipment:
-          items:
-            $ref: '#/components/schemas/CarrierEquipment'
-          type: array
-        contacts:
-          items:
-            $ref: '#/components/schemas/CarrierContact'
-          type: array
-        dotNumber:
-          type: string
-        mcNumber:
-          type: string
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    OrderRoute:
-      $ref: '#/components/schemas/V0Route.OrderRoute'
-    HazmatClassification:
-      properties:
-        qualifier:
-          anyOf:
-          - $ref: '#/components/schemas/HazmatClassQualifier'
-          - type: string
-        hazardClass:
-          anyOf:
-          - $ref: '#/components/schemas/HazmatClass'
-          - type: string
-      required:
-      - qualifier
-      - hazardClass
-      type: object
-    OrderCreatedEvent:
-      $ref: '#/components/schemas/V0Order.OrderCreatedEvent'
-    V0Order.OrderUpdatedEvent:
-      properties:
-        order:
-          $ref: '#/components/schemas/Order'
-        event:
-          type: string
-          enum:
-          - order.updated
-          nullable: false
-      required:
-      - order
-      - event
-      type: object
-    WithId_OrderData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        required:
-        - id
-        type: object
-      - $ref: '#/components/schemas/OrderData'
-    V0Mode.FreightModeDetails:
-      properties:
-        drayageSubtype:
-          $ref: '#/components/schemas/DrayageSubtype'
-        mode:
-          $ref: '#/components/schemas/FreightMode'
-      required:
-      - mode
-      type: object
-    TrackingUpdate:
-      properties:
-        trackingStatus:
-          allOf:
-          - $ref: '#/components/schemas/TrackingStatus'
-          nullable: true
-        currentLocation:
-          allOf:
-          - $ref: '#/components/schemas/Address'
-          nullable: true
-          description: The current location of the carrier.
-        departedAt:
-          type: string
-          nullable: true
-          description: Timestamp that the carrier departed from the current stop.
-        arrivedAt:
-          type: string
-          nullable: true
-          description: Timestamp that the carrier arrived at the current stop.
-        trackingComment:
-          type: string
-          nullable: true
-          description: A free-form comment with tracking-related information.
-        stop:
-          $ref: '#/components/schemas/TrackingUpdateStop'
-          description: The relevant stop (if any) to the tracking update.
-        movement:
-          $ref: '#/components/schemas/TrackingUpdateMovement'
-          description: Identifiers for the relevant movement.
-      required:
-      - movement
-      type: object
-    V0Accessorial.Accessorial:
-      anyOf:
-      - $ref: '#/components/schemas/Tarping'
-      - $ref: '#/components/schemas/Liftgate'
-      - $ref: '#/components/schemas/HeadacheRack'
-      - $ref: '#/components/schemas/CoilRack'
-      - $ref: '#/components/schemas/PipeStakes'
-      - $ref: '#/components/schemas/Gps'
-      - $ref: '#/components/schemas/OverDimension'
-      - $ref: '#/components/schemas/BlindShipment'
-      - $ref: '#/components/schemas/DriverAssistance'
-      - $ref: '#/components/schemas/Scale'
-      - $ref: '#/components/schemas/Straps'
-      - $ref: '#/components/schemas/Team'
-      - $ref: '#/components/schemas/Transloading'
-      - $ref: '#/components/schemas/Ppe'
-      - $ref: '#/components/schemas/ChainsAndBinders'
-      - $ref: '#/components/schemas/Dunnage'
-      - $ref: '#/components/schemas/FoodGrade'
-      - $ref: '#/components/schemas/Twic'
-      - $ref: '#/components/schemas/LimitedAccess'
-      - $ref: '#/components/schemas/InsidePickup'
-      - $ref: '#/components/schemas/InsideDelivery'
-      - $ref: '#/components/schemas/Permit'
-      - $ref: '#/components/schemas/Other'
-    TemperatureUnits:
-      enum:
-      - F
-      - C
-      type: string
-    MayHaveID_AppointmentData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/AppointmentData'
-    WeightUnits:
-      enum:
-      - LB
-      - KG
-      type: string
-    LocationContact:
-      $ref: '#/components/schemas/V0Contact.LocationContact'
-    MovementExternalIdentifierType:
-      enum:
-      - CUSTOM
-      type: string
-    V0Attributes.Attributes:
-      properties: {}
-      additionalProperties:
-        type: string
-      type: object
-    OrderStopData:
-      allOf:
-      - $ref: '#/components/schemas/CommonStopData'
-      - properties:
-          location:
-            $ref: '#/components/schemas/OrderStopLocation'
-        required:
-        - location
-        type: object
-    CoilRack:
-      properties:
-        type:
-          type: string
-          enum:
-          - COIL_RACK
-          nullable: false
-      required:
-      - type
-      type: object
-    Address:
-      properties:
-        country:
-          type: string
-        postalCode:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        addressTwo:
-          type: string
-        addressOne:
-          type: string
-      type: object
-    GeoCoordinates:
-      properties:
-        longitude:
-          type: number
-          format: double
-        latitude:
-          type: number
-          format: double
-      required:
-      - longitude
-      - latitude
-      type: object
-    StopType:
-      enum:
-      - PICKUP
-      - DELIVERY
-      type: string
-    Gps:
-      properties:
-        type:
-          type: string
-          enum:
-          - GPS
-          nullable: false
-      required:
-      - type
-      type: object
-    LocationCreatedEvent:
-      properties:
-        location:
-          $ref: '#/components/schemas/Location'
-        event:
-          type: string
-          enum:
-          - location.created
-          nullable: false
-      required:
-      - location
-      - event
-      type: object
-    Tarping:
-      properties:
-        size:
-          $ref: '#/components/schemas/Dimension'
-        type:
-          type: string
-          enum:
-          - TARPING
-          nullable: false
-      required:
-      - size
-      - type
-      type: object
-    ChainsAndBinders:
-      properties:
-        type:
-          type: string
-          enum:
-          - CHAINS_AND_BINDERS
-          nullable: false
-      required:
-      - type
-      type: object
-    Permit:
-      properties:
-        type:
-          type: string
-          enum:
-          - PERMIT
-          nullable: false
-      required:
-      - type
-      type: object
-    InsidePickup:
-      properties:
-        type:
-          type: string
-          enum:
-          - INSIDE_PICKUP
-          nullable: false
-      required:
-      - type
-      type: object
-    Other:
-      properties:
-        description:
-          type: string
-        type:
-          type: string
-          enum:
-          - OTHER
-          nullable: false
-      required:
-      - description
-      - type
-      type: object
-    FoodGrade:
-      properties:
-        type:
-          type: string
-          enum:
-          - FOOD_GRADE
+          - TRANSLOADING
           nullable: false
       required:
       - type
@@ -693,253 +258,34 @@ components:
         required:
         - customerId
         type: object
-    CarrierContact:
-      properties:
-        contact:
-          $ref: '#/components/schemas/Contact'
-        type:
-          type: string
-          enum:
-          - DRIVER
-          - DISPATCH
-      required:
-      - contact
-      - type
-      type: object
-    AppointmentData:
-      properties:
-        confirmationNumber:
-          type: string
-        timezone:
-          type: string
-          description: Optional timezone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format e.g. "America/New_York" or "UTC".
-        confirmedDatetimeUTC:
-          type: string
-          format: date-time
-          description: Optional ISO 8601 UTC datetime in format 2025-02-19T18:00Z for the time that Vooma confirmed the appointment.
-        confirmedDatetime:
-          type: string
-          format: date-time
-          description: Optional ISO 8601 local datetime in format 2025-02-19T13:00-05:00 for the time that Vooma confirmed the appointment. This will end in +00:00 if we are missing timezone information.
-        requestedDatetimeUTC:
-          type: string
-          format: date-time
-          description: Optional ISO 8601 UTC datetime in format 2025-02-19T18:00Z for the time that Vooma requested the appointment.
-        requestedDatetime:
-          type: string
-          format: date-time
-          description: Optional ISO 8601 local datetime in format 2025-02-19T13:00-05:00 for the time that Vooma requested the appointment. This will end in +00:00 if we are missing timezone information.
-        stopIndex:
-          type: number
-          format: double
-        movementid:
-          type: string
-        status:
-          $ref: '#/components/schemas/AppointmentStatus'
-      required:
-      - requestedDatetimeUTC
-      - requestedDatetime
-      - stopIndex
-      - status
-      type: object
-    Portal:
-      type: string
-      enum:
-      - AMAZON_CARRIER_CENTRAL
-      - BLUE_YONDER
-      - COSTCO
-      - DSDLINK
-      - E2OPEN
-      - LMCONNECT
-      - MANHATTAN
-      - NCR
-      - OPENDOCK
-      - RYDERSHARE
-      - YARDVIEW
-    UserExternalIdentifier:
-      properties:
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/UserExternalIdentifierType'
-          - type: string
-          description: 'Typically one of the UserExternalIdentifierType enum values
-
-            but subject to change'
-        value:
-          type: string
-      required:
-      - type
-      - value
-      type: object
-      additionalProperties: false
-    BaseContactData:
-      properties:
-        name:
-          type: string
-        phone:
-          type: string
-        email:
-          type: string
-        role:
-          type: string
-      type: object
-    V0Route.OrderRoute:
-      properties:
-        stops:
-          items:
-            $ref: '#/components/schemas/OrderStop'
-          type: array
-        mileage:
-          $ref: '#/components/schemas/Mileage'
-      required:
-      - stops
-      type: object
-    HazmatDetails:
-      properties:
-        classifications:
-          items:
-            $ref: '#/components/schemas/HazmatClassification'
-          type: array
-        packingGroup:
-          type: string
-        unNumber:
-          type: string
-        weight:
-          $ref: '#/components/schemas/Weight'
-        contact:
-          $ref: '#/components/schemas/HazmatContact'
-      required:
-      - classifications
-      - contact
-      type: object
-    Customer:
-      $ref: '#/components/schemas/WithId_CustomerData_'
-    DriverAssistance:
-      properties:
-        type:
-          type: string
-          enum:
-          - DRIVER_ASSISTANCE
-          nullable: false
-      required:
-      - type
-      type: object
-    OrderStop:
-      $ref: '#/components/schemas/V0Stop.OrderStop'
-    UserExternalIdentifierType:
-      enum:
-      - CUSTOM
-      - EMAIL
-      - PHONE
-      - VOOMA_USERNAME
-      type: string
-    CustomerUpdatedEvent:
-      properties:
-        customer:
-          $ref: '#/components/schemas/Customer'
-        event:
-          type: string
-          enum:
-          - customer.updated
-          nullable: false
-      required:
-      - customer
-      - event
-      type: object
-    V0Stop.OrderStop:
-      $ref: '#/components/schemas/MayHaveID_OrderStopData_'
-    Omit_LocationData.scheduling_:
-      $ref: '#/components/schemas/Pick_LocationData.Exclude_keyofLocationData.scheduling__'
-      description: Construct a type with the properties of T except for those in type K.
-    DrayageSubtype:
-      enum:
-      - IMPORT
-      - EXPORT
-      type: string
-    PhoneSchedulingMethod:
-      properties:
-        contact:
-          $ref: '#/components/schemas/LocationContact'
-        type:
-          type: string
-          enum:
-          - PHONE
-          nullable: false
-      required:
-      - contact
-      - type
-      type: object
-    OverDimension:
-      properties:
-        type:
-          type: string
-          enum:
-          - OVER_DIMENSION
-          nullable: false
-      required:
-      - type
-      type: object
-    Environment:
-      enum:
-      - TEST
-      - PRODUCTION
-      type: string
-    V0Appointment.AppointmentUpdatedEvent:
-      properties:
-        appointment:
-          $ref: '#/components/schemas/Appointment'
-        event:
-          type: string
-          enum:
-          - appointment.updated
-          nullable: false
-      required:
-      - appointment
-      - event
-      type: object
-    MayHaveID_CustomerData_:
+    MayHaveID_User_:
       allOf:
       - properties:
           id:
             type: string
         type: object
-      - $ref: '#/components/schemas/CustomerData'
-    UserData:
-      $ref: '#/components/schemas/V0User.UserData'
-    LocationData:
+      - $ref: '#/components/schemas/User'
+    V0Mode.FreightModeDetails:
       properties:
-        name:
-          type: string
-        contacts:
-          items:
-            $ref: '#/components/schemas/LocationContact'
-          type: array
-        hours:
-          $ref: '#/components/schemas/FacilityHours'
-        scheduling:
-          $ref: '#/components/schemas/SchedulingDetails'
-        geoCoordinates:
-          $ref: '#/components/schemas/GeoCoordinates'
-        address:
-          $ref: '#/components/schemas/Address'
-        externalIds:
-          items:
-            $ref: '#/components/schemas/LocationExternalIdentifier'
-          type: array
+        drayageSubtype:
+          $ref: '#/components/schemas/DrayageSubtype'
+        mode:
+          $ref: '#/components/schemas/FreightMode'
       required:
-      - address
-      - externalIds
+      - mode
       type: object
-    CarrierEquipment:
+    V0TrackingUpdate.TrackingUpdateEvent:
       properties:
-        trailerNumber:
+        trackingUpdate:
+          $ref: '#/components/schemas/TrackingUpdate'
+        event:
           type: string
-        truckNumber:
-          type: string
-        equipment:
-          $ref: '#/components/schemas/Equipment'
+          enum:
+          - trackingUpdate.created
+          nullable: false
       required:
-      - equipment
+      - trackingUpdate
+      - event
       type: object
     LocationExternalIdentifierType:
       enum:
@@ -947,50 +293,8 @@ components:
       - GOOGLE_PLACES
       - TURVO
       type: string
-    V0Dimensions.Dimensions:
-      properties:
-        height:
-          $ref: '#/components/schemas/Dimension'
-        width:
-          $ref: '#/components/schemas/Dimension'
-        length:
-          $ref: '#/components/schemas/Dimension'
-      type: object
-    Amount:
-      $ref: '#/components/schemas/V0Financials.Amount'
-    V0Contact.LocationContact:
-      $ref: '#/components/schemas/MayHaveID_LocationContactData_'
-    InsideDelivery:
-      properties:
-        type:
-          type: string
-          enum:
-          - INSIDE_DELIVERY
-          nullable: false
-      required:
-      - type
-      type: object
-    SchedulingType:
-      enum:
-      - FIRST_COME_FIRST_SERVE
-      - APPOINTMENT
-      type: string
-    V0Reference.Reference:
-      properties:
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/ReferenceType'
-          - type: string
-          description: 'Typically one of the ReferenceType enum values
-
-            but subject to change'
-        value:
-          type: string
-      required:
-      - type
-      - value
-      type: object
-      additionalProperties: false
+    OrderStop:
+      $ref: '#/components/schemas/V0Stop.OrderStop'
     Pick_LocationData.Exclude_keyofLocationData.scheduling__:
       properties:
         externalIds:
@@ -1014,13 +318,11 @@ components:
       - address
       type: object
       description: From T, pick a set of properties whose keys are in the union K
-    ContactData:
+    SchedulingMethod:
       anyOf:
-      - $ref: '#/components/schemas/CarrierContactData'
-      - $ref: '#/components/schemas/CustomerContactData'
-      - $ref: '#/components/schemas/LocationContactData'
-    DateTimeRange:
-      $ref: '#/components/schemas/V0Datetime.DateTimeRange'
+      - $ref: '#/components/schemas/EmailSchedulingMethod'
+      - $ref: '#/components/schemas/PhoneSchedulingMethod'
+      - $ref: '#/components/schemas/PortalSchedulingMethod'
     CustomerExternalIdentifierType:
       enum:
       - ALJEX
@@ -1053,237 +355,108 @@ components:
       - MICROSOFT_TEAMS
       - SLACK
       type: string
-    V0Cargo.Commodity:
-      properties:
-        isStackable:
-          type: boolean
-        itemReference:
-          $ref: '#/components/schemas/Reference'
-        dimensions:
-          $ref: '#/components/schemas/Dimensions'
-        weight:
-          $ref: '#/components/schemas/Weight'
-        hazmat:
-          $ref: '#/components/schemas/HazmatDetails'
-        nmfcCode:
-          type: string
-        freightClass:
-          type: string
-        pieceUnits:
-          anyOf:
-          - $ref: '#/components/schemas/ShippingUnits'
-          - type: string
-        pieceQuantity:
-          type: number
-          format: double
-        handlingUnits:
-          anyOf:
-          - $ref: '#/components/schemas/ShippingUnits'
-          - type: string
-        handlingQuantity:
-          type: number
-          format: double
-        description:
-          type: string
-      required:
-      - description
-      type: object
-    Liftgate:
+    Appointment:
+      $ref: '#/components/schemas/MayHaveID_AppointmentData_'
+    SchedulingType:
+      enum:
+      - FIRST_COME_FIRST_SERVE
+      - APPOINTMENT
+      type: string
+    FoodGrade:
       properties:
         type:
           type: string
           enum:
-          - LIFTGATE
+          - FOOD_GRADE
           nullable: false
       required:
       - type
       type: object
-    Commodity:
-      $ref: '#/components/schemas/V0Cargo.Commodity'
-    Order:
-      $ref: '#/components/schemas/WithId_OrderData_'
-    TrackingStatus:
-      type: string
-    MayHaveID_OrderStopData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/OrderStopData'
-    V0User.User:
-      $ref: '#/components/schemas/WithId_UserData_'
-    V0Schedule.SchedulingDetails:
+    LocationCreatedEvent:
       properties:
-        maxDaysAhead:
-          type: number
-          format: double
-        notes:
-          type: string
-        methods:
-          items:
-            $ref: '#/components/schemas/SchedulingMethod'
-          type: array
-      required:
-      - methods
-      type: object
-    V0Dimensions.Dimension:
-      properties:
-        value:
-          type: number
-          format: double
-        units:
-          anyOf:
-          - $ref: '#/components/schemas/DimensionUnits'
-          - type: string
-          description: Typically one of the DimensionUnits enum values but subject to change
-      required:
-      - value
-      - units
-      type: object
-      additionalProperties: false
-    CarrierCreatedEvent:
-      $ref: '#/components/schemas/V0Carrier.CarrierCreatedEvent'
-    V0Cargo.Cargo:
-      properties:
-        declaredValue:
-          $ref: '#/components/schemas/Amount'
-        dimensions:
-          $ref: '#/components/schemas/Dimensions'
-        totalWeight:
-          $ref: '#/components/schemas/Weight'
-        commodities:
-          items:
-            $ref: '#/components/schemas/Commodity'
-          type: array
-      required:
-      - commodities
-      type: object
-    CommonStopData:
-      properties:
-        externalNotes:
-          type: string
-        internalNotes:
-          type: string
-        accessorials:
-          items:
-            $ref: '#/components/schemas/Accessorial'
-          type: array
-        contact:
-          $ref: '#/components/schemas/Contact'
-        commodities:
-          items:
-            $ref: '#/components/schemas/Commodity'
-          type: array
-        weight:
-          $ref: '#/components/schemas/Weight'
-        notes:
-          type: string
-        schedulingType:
-          $ref: '#/components/schemas/SchedulingType'
-        dateTimeRanges:
-          items:
-            $ref: '#/components/schemas/DateTimeRange'
-          type: array
-        type:
-          $ref: '#/components/schemas/StopType'
-        stopReferences:
-          items:
-            $ref: '#/components/schemas/Reference'
-          type: array
-        externalIds:
-          items:
-            $ref: '#/components/schemas/ExternalIdentifier'
-          type: array
-      required:
-      - type
-      - stopReferences
-      type: object
-    V0Location.OrderStopLocation:
-      $ref: '#/components/schemas/MayHaveID_Omit_LocationData.scheduling__'
-    Ppe:
-      properties:
-        type:
-          type: string
-          enum:
-          - PPE
-          nullable: false
-      required:
-      - type
-      type: object
-    Reference:
-      $ref: '#/components/schemas/V0Reference.Reference'
-    EquipmentType:
-      enum:
-      - BOX_TRUCK
-      - CARGO_VAN
-      - CONESTOGA
-      - CONTAINER
-      - DOUBLE_DROP
-      - DRY_VAN
-      - FLATBED
-      - HOT_SHOT
-      - LOW_BOY
-      - POWER_ONLY
-      - REEFER
-      - REMOVABLE_GOOSENECK
-      - SPRINTER_VAN
-      - STEP_DECK
-      - STRAIGHT_TRUCK
-      - AUTO_CARRIER
-      - VAN_OR_REEFER
-      - FLATBED_OR_STEP_DECK
-      - OTHER
-      type: string
-    FreightModeDetails:
-      $ref: '#/components/schemas/V0Mode.FreightModeDetails'
-    Document:
-      $ref: '#/components/schemas/V0.Document'
-    ExternalIdentifierType:
-      enum:
-      - CUSTOM
-      type: string
-    MayHaveID_Omit_LocationData.scheduling__:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/Omit_LocationData.scheduling_'
-    ExternalIdentifier:
-      $ref: '#/components/schemas/V0ExternalId.ExternalIdentifier'
-    V0Carrier.CarrierUpdatedEvent:
-      properties:
-        carrier:
-          $ref: '#/components/schemas/Carrier'
+        location:
+          $ref: '#/components/schemas/Location'
         event:
           type: string
           enum:
-          - carrier.updated
+          - location.created
           nullable: false
       required:
-      - carrier
+      - location
       - event
       type: object
-    Location:
-      $ref: '#/components/schemas/MayHaveID_LocationData_'
-    AppointmentStatus:
-      description: 'NEW: all appointments start with this status.
+    V0Reference.Reference:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/ReferenceType'
+          - type: string
+          description: 'Typically one of the ReferenceType enum values
 
-        REQUESTED: set after an appointment request has been made such as an email sent out or Vooma navigating a portal.
-
-        CONFIRMED: when a facility agrees to an appointment.
-
-        ESCALATED: if Vooma needs to ask a person for help scheduling an appointment.
-
-        ABORTED: Vooma ending its attempt to schedule an appointment.'
-      enum:
-      - NEW
-      - REQUESTED
-      - CONFIRMED
-      - ESCALATED
-      - ABORTED
+            but subject to change'
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    LocationData:
+      properties:
+        name:
+          type: string
+        contacts:
+          items:
+            $ref: '#/components/schemas/LocationContact'
+          type: array
+        hours:
+          $ref: '#/components/schemas/FacilityHours'
+        scheduling:
+          $ref: '#/components/schemas/SchedulingDetails'
+        geoCoordinates:
+          $ref: '#/components/schemas/GeoCoordinates'
+        address:
+          $ref: '#/components/schemas/Address'
+        externalIds:
+          items:
+            $ref: '#/components/schemas/LocationExternalIdentifier'
+          type: array
+      required:
+      - address
+      - externalIds
+      type: object
+    V0Contact.Contact:
+      $ref: '#/components/schemas/MayHaveID_ContactData_'
+    Weight:
+      $ref: '#/components/schemas/V0Weight.Weight'
+    CarrierContact:
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+        type:
+          type: string
+          enum:
+          - DRIVER
+          - DISPATCH
+      required:
+      - contact
+      - type
+      type: object
+    HazmatClassQualifier:
       type: string
+      enum:
+      - P
+      - S
+    HeadacheRack:
+      properties:
+        type:
+          type: string
+          enum:
+          - HEADACHE_RACK
+          nullable: false
+      required:
+      - type
+      type: object
     DayHours:
       properties:
         type:
@@ -1304,21 +477,50 @@ components:
       - startTime
       type: object
       additionalProperties: false
-    Contact:
-      $ref: '#/components/schemas/V0Contact.Contact'
-    V0Carrier.CarrierCreatedEvent:
+    Commodity:
+      $ref: '#/components/schemas/V0Cargo.Commodity'
+    WithId_UserData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        required:
+        - id
+        type: object
+      - $ref: '#/components/schemas/UserData'
+    Location:
+      $ref: '#/components/schemas/MayHaveID_LocationData_'
+    CarrierEquipment:
       properties:
-        carrier:
-          $ref: '#/components/schemas/Carrier'
-        event:
+        trailerNumber:
           type: string
-          enum:
-          - carrier.created
-          nullable: false
+        truckNumber:
+          type: string
+        equipment:
+          $ref: '#/components/schemas/Equipment'
       required:
-      - carrier
-      - event
+      - equipment
       type: object
+    HazmatDetails:
+      properties:
+        classifications:
+          items:
+            $ref: '#/components/schemas/HazmatClassification'
+          type: array
+        packingGroup:
+          type: string
+        unNumber:
+          type: string
+        weight:
+          $ref: '#/components/schemas/Weight'
+        contact:
+          $ref: '#/components/schemas/HazmatContact'
+      required:
+      - classifications
+      - contact
+      type: object
+    Order:
+      $ref: '#/components/schemas/WithId_OrderData_'
     ReferenceType:
       enum:
       - ORDER_REFERENCE
@@ -1340,76 +542,78 @@ components:
       - ITEM_REFERENCE
       - OTHER
       type: string
-    ShippingUnits:
-      enum:
-      - BAGS
-      - BALES
-      - BOTTLES
-      - BOXES
-      - BUNDLES
-      - CARTONS
-      - CASES
-      - CRATES
-      - DRUMS
-      - PACKAGES
-      - PAILS
-      - PALLETS
-      - PIECES
-      - ROLLS
-      - SKIDS
-      - TRUCKLOADS
-      - TUBES
-      - UNITS
-      - VEHICLES
-      type: string
-    Straps:
-      properties:
-        numberRequired:
-          type: number
-          format: double
-        type:
-          type: string
-          enum:
-          - STRAPS
-          nullable: false
-      required:
-      - type
-      type: object
-    Carrier:
-      $ref: '#/components/schemas/MayHaveID_CarrierData_'
-    MayHaveID_User_:
+    MayHaveID_CarrierData_:
       allOf:
       - properties:
           id:
             type: string
         type: object
-      - $ref: '#/components/schemas/User'
-    CustomerData:
+      - $ref: '#/components/schemas/CarrierData'
+    V0User.UserData:
       properties:
-        contacts:
-          items:
-            $ref: '#/components/schemas/Contact'
-          type: array
-        name:
-          type: string
         externalIds:
           items:
-            $ref: '#/components/schemas/CustomerExternalIdentifier'
+            $ref: '#/components/schemas/UserExternalIdentifier'
           type: array
       required:
-      - name
       - externalIds
       type: object
-    Mileage:
+    V0Weight.Weight:
       properties:
-        uom:
-          $ref: '#/components/schemas/MileageUnits'
+        units:
+          $ref: '#/components/schemas/WeightUnits'
         value:
           type: number
           format: double
       required:
-      - uom
+      - units
       - value
+      type: object
+    Cargo:
+      $ref: '#/components/schemas/V0Cargo.Cargo'
+    MileageUnits:
+      enum:
+      - MI
+      - KM
+      type: string
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
+    V0Carrier.CarrierCreatedEvent:
+      properties:
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+        event:
+          type: string
+          enum:
+          - carrier.created
+          nullable: false
+      required:
+      - carrier
+      - event
+      type: object
+    Portal:
+      type: string
+      enum:
+      - AMAZON_CARRIER_CENTRAL
+      - BLUE_YONDER
+      - COSTCO
+      - DSDLINK
+      - E2OPEN
+      - LMCONNECT
+      - MANHATTAN
+      - NCR
+      - OPENDOCK
+      - RYDERSHARE
+      - YARDVIEW
+    InsidePickup:
+      properties:
+        type:
+          type: string
+          enum:
+          - INSIDE_PICKUP
+          nullable: false
+      required:
+      - type
       type: object
     OrderData:
       properties:
@@ -1461,23 +665,12 @@ components:
       - route
       - references
       type: object
-    CarrierUpdatedEvent:
-      $ref: '#/components/schemas/V0Carrier.CarrierUpdatedEvent'
-    LocationUpdatedEvent:
-      properties:
-        location:
-          $ref: '#/components/schemas/Location'
-        event:
-          type: string
-          enum:
-          - location.updated
-          nullable: false
-      required:
-      - location
-      - event
-      type: object
-    Accessorial:
-      $ref: '#/components/schemas/V0Accessorial.Accessorial'
+    MovementExternalIdentifierType:
+      enum:
+      - CUSTOM
+      type: string
+    ExternalIdentifier:
+      $ref: '#/components/schemas/V0ExternalId.ExternalIdentifier'
     V0Order.OrderCreatedEvent:
       properties:
         order:
@@ -1491,59 +684,224 @@ components:
       - order
       - event
       type: object
-    User:
-      $ref: '#/components/schemas/V0User.User'
-    MayHaveID_ContactData_:
+    CommonStopData:
+      properties:
+        externalNotes:
+          type: string
+        internalNotes:
+          type: string
+        accessorials:
+          items:
+            $ref: '#/components/schemas/Accessorial'
+          type: array
+        contact:
+          $ref: '#/components/schemas/Contact'
+        commodities:
+          items:
+            $ref: '#/components/schemas/Commodity'
+          type: array
+        weight:
+          $ref: '#/components/schemas/Weight'
+        notes:
+          type: string
+        schedulingType:
+          $ref: '#/components/schemas/SchedulingType'
+        dateTimeRanges:
+          items:
+            $ref: '#/components/schemas/DateTimeRange'
+          type: array
+        type:
+          $ref: '#/components/schemas/StopType'
+        stopReferences:
+          items:
+            $ref: '#/components/schemas/Reference'
+          type: array
+        externalIds:
+          items:
+            $ref: '#/components/schemas/ExternalIdentifier'
+          type: array
+      required:
+      - type
+      - stopReferences
+      type: object
+    Ppe:
+      properties:
+        type:
+          type: string
+          enum:
+          - PPE
+          nullable: false
+      required:
+      - type
+      type: object
+    CarrierUpdatedEvent:
+      $ref: '#/components/schemas/V0Carrier.CarrierUpdatedEvent'
+    Amount:
+      $ref: '#/components/schemas/V0Financials.Amount'
+    WithId_CustomerData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        required:
+        - id
+        type: object
+      - $ref: '#/components/schemas/CustomerData'
+    EmailSchedulingMethod:
+      properties:
+        contact:
+          $ref: '#/components/schemas/LocationContact'
+        type:
+          type: string
+          enum:
+          - EMAIL
+          nullable: false
+      required:
+      - contact
+      - type
+      type: object
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    Gps:
+      properties:
+        type:
+          type: string
+          enum:
+          - GPS
+          nullable: false
+      required:
+      - type
+      type: object
+    V0Location.OrderStopLocation:
+      $ref: '#/components/schemas/MayHaveID_Omit_LocationData.scheduling__'
+    TrackingUpdateEvent:
+      $ref: '#/components/schemas/V0TrackingUpdate.TrackingUpdateEvent'
+    LocationUpdatedEvent:
+      properties:
+        location:
+          $ref: '#/components/schemas/Location'
+        event:
+          type: string
+          enum:
+          - location.updated
+          nullable: false
+      required:
+      - location
+      - event
+      type: object
+    V0Accessorial.Accessorial:
+      anyOf:
+      - $ref: '#/components/schemas/Tarping'
+      - $ref: '#/components/schemas/Liftgate'
+      - $ref: '#/components/schemas/HeadacheRack'
+      - $ref: '#/components/schemas/CoilRack'
+      - $ref: '#/components/schemas/PipeStakes'
+      - $ref: '#/components/schemas/Gps'
+      - $ref: '#/components/schemas/OverDimension'
+      - $ref: '#/components/schemas/BlindShipment'
+      - $ref: '#/components/schemas/DriverAssistance'
+      - $ref: '#/components/schemas/Scale'
+      - $ref: '#/components/schemas/Straps'
+      - $ref: '#/components/schemas/Team'
+      - $ref: '#/components/schemas/Transloading'
+      - $ref: '#/components/schemas/Ppe'
+      - $ref: '#/components/schemas/ChainsAndBinders'
+      - $ref: '#/components/schemas/Dunnage'
+      - $ref: '#/components/schemas/FoodGrade'
+      - $ref: '#/components/schemas/Twic'
+      - $ref: '#/components/schemas/LimitedAccess'
+      - $ref: '#/components/schemas/InsidePickup'
+      - $ref: '#/components/schemas/InsideDelivery'
+      - $ref: '#/components/schemas/Permit'
+      - $ref: '#/components/schemas/Other'
+    EquipmentType:
+      enum:
+      - BOX_TRUCK
+      - CARGO_VAN
+      - CONESTOGA
+      - CONTAINER
+      - DOUBLE_DROP
+      - DRY_VAN
+      - FLATBED
+      - HOT_SHOT
+      - LOW_BOY
+      - POWER_ONLY
+      - REEFER
+      - REMOVABLE_GOOSENECK
+      - SPRINTER_VAN
+      - STEP_DECK
+      - STRAIGHT_TRUCK
+      - AUTO_CARRIER
+      - VAN_OR_REEFER
+      - FLATBED_OR_STEP_DECK
+      - OTHER
+      type: string
+    V0Route.OrderRoute:
+      properties:
+        stops:
+          items:
+            $ref: '#/components/schemas/OrderStop'
+          type: array
+        mileage:
+          $ref: '#/components/schemas/Mileage'
+      required:
+      - stops
+      type: object
+    Liftgate:
+      properties:
+        type:
+          type: string
+          enum:
+          - LIFTGATE
+          nullable: false
+      required:
+      - type
+      type: object
+    Tarping:
+      properties:
+        size:
+          $ref: '#/components/schemas/Dimension'
+        type:
+          type: string
+          enum:
+          - TARPING
+          nullable: false
+      required:
+      - size
+      - type
+      type: object
+    Accessorial:
+      $ref: '#/components/schemas/V0Accessorial.Accessorial'
+    TrackingUpdateStop:
+      properties:
+        type:
+          $ref: '#/components/schemas/StopType'
+        stopIndex:
+          type: number
+          format: double
+      required:
+      - stopIndex
+      type: object
+    V0User.User:
+      $ref: '#/components/schemas/WithId_UserData_'
+    MayHaveID_Omit_LocationData.scheduling__:
       allOf:
       - properties:
           id:
             type: string
         type: object
-      - $ref: '#/components/schemas/ContactData'
-    TrackingUpdateEvent:
-      $ref: '#/components/schemas/V0TrackingUpdate.TrackingUpdateEvent'
-    PortalSchedulingDetails:
+      - $ref: '#/components/schemas/Omit_LocationData.scheduling_'
+    V0Dimensions.Dimensions:
       properties:
-        portal:
-          $ref: '#/components/schemas/Portal'
-      required:
-      - portal
+        height:
+          $ref: '#/components/schemas/Dimension'
+        width:
+          $ref: '#/components/schemas/Dimension'
+        length:
+          $ref: '#/components/schemas/Dimension'
       type: object
-    V0.Document:
-      properties:
-        url:
-          type: string
-        id:
-          type: string
-      required:
-      - url
-      - id
-      type: object
-    AppointmentUpdatedEvent:
-      $ref: '#/components/schemas/V0Appointment.AppointmentUpdatedEvent'
-    PipeStakes:
-      properties:
-        type:
-          type: string
-          enum:
-          - PIPE_STAKES
-          nullable: false
-      required:
-      - type
-      type: object
-    MovementExternalIdentifier:
-      properties:
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/MovementExternalIdentifierType'
-          - type: string
-        value:
-          type: string
-      required:
-      - type
-      - value
-      type: object
-      additionalProperties: false
+    OrderStopLocation:
+      $ref: '#/components/schemas/V0Location.OrderStopLocation'
     Temperature:
       properties:
         units:
@@ -1557,32 +915,379 @@ components:
       required:
       - units
       type: object
-    V0Equipment.Equipment:
+    V0.Document:
+      properties:
+        url:
+          type: string
+        id:
+          type: string
+      required:
+      - url
+      - id
+      type: object
+    Reference:
+      $ref: '#/components/schemas/V0Reference.Reference'
+    Team:
       properties:
         type:
-          anyOf:
-          - $ref: '#/components/schemas/EquipmentType'
-          - type: string
-          description: Typically one of the EquipmentType enum values but subject to change
-        equipmentLength:
-          $ref: '#/components/schemas/Dimension'
-        temperature:
-          $ref: '#/components/schemas/Temperature'
-        description:
           type: string
+          enum:
+          - TEAM
+          nullable: false
       required:
       - type
       type: object
-      additionalProperties: false
-    TrackingUpdateStop:
+    DimensionUnits:
+      enum:
+      - IN
+      - CM
+      - FT
+      type: string
+    Straps:
+      properties:
+        numberRequired:
+          type: number
+          format: double
+        type:
+          type: string
+          enum:
+          - STRAPS
+          nullable: false
+      required:
+      - type
+      type: object
+    PipeStakes:
       properties:
         type:
-          $ref: '#/components/schemas/StopType'
-        stopIndex:
+          type: string
+          enum:
+          - PIPE_STAKES
+          nullable: false
+      required:
+      - type
+      type: object
+    MayHaveID_LocationData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/LocationData'
+    CarrierContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          carrierId:
+            type: string
+        required:
+        - carrierId
+        type: object
+    Address:
+      properties:
+        country:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        addressTwo:
+          type: string
+        addressOne:
+          type: string
+      type: object
+    Equipment:
+      $ref: '#/components/schemas/V0Equipment.Equipment'
+    DateTimeRange:
+      $ref: '#/components/schemas/V0Datetime.DateTimeRange'
+    BlindShipment:
+      properties:
+        type:
+          type: string
+          enum:
+          - BLIND_SHIPMENT
+          nullable: false
+      required:
+      - type
+      type: object
+    ChainsAndBinders:
+      properties:
+        type:
+          type: string
+          enum:
+          - CHAINS_AND_BINDERS
+          nullable: false
+      required:
+      - type
+      type: object
+    PhoneSchedulingMethod:
+      properties:
+        contact:
+          $ref: '#/components/schemas/LocationContact'
+        type:
+          type: string
+          enum:
+          - PHONE
+          nullable: false
+      required:
+      - contact
+      - type
+      type: object
+    CustomerExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/CustomerExternalIdentifierType'
+          - type: string
+          description: Typically one of the CustomerExternalIdentifierType enum values, but strings are also allowed
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    StopType:
+      enum:
+      - PICKUP
+      - DELIVERY
+      type: string
+    OrderStopData:
+      allOf:
+      - $ref: '#/components/schemas/CommonStopData'
+      - properties:
+          location:
+            $ref: '#/components/schemas/OrderStopLocation'
+        required:
+        - location
+        type: object
+    PortalSchedulingDetails:
+      properties:
+        portal:
+          $ref: '#/components/schemas/Portal'
+      required:
+      - portal
+      type: object
+    CarrierCreatedEvent:
+      $ref: '#/components/schemas/V0Carrier.CarrierCreatedEvent'
+    CarrierData:
+      properties:
+        equipment:
+          items:
+            $ref: '#/components/schemas/CarrierEquipment'
+          type: array
+        contacts:
+          items:
+            $ref: '#/components/schemas/CarrierContact'
+          type: array
+        dotNumber:
+          type: string
+        mcNumber:
+          type: string
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    LocationContact:
+      $ref: '#/components/schemas/V0Contact.LocationContact'
+    MayHaveID_CustomerData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/CustomerData'
+    UserExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/UserExternalIdentifierType'
+          - type: string
+          description: 'Typically one of the UserExternalIdentifierType enum values
+
+            but subject to change'
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    TrackingUpdate:
+      properties:
+        trackingStatus:
+          allOf:
+          - $ref: '#/components/schemas/TrackingStatus'
+          nullable: true
+        currentLocation:
+          allOf:
+          - $ref: '#/components/schemas/Address'
+          nullable: true
+          description: The current location of the carrier.
+        departedAt:
+          type: string
+          nullable: true
+          description: Timestamp that the carrier departed from the current stop.
+        arrivedAt:
+          type: string
+          nullable: true
+          description: Timestamp that the carrier arrived at the current stop.
+        trackingComment:
+          type: string
+          nullable: true
+          description: A free-form comment with tracking-related information.
+        stop:
+          $ref: '#/components/schemas/TrackingUpdateStop'
+          description: The relevant stop (if any) to the tracking update.
+        movement:
+          $ref: '#/components/schemas/TrackingUpdateMovement'
+          description: Identifiers for the relevant movement.
+      required:
+      - movement
+      type: object
+    HazmatClassification:
+      properties:
+        qualifier:
+          anyOf:
+          - $ref: '#/components/schemas/HazmatClassQualifier'
+          - type: string
+        hazardClass:
+          anyOf:
+          - $ref: '#/components/schemas/HazmatClass'
+          - type: string
+      required:
+      - qualifier
+      - hazardClass
+      type: object
+    Attributes:
+      $ref: '#/components/schemas/V0Attributes.Attributes'
+    OrderUpdatedEvent:
+      $ref: '#/components/schemas/V0Order.OrderUpdatedEvent'
+    CoilRack:
+      properties:
+        type:
+          type: string
+          enum:
+          - COIL_RACK
+          nullable: false
+      required:
+      - type
+      type: object
+    BaseContactData:
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+      type: object
+    Carrier:
+      $ref: '#/components/schemas/MayHaveID_CarrierData_'
+    MayHaveID_AppointmentData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/AppointmentData'
+    Permit:
+      properties:
+        type:
+          type: string
+          enum:
+          - PERMIT
+          nullable: false
+      required:
+      - type
+      type: object
+    V0Dimensions.Dimension:
+      properties:
+        value:
+          type: number
+          format: double
+        units:
+          anyOf:
+          - $ref: '#/components/schemas/DimensionUnits'
+          - type: string
+          description: Typically one of the DimensionUnits enum values but subject to change
+      required:
+      - value
+      - units
+      type: object
+      additionalProperties: false
+    TemperatureUnits:
+      enum:
+      - F
+      - C
+      type: string
+    V0Cargo.Commodity:
+      properties:
+        isStackable:
+          type: boolean
+        itemReference:
+          $ref: '#/components/schemas/Reference'
+        dimensions:
+          $ref: '#/components/schemas/Dimensions'
+        weight:
+          $ref: '#/components/schemas/Weight'
+        hazmat:
+          $ref: '#/components/schemas/HazmatDetails'
+        nmfcCode:
+          type: string
+        freightClass:
+          type: string
+        pieceUnits:
+          anyOf:
+          - $ref: '#/components/schemas/ShippingUnits'
+          - type: string
+        pieceQuantity:
+          type: number
+          format: double
+        handlingUnits:
+          anyOf:
+          - $ref: '#/components/schemas/ShippingUnits'
+          - type: string
+        handlingQuantity:
+          type: number
+          format: double
+        description:
+          type: string
+      required:
+      - description
+      type: object
+    TrackingStatus:
+      type: string
+    LocationExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/LocationExternalIdentifierType'
+          - type: string
+          description: 'Typically one of the LocationExternalIdentifierType enum values
+
+            but subject to change'
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    Mileage:
+      properties:
+        uom:
+          $ref: '#/components/schemas/MileageUnits'
+        value:
           type: number
           format: double
       required:
-      - stopIndex
+      - uom
+      - value
       type: object
     V0ExternalId.ExternalIdentifier:
       properties:
@@ -1597,65 +1302,55 @@ components:
       - value
       type: object
       additionalProperties: false
-    MayHaveID_CarrierData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/CarrierData'
-    WithId_CustomerData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        required:
-        - id
-        type: object
-      - $ref: '#/components/schemas/CustomerData'
-    HazmatClassQualifier:
-      type: string
+    DrayageSubtype:
       enum:
-      - P
-      - S
-    OrderStopLocation:
-      $ref: '#/components/schemas/V0Location.OrderStopLocation'
-    Dimensions:
-      $ref: '#/components/schemas/V0Dimensions.Dimensions'
-    Scale:
+      - IMPORT
+      - EXPORT
+      type: string
+    WeightUnits:
+      enum:
+      - LB
+      - KG
+      type: string
+    HazmatContact:
+      allOf:
+      - $ref: '#/components/schemas/Contact'
+      - properties:
+          reference:
+            $ref: '#/components/schemas/Reference'
+        type: object
+    MovementExternalIdentifier:
       properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/MovementExternalIdentifierType'
+          - type: string
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    User:
+      $ref: '#/components/schemas/V0User.User'
+    Other:
+      properties:
+        description:
+          type: string
         type:
           type: string
           enum:
-          - SCALE
+          - OTHER
           nullable: false
       required:
+      - description
       - type
       type: object
-    CustomerCreatedEvent:
-      properties:
-        customer:
-          $ref: '#/components/schemas/Customer'
-        event:
-          type: string
-          enum:
-          - customer.created
-          nullable: false
-      required:
-      - customer
-      - event
-      type: object
-    V0User.UserData:
-      properties:
-        externalIds:
-          items:
-            $ref: '#/components/schemas/UserExternalIdentifier'
-          type: array
-      required:
-      - externalIds
-      type: object
-    Attributes:
-      $ref: '#/components/schemas/V0Attributes.Attributes'
+    ExternalIdentifierType:
+      enum:
+      - CUSTOM
+      type: string
     V0Datetime.DateTimeRange:
       properties:
         startDate:
@@ -1679,17 +1374,97 @@ components:
       - startDate
       type: object
       additionalProperties: false
-    V0Financials.Amount:
+    DriverAssistance:
       properties:
-        uom:
-          $ref: '#/components/schemas/CurrencyUnits'
-        value:
+        type:
+          type: string
+          enum:
+          - DRIVER_ASSISTANCE
+          nullable: false
+      required:
+      - type
+      type: object
+    LineItem:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/LineItemType'
+          - type: string
+          description: Typically one of the LineItemType enum values but subject to change
+        description:
+          type: string
+        amount:
+          $ref: '#/components/schemas/Amount'
+      required:
+      - description
+      - amount
+      type: object
+      additionalProperties: false
+    CustomerUpdatedEvent:
+      properties:
+        customer:
+          $ref: '#/components/schemas/Customer'
+        event:
+          type: string
+          enum:
+          - customer.updated
+          nullable: false
+      required:
+      - customer
+      - event
+      type: object
+    Dunnage:
+      properties:
+        type:
+          type: string
+          enum:
+          - DUNNAGE
+          nullable: false
+      required:
+      - type
+      type: object
+    FreightModeDetails:
+      $ref: '#/components/schemas/V0Mode.FreightModeDetails'
+    ContactData:
+      anyOf:
+      - $ref: '#/components/schemas/CarrierContactData'
+      - $ref: '#/components/schemas/CustomerContactData'
+      - $ref: '#/components/schemas/LocationContactData'
+    UserData:
+      $ref: '#/components/schemas/V0User.UserData'
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
+    V0Attributes.Attributes:
+      properties: {}
+      additionalProperties:
+        type: string
+      type: object
+    V0Schedule.SchedulingDetails:
+      properties:
+        maxDaysAhead:
           type: number
           format: double
+        notes:
+          type: string
+        methods:
+          items:
+            $ref: '#/components/schemas/SchedulingMethod'
+          type: array
       required:
-      - uom
-      - value
+      - methods
       type: object
+    OrderRoute:
+      $ref: '#/components/schemas/V0Route.OrderRoute'
+    Environment:
+      enum:
+      - TEST
+      - PRODUCTION
+      type: string
     PortalSchedulingMethod:
       properties:
         details:
@@ -1703,138 +1478,22 @@ components:
       - details
       - type
       type: object
-    LocationExternalIdentifier:
+    V0Appointment.AppointmentUpdatedEvent:
       properties:
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/LocationExternalIdentifierType'
-          - type: string
-          description: 'Typically one of the LocationExternalIdentifierType enum values
-
-            but subject to change'
-        value:
-          type: string
-      required:
-      - type
-      - value
-      type: object
-      additionalProperties: false
-    MileageUnits:
-      enum:
-      - MI
-      - KM
-      type: string
-    LineItemType:
-      enum:
-      - FREIGHT_FLAT
-      - FREIGHT_PER_MILE
-      - FUEL
-      - FUEL_FLAT
-      - FUEL_PER_MILE
-      - FREIGHT_PER_CONTAINER
-      - CHASSIS
-      - OVERWEIGHT
-      - PRE_PULL
-      - STORAGE
-      - DETENTION
-      - TMF_PIER_PASS
-      - PORT_FEE
-      - REDELIVERY
-      - EXTRA_MILES
-      - TRANSLOAD
-      - ESCORT
-      - EXPEDITED
-      - CHASSIS_SPLIT
-      - OTHER
-      type: string
-    TrackingUpdateMovement:
-      properties:
-        externalIds:
-          items:
-            $ref: '#/components/schemas/MovementExternalIdentifier'
-          type: array
-        id:
-          type: string
-      required:
-      - externalIds
-      - id
-      type: object
-    DimensionUnits:
-      enum:
-      - IN
-      - CM
-      - FT
-      type: string
-    DateTimeRangeType:
-      enum:
-      - FACILITY_HOURS
-      - APPOINTMENT
-      type: string
-    SchedulingDetails:
-      $ref: '#/components/schemas/V0Schedule.SchedulingDetails'
-    HazmatContact:
-      allOf:
-      - $ref: '#/components/schemas/Contact'
-      - properties:
-          reference:
-            $ref: '#/components/schemas/Reference'
-        type: object
-    Transloading:
-      properties:
-        type:
+        appointment:
+          $ref: '#/components/schemas/Appointment'
+        event:
           type: string
           enum:
-          - TRANSLOADING
+          - appointment.updated
           nullable: false
       required:
-      - type
+      - appointment
+      - event
       type: object
-    Weight:
-      $ref: '#/components/schemas/V0Weight.Weight'
-    CustomerExternalIdentifier:
-      properties:
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/CustomerExternalIdentifierType'
-          - type: string
-          description: Typically one of the CustomerExternalIdentifierType enum values, but strings are also allowed
-        value:
-          type: string
-      required:
-      - type
-      - value
-      type: object
-      additionalProperties: false
-    EmailSchedulingMethod:
-      properties:
-        contact:
-          $ref: '#/components/schemas/LocationContact'
-        type:
-          type: string
-          enum:
-          - EMAIL
-          nullable: false
-      required:
-      - contact
-      - type
-      type: object
-    LocationContactData:
-      $ref: '#/components/schemas/BaseContactData'
-    V0Shipment.ChargesToCustomer:
-      properties:
-        lineItems:
-          items:
-            $ref: '#/components/schemas/LineItem'
-          type: array
-      required:
-      - lineItems
-      type: object
-    Dimension:
-      $ref: '#/components/schemas/V0Dimensions.Dimension'
-    Cargo:
-      $ref: '#/components/schemas/V0Cargo.Cargo'
-    Equipment:
-      $ref: '#/components/schemas/V0Equipment.Equipment'
+    Omit_LocationData.scheduling_:
+      $ref: '#/components/schemas/Pick_LocationData.Exclude_keyofLocationData.scheduling__'
+      description: Construct a type with the properties of T except for those in type K.
     HazmatClass:
       type: string
       enum:
@@ -1863,13 +1522,354 @@ components:
       - '5.2'
       - '6.1'
       - '6.2'
-    MayHaveID_LocationData_:
+    V0Order.OrderUpdatedEvent:
+      properties:
+        order:
+          $ref: '#/components/schemas/Order'
+        event:
+          type: string
+          enum:
+          - order.updated
+          nullable: false
+      required:
+      - order
+      - event
+      type: object
+    WithId_OrderData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        required:
+        - id
+        type: object
+      - $ref: '#/components/schemas/OrderData'
+    Document:
+      $ref: '#/components/schemas/V0.Document'
+    V0Stop.OrderStop:
+      $ref: '#/components/schemas/MayHaveID_OrderStopData_'
+    MayHaveID_LocationContactData_:
       allOf:
       - properties:
           id:
             type: string
         type: object
-      - $ref: '#/components/schemas/LocationData'
+      - $ref: '#/components/schemas/LocationContactData'
+    LimitedAccess:
+      properties:
+        type:
+          type: string
+          enum:
+          - LIMITED_ACCESS
+          nullable: false
+      required:
+      - type
+      type: object
+    InsideDelivery:
+      properties:
+        type:
+          type: string
+          enum:
+          - INSIDE_DELIVERY
+          nullable: false
+      required:
+      - type
+      type: object
+    FreightMode:
+      enum:
+      - TRUCKLOAD
+      - LTL
+      - PARTIAL_TRUCKLOAD
+      - INTERMODAL
+      - DRAYAGE
+      - PARCEL
+      type: string
+    SchedulingDetails:
+      $ref: '#/components/schemas/V0Schedule.SchedulingDetails'
+    ShippingUnits:
+      enum:
+      - BAGS
+      - BALES
+      - BOTTLES
+      - BOXES
+      - BUNDLES
+      - CARTONS
+      - CASES
+      - CRATES
+      - DRUMS
+      - PACKAGES
+      - PAILS
+      - PALLETS
+      - PIECES
+      - ROLLS
+      - SKIDS
+      - TRUCKLOADS
+      - TUBES
+      - UNITS
+      - VEHICLES
+      type: string
+    CurrencyUnits:
+      enum:
+      - USD
+      - CAD
+      type: string
+    ChargesToCustomer:
+      $ref: '#/components/schemas/V0Shipment.ChargesToCustomer'
+    OverDimension:
+      properties:
+        type:
+          type: string
+          enum:
+          - OVER_DIMENSION
+          nullable: false
+      required:
+      - type
+      type: object
+    Dimensions:
+      $ref: '#/components/schemas/V0Dimensions.Dimensions'
+    UserExternalIdentifierType:
+      enum:
+      - CUSTOM
+      - EMAIL
+      - PHONE
+      - VOOMA_USERNAME
+      type: string
+    Dimension:
+      $ref: '#/components/schemas/V0Dimensions.Dimension'
+    V0Equipment.Equipment:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/EquipmentType'
+          - type: string
+          description: Typically one of the EquipmentType enum values but subject to change
+        equipmentLength:
+          $ref: '#/components/schemas/Dimension'
+        temperature:
+          $ref: '#/components/schemas/Temperature'
+        description:
+          type: string
+      required:
+      - type
+      type: object
+      additionalProperties: false
+    LineItemType:
+      enum:
+      - FREIGHT_FLAT
+      - FREIGHT_PER_MILE
+      - FUEL
+      - FUEL_FLAT
+      - FUEL_PER_MILE
+      - FREIGHT_PER_CONTAINER
+      - CHASSIS
+      - OVERWEIGHT
+      - PRE_PULL
+      - STORAGE
+      - DETENTION
+      - TMF_PIER_PASS
+      - PORT_FEE
+      - REDELIVERY
+      - EXTRA_MILES
+      - TRANSLOAD
+      - ESCORT
+      - EXPEDITED
+      - CHASSIS_SPLIT
+      - OTHER
+      type: string
+    CustomerCreatedEvent:
+      properties:
+        customer:
+          $ref: '#/components/schemas/Customer'
+        event:
+          type: string
+          enum:
+          - customer.created
+          nullable: false
+      required:
+      - customer
+      - event
+      type: object
+    AppointmentUpdatedEvent:
+      $ref: '#/components/schemas/V0Appointment.AppointmentUpdatedEvent'
+    DateTimeRangeType:
+      enum:
+      - FACILITY_HOURS
+      - APPOINTMENT
+      type: string
+    V0Cargo.Cargo:
+      properties:
+        declaredValue:
+          $ref: '#/components/schemas/Amount'
+        dimensions:
+          $ref: '#/components/schemas/Dimensions'
+        totalWeight:
+          $ref: '#/components/schemas/Weight'
+        commodities:
+          items:
+            $ref: '#/components/schemas/Commodity'
+          type: array
+      required:
+      - commodities
+      type: object
+    V0Carrier.CarrierUpdatedEvent:
+      properties:
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+        event:
+          type: string
+          enum:
+          - carrier.updated
+          nullable: false
+      required:
+      - carrier
+      - event
+      type: object
+    GeoCoordinates:
+      properties:
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+      required:
+      - longitude
+      - latitude
+      type: object
+    V0Financials.Amount:
+      properties:
+        uom:
+          $ref: '#/components/schemas/CurrencyUnits'
+        value:
+          type: number
+          format: double
+      required:
+      - uom
+      - value
+      type: object
+    V0Contact.LocationContact:
+      $ref: '#/components/schemas/MayHaveID_LocationContactData_'
+    TrackingUpdateMovement:
+      properties:
+        externalIds:
+          items:
+            $ref: '#/components/schemas/MovementExternalIdentifier'
+          type: array
+        id:
+          type: string
+      required:
+      - externalIds
+      - id
+      type: object
+    CustomerData:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+        name:
+          type: string
+        externalIds:
+          items:
+            $ref: '#/components/schemas/CustomerExternalIdentifier'
+          type: array
+      required:
+      - name
+      - externalIds
+      type: object
+    OrderCreatedEvent:
+      $ref: '#/components/schemas/V0Order.OrderCreatedEvent'
+    V0Shipment.ChargesToCustomer:
+      properties:
+        lineItems:
+          items:
+            $ref: '#/components/schemas/LineItem'
+          type: array
+      required:
+      - lineItems
+      type: object
+    Scale:
+      properties:
+        type:
+          type: string
+          enum:
+          - SCALE
+          nullable: false
+      required:
+      - type
+      type: object
+    AppointmentData:
+      properties:
+        confirmationNumber:
+          type: string
+        timezone:
+          type: string
+          description: Optional timezone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format e.g. "America/New_York" or "UTC".
+        confirmedDatetimeUTC:
+          type: string
+          format: date-time
+          description: Optional ISO 8601 UTC datetime in format 2025-02-19T18:00Z for the time that Vooma confirmed the appointment.
+        confirmedDatetime:
+          type: string
+          format: date-time
+          description: Optional ISO 8601 local datetime in format 2025-02-19T13:00-05:00 for the time that Vooma confirmed the appointment. This will end in +00:00 if we are missing timezone information.
+        requestedDatetimeUTC:
+          type: string
+          format: date-time
+          description: Optional ISO 8601 UTC datetime in format 2025-02-19T18:00Z for the time that Vooma requested the appointment.
+        requestedDatetime:
+          type: string
+          format: date-time
+          description: Optional ISO 8601 local datetime in format 2025-02-19T13:00-05:00 for the time that Vooma requested the appointment. This will end in +00:00 if we are missing timezone information.
+        stopIndex:
+          type: number
+          format: double
+        movementid:
+          type: string
+        status:
+          $ref: '#/components/schemas/AppointmentStatus'
+      required:
+      - requestedDatetimeUTC
+      - requestedDatetime
+      - stopIndex
+      - status
+      type: object
+    FacilityHours:
+      properties:
+        sunday:
+          $ref: '#/components/schemas/DayHours'
+        saturday:
+          $ref: '#/components/schemas/DayHours'
+        friday:
+          $ref: '#/components/schemas/DayHours'
+        thursday:
+          $ref: '#/components/schemas/DayHours'
+        wednesday:
+          $ref: '#/components/schemas/DayHours'
+        tuesday:
+          $ref: '#/components/schemas/DayHours'
+        monday:
+          $ref: '#/components/schemas/DayHours'
+      type: object
+    AppointmentStatus:
+      description: 'NEW: all appointments start with this status.
+
+        REQUESTED: set after an appointment request has been made such as an email sent out or Vooma navigating a portal.
+
+        CONFIRMED: when a facility agrees to an appointment.
+
+        ESCALATED: if Vooma needs to ask a person for help scheduling an appointment.
+
+        ABORTED: Vooma ending its attempt to schedule an appointment.'
+      enum:
+      - NEW
+      - REQUESTED
+      - CONFIRMED
+      - ESCALATED
+      - ABORTED
+      type: string
+    Customer:
+      $ref: '#/components/schemas/WithId_CustomerData_'
   securitySchemes:
     basic:
       scheme: basic

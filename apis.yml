@@ -55,18 +55,18 @@ tags:
 - Freight
 - Logistics
 - Transportation
-- Brokers
 - TMS
 - Agents
+- Freight Brokerage
 tags_raw:
 - Company
 - AI
 - Freight
 - Logistics
 - Transportation
-- Brokers
 - TMS
 - Agents
+- Freight Brokerage
 apis:
 - aid: vooma:vooma-carriers-api
   name: Vooma Carriers API
@@ -275,3 +275,5 @@ common:
   url: skills/_index.yml
 - type: Overlay
   url: overlays/vooma-openapi-overlay.yaml
+x-tags-removed:
+- Brokers

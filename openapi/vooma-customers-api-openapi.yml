@@ -108,28 +108,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CreateCustomerInput:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.CreateCustomerInput'
-    CustomerContactData:
-      allOf:
-      - $ref: '#/components/schemas/BaseContactData'
-      - properties:
-          customerId:
-            type: string
-        required:
-        - customerId
-        type: object
-    UpdateCustomerData:
+    VoomaPublicAPIv0.UpdateCustomerInput:
       properties:
-        name:
-          type: string
-        externalIds:
-          items:
-            $ref: '#/components/schemas/CustomerExternalIdentifier'
-          type: array
+        customer:
+          $ref: '#/components/schemas/UpdateCustomerData'
       required:
-      - name
-      - externalIds
+      - customer
+      type: object
+    VoomaPublicAPIv0.CreateCustomerInput:
+      properties:
+        customer:
+          $ref: '#/components/schemas/CustomerData'
+      required:
+      - customer
       type: object
     WithId_CustomerData_:
       allOf:
@@ -140,8 +131,6 @@ components:
         - id
         type: object
       - $ref: '#/components/schemas/CustomerData'
-    LocationContactData:
-      $ref: '#/components/schemas/BaseContactData'
     VoomaPublicAPIv0.GetCustomerPayload:
       properties:
         customer:
@@ -149,32 +138,26 @@ components:
       required:
       - customer
       type: object
-    BaseContactData:
-      properties:
-        name:
-          type: string
-        phone:
-          type: string
-        email:
-          type: string
-        role:
-          type: string
-      type: object
-    VoomaPublicAPIv0.GetCustomersPayload:
-      properties:
-        customers:
-          items:
-            $ref: '#/components/schemas/Customer'
-          type: array
-      required:
-      - customers
-      type: object
-    GetCustomersPayload:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.GetCustomersPayload'
     PaginatedResponse:
       $ref: '#/components/schemas/VoomaPublicAPIv0.PaginatedResponse'
-    GetCustomersInput:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.GetCustomersInput'
+    CreateCustomerInput:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.CreateCustomerInput'
+    Pagination:
+      properties:
+        limit:
+          type: number
+          format: double
+        after:
+          type: string
+        before:
+          type: string
+        last:
+          type: number
+          format: double
+        first:
+          type: number
+          format: double
+      type: object
     CustomerExternalIdentifierType:
       enum:
       - ALJEX
@@ -207,44 +190,37 @@ components:
       - MICROSOFT_TEAMS
       - SLACK
       type: string
-    CreateCustomerPayload:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.CreateCustomerPayload'
+    ContactData:
+      anyOf:
+      - $ref: '#/components/schemas/CarrierContactData'
+      - $ref: '#/components/schemas/CustomerContactData'
+      - $ref: '#/components/schemas/LocationContactData'
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
+    VoomaPublicAPIv0.PaginatedResponse:
+      properties:
+        pageInfo:
+          properties:
+            endCursor:
+              type: string
+            startCursor:
+              type: string
+            hasPreviousPage:
+              type: boolean
+            hasNextPage:
+              type: boolean
+          type: object
+        totalCount:
+          type: number
+          format: double
+        count:
+          type: number
+          format: double
+      type: object
     V0Contact.Contact:
       $ref: '#/components/schemas/MayHaveID_ContactData_'
-    VoomaPublicAPIv0.UpdateCustomerInput:
-      properties:
-        customer:
-          $ref: '#/components/schemas/UpdateCustomerData'
-      required:
-      - customer
-      type: object
-    VoomaPublicAPIv0.GetCustomersInput:
-      properties:
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-        filterById:
-          type: string
-        search:
-          type: string
-      type: object
-    CustomerData:
-      properties:
-        contacts:
-          items:
-            $ref: '#/components/schemas/Contact'
-          type: array
-        name:
-          type: string
-        externalIds:
-          items:
-            $ref: '#/components/schemas/CustomerExternalIdentifier'
-          type: array
-      required:
-      - name
-      - externalIds
-      type: object
-    UpdateCustomerInput:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.UpdateCustomerInput'
+    GetCustomersPayload:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.GetCustomersPayload'
     CarrierContactData:
       allOf:
       - $ref: '#/components/schemas/BaseContactData'
@@ -254,40 +230,8 @@ components:
         required:
         - carrierId
         type: object
-    ContactData:
-      anyOf:
-      - $ref: '#/components/schemas/CarrierContactData'
-      - $ref: '#/components/schemas/CustomerContactData'
-      - $ref: '#/components/schemas/LocationContactData'
-    Pagination:
-      properties:
-        limit:
-          type: number
-          format: double
-        after:
-          type: string
-        before:
-          type: string
-        last:
-          type: number
-          format: double
-        first:
-          type: number
-          format: double
-      type: object
-    MayHaveID_ContactData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/ContactData'
-    Contact:
-      $ref: '#/components/schemas/V0Contact.Contact'
     GetCustomerPayload:
       $ref: '#/components/schemas/VoomaPublicAPIv0.GetCustomerPayload'
-    Customer:
-      $ref: '#/components/schemas/WithId_CustomerData_'
     DuplicatePayload:
       properties:
         customer:
@@ -315,36 +259,92 @@ components:
       - value
       type: object
       additionalProperties: false
-    VoomaPublicAPIv0.CreateCustomerInput:
+    BaseContactData:
       properties:
-        customer:
-          $ref: '#/components/schemas/CustomerData'
-      required:
-      - customer
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
       type: object
+    GetCustomersInput:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.GetCustomersInput'
+    UpdateCustomerData:
+      properties:
+        name:
+          type: string
+        externalIds:
+          items:
+            $ref: '#/components/schemas/CustomerExternalIdentifier'
+          type: array
+      required:
+      - name
+      - externalIds
+      type: object
+    Customer:
+      $ref: '#/components/schemas/WithId_CustomerData_'
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
+    CustomerData:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+        name:
+          type: string
+        externalIds:
+          items:
+            $ref: '#/components/schemas/CustomerExternalIdentifier'
+          type: array
+      required:
+      - name
+      - externalIds
+      type: object
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    CustomerContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          customerId:
+            type: string
+        required:
+        - customerId
+        type: object
+    VoomaPublicAPIv0.GetCustomersPayload:
+      properties:
+        customers:
+          items:
+            $ref: '#/components/schemas/Customer'
+          type: array
+      required:
+      - customers
+      type: object
+    CreateCustomerPayload:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.CreateCustomerPayload'
     VoomaPublicAPIv0.CreateCustomerPayload:
       anyOf:
       - $ref: '#/components/schemas/Customer'
       - $ref: '#/components/schemas/DuplicatePayload'
-    VoomaPublicAPIv0.PaginatedResponse:
+    UpdateCustomerInput:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.UpdateCustomerInput'
+    VoomaPublicAPIv0.GetCustomersInput:
       properties:
-        pageInfo:
-          properties:
-            endCursor:
-              type: string
-            startCursor:
-              type: string
-            hasPreviousPage:
-              type: boolean
-            hasNextPage:
-              type: boolean
-          type: object
-        totalCount:
-          type: number
-          format: double
-        count:
-          type: number
-          format: double
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        filterById:
+          type: string
+        search:
+          type: string
       type: object
   securitySchemes:
     basic:

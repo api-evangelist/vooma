@@ -83,35 +83,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DeleteContactPayload:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.DeleteContactPayload'
-    VoomaPublicAPIv0.DeleteContactPayload:
-      properties:
-        success:
-          type: boolean
-      required:
-      - success
-      type: object
-    V0Contact.Contact:
-      $ref: '#/components/schemas/MayHaveID_ContactData_'
-    VoomaPublicAPIv0.BulkCreateContactsInput:
-      properties:
-        contacts:
-          items:
-            $ref: '#/components/schemas/ContactData'
-          type: array
-      required:
-      - contacts
-      type: object
-    CarrierContactData:
-      allOf:
-      - $ref: '#/components/schemas/BaseContactData'
-      - properties:
-          carrierId:
-            type: string
-        required:
-        - carrierId
-        type: object
     CustomerContactData:
       allOf:
       - $ref: '#/components/schemas/BaseContactData'
@@ -121,20 +92,24 @@ components:
         required:
         - customerId
         type: object
+    BulkCreateContactsInput:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsInput'
     ContactData:
       anyOf:
       - $ref: '#/components/schemas/CarrierContactData'
       - $ref: '#/components/schemas/CustomerContactData'
       - $ref: '#/components/schemas/LocationContactData'
-    BulkCreateContactsPayload:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsPayload'
-    MayHaveID_ContactData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/ContactData'
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
+    VoomaPublicAPIv0.UpdateContactInput:
+      properties:
+        contact:
+          $ref: '#/components/schemas/ContactData'
+      required:
+      - contact
+      type: object
+    V0Contact.Contact:
+      $ref: '#/components/schemas/MayHaveID_ContactData_'
     VoomaPublicAPIv0.BulkCreateContactsPayload:
       properties:
         contacts:
@@ -144,10 +119,6 @@ components:
       required:
       - contacts
       type: object
-    Contact:
-      $ref: '#/components/schemas/V0Contact.Contact'
-    LocationContactData:
-      $ref: '#/components/schemas/BaseContactData'
     BaseContactData:
       properties:
         name:
@@ -159,17 +130,46 @@ components:
         role:
           type: string
       type: object
+    DeleteContactPayload:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.DeleteContactPayload'
+    VoomaPublicAPIv0.BulkCreateContactsInput:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/ContactData'
+          type: array
+      required:
+      - contacts
+      type: object
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
     UpdateContactInput:
       $ref: '#/components/schemas/VoomaPublicAPIv0.UpdateContactInput'
-    BulkCreateContactsInput:
-      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsInput'
-    VoomaPublicAPIv0.UpdateContactInput:
+    VoomaPublicAPIv0.DeleteContactPayload:
       properties:
-        contact:
-          $ref: '#/components/schemas/ContactData'
+        success:
+          type: boolean
       required:
-      - contact
+      - success
       type: object
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    BulkCreateContactsPayload:
+      $ref: '#/components/schemas/VoomaPublicAPIv0.BulkCreateContactsPayload'
+    CarrierContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          carrierId:
+            type: string
+        required:
+        - carrierId
+        type: object
   securitySchemes:
     basic:
       scheme: basic

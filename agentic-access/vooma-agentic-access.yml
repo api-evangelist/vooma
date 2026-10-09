@@ -1,17 +1,19 @@
-generated: '2026-07-21'
+generated: '2026-09-23'
 method: generated
-source: openapi/vooma-openapi-original.json
+source: openapi/vooma-carriers-api-openapi.yml, openapi/vooma-contacts-api-openapi.yml, openapi/vooma-customers-api-openapi.yml,
+  openapi/vooma-locations-api-openapi.yml, openapi/vooma-movements-api-openapi.yml, openapi/vooma-quotes-api-openapi.yml,
+  openapi/vooma-shipments-api-openapi.yml, openapi/vooma-tracking-status-api-openapi.yml, openapi/vooma-webhooks-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 35
   by_action_class:
-    connected: 6
-    acting: 29
+    connected: 8
+    acting: 27
   by_consequence:
-    read: 6
-    write: 23
+    read: 8
+    write: 21
     safety-critical: 1
     physical: 5
   human_in_the_loop_required: 1
@@ -110,18 +112,12 @@ operations:
   method: post
   operationId: GetCustomers
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /customers/{customerId}
   method: get
   operationId: GetCustomer
@@ -280,6 +276,106 @@ operations:
     escalation:
       human-in-the-loop: required
     audit: required
+- path: /quotes/search
+  method: post
+  operationId: GetQuotes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /quotes/{quoteId}
+  method: get
+  operationId: GetQuote
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shipments/{shipmentId}
+  method: get
+  operationId: GetShipment
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shipments/{shipmentId}
+  method: put
+  operationId: UpdateShipment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /shipments/upsert
+  method: post
+  operationId: UpsertShipment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /shipments
+  method: post
+  operationId: CreateShipment
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /tracking-status
+  method: post
+  operationId: CreateTrackingStatus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /webhooks/onAppointmentUpdated
   method: post
   operationId: OnAppointmentUpdated
@@ -422,112 +518,6 @@ operations:
       max-ttl: 300
       exchange: true
       purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /quotes/search
-  method: post
-  operationId: GetQuotes
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /quotes/{quoteId}
-  method: get
-  operationId: GetQuote
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /shipments/{shipmentId}
-  method: get
-  operationId: GetShipment
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /shipments/{shipmentId}
-  method: put
-  operationId: UpdateShipment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /shipments/upsert
-  method: post
-  operationId: UpsertShipment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /shipments
-  method: post
-  operationId: CreateShipment
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /tracking-status
-  method: post
-  operationId: CreateTrackingStatus
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
     escalation:
       human-in-the-loop: conditional
       triggers:

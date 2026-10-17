@@ -83,14 +83,204 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CreateLocationPayload:
+    WithId_CustomerData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        required:
+        - id
+        type: object
+      - $ref: '#/components/schemas/CustomerData'
+    GetLocationPayload:
+      properties:
+        location:
+          $ref: '#/components/schemas/Location'
+      required:
+      - location
+      type: object
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    SchedulingMethod:
       anyOf:
-      - $ref: '#/components/schemas/Location'
-      - $ref: '#/components/schemas/DuplicatePayload'
+      - $ref: '#/components/schemas/EmailSchedulingMethod'
+      - $ref: '#/components/schemas/PhoneSchedulingMethod'
+      - $ref: '#/components/schemas/PortalSchedulingMethod'
+    Customer:
+      $ref: '#/components/schemas/WithId_CustomerData_'
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
+    DuplicatePayload:
+      properties:
+        customer:
+          $ref: '#/components/schemas/Customer'
+        error:
+          type: string
+          enum:
+          - DUPLICATE
+          nullable: false
+      required:
+      - customer
+      - error
+      type: object
     LocationContact:
       $ref: '#/components/schemas/V0Contact.LocationContact'
+    PortalSchedulingDetails:
+      properties:
+        portal:
+          $ref: '#/components/schemas/Portal'
+      required:
+      - portal
+      type: object
+    FacilityHours:
+      properties:
+        sunday:
+          $ref: '#/components/schemas/DayHours'
+        saturday:
+          $ref: '#/components/schemas/DayHours'
+        friday:
+          $ref: '#/components/schemas/DayHours'
+        thursday:
+          $ref: '#/components/schemas/DayHours'
+        wednesday:
+          $ref: '#/components/schemas/DayHours'
+        tuesday:
+          $ref: '#/components/schemas/DayHours'
+        monday:
+          $ref: '#/components/schemas/DayHours'
+      type: object
+    CustomerContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          customerId:
+            type: string
+        required:
+        - customerId
+        type: object
     SchedulingDetails:
       $ref: '#/components/schemas/V0Schedule.SchedulingDetails'
+    V0Contact.LocationContact:
+      $ref: '#/components/schemas/MayHaveID_LocationContactData_'
+    Location:
+      $ref: '#/components/schemas/MayHaveID_LocationData_'
+    PortalSchedulingMethod:
+      properties:
+        details:
+          $ref: '#/components/schemas/PortalSchedulingDetails'
+        type:
+          type: string
+          enum:
+          - PORTAL
+          nullable: false
+      required:
+      - details
+      - type
+      type: object
+    PhoneSchedulingMethod:
+      properties:
+        contact:
+          $ref: '#/components/schemas/LocationContact'
+        type:
+          type: string
+          enum:
+          - PHONE
+          nullable: false
+      required:
+      - contact
+      - type
+      type: object
+    CustomerData:
+      properties:
+        contacts:
+          items:
+            $ref: '#/components/schemas/Contact'
+          type: array
+        name:
+          type: string
+        externalIds:
+          items:
+            $ref: '#/components/schemas/CustomerExternalIdentifier'
+          type: array
+      required:
+      - name
+      - externalIds
+      type: object
+    V0Contact.Contact:
+      $ref: '#/components/schemas/MayHaveID_ContactData_'
+    LocationExternalIdentifierType:
+      enum:
+      - CUSTOM
+      - GOOGLE_PLACES
+      - TURVO
+      type: string
+    EmailSchedulingMethod:
+      properties:
+        contact:
+          $ref: '#/components/schemas/LocationContact'
+        type:
+          type: string
+          enum:
+          - EMAIL
+          nullable: false
+      required:
+      - contact
+      - type
+      type: object
+    GeoCoordinates:
+      properties:
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
+      required:
+      - longitude
+      - latitude
+      type: object
+    MayHaveID_LocationContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/LocationContactData'
+    LocationExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/LocationExternalIdentifierType'
+          - type: string
+          description: 'Typically one of the LocationExternalIdentifierType enum values
+
+            but subject to change'
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    CreateLocationInput:
+      properties:
+        location:
+          $ref: '#/components/schemas/LocationData'
+      required:
+      - location
+      type: object
+    UpdateLocationInput:
+      properties:
+        location:
+          $ref: '#/components/schemas/LocationData'
+      required:
+      - location
+      type: object
     Portal:
       type: string
       enum:
@@ -105,41 +295,28 @@ components:
       - OPENDOCK
       - RYDERSHARE
       - YARDVIEW
-    MayHaveID_LocationContactData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/LocationContactData'
-    WithId_CustomerData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        required:
-        - id
-        type: object
-      - $ref: '#/components/schemas/CustomerData'
-    LocationExternalIdentifierType:
-      enum:
-      - CUSTOM
-      - GOOGLE_PLACES
-      - TURVO
-      type: string
-    PortalSchedulingMethod:
+    Address:
       properties:
-        details:
-          $ref: '#/components/schemas/PortalSchedulingDetails'
-        type:
+        country:
           type: string
-          enum:
-          - PORTAL
-          nullable: false
-      required:
-      - details
-      - type
+        postalCode:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        addressTwo:
+          type: string
+        addressOne:
+          type: string
       type: object
+    MayHaveID_LocationData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/LocationData'
     CustomerExternalIdentifierType:
       enum:
       - ALJEX
@@ -177,99 +354,6 @@ components:
       - $ref: '#/components/schemas/CarrierContactData'
       - $ref: '#/components/schemas/CustomerContactData'
       - $ref: '#/components/schemas/LocationContactData'
-    Contact:
-      $ref: '#/components/schemas/V0Contact.Contact'
-    SchedulingMethod:
-      anyOf:
-      - $ref: '#/components/schemas/EmailSchedulingMethod'
-      - $ref: '#/components/schemas/PhoneSchedulingMethod'
-      - $ref: '#/components/schemas/PortalSchedulingMethod'
-    V0Contact.Contact:
-      $ref: '#/components/schemas/MayHaveID_ContactData_'
-    PhoneSchedulingMethod:
-      properties:
-        contact:
-          $ref: '#/components/schemas/LocationContact'
-        type:
-          type: string
-          enum:
-          - PHONE
-          nullable: false
-      required:
-      - contact
-      - type
-      type: object
-    V0Contact.LocationContact:
-      $ref: '#/components/schemas/MayHaveID_LocationContactData_'
-    EmailSchedulingMethod:
-      properties:
-        contact:
-          $ref: '#/components/schemas/LocationContact'
-        type:
-          type: string
-          enum:
-          - EMAIL
-          nullable: false
-      required:
-      - contact
-      - type
-      type: object
-    GetLocationPayload:
-      properties:
-        location:
-          $ref: '#/components/schemas/Location'
-      required:
-      - location
-      type: object
-    GeoCoordinates:
-      properties:
-        longitude:
-          type: number
-          format: double
-        latitude:
-          type: number
-          format: double
-      required:
-      - longitude
-      - latitude
-      type: object
-    Address:
-      properties:
-        country:
-          type: string
-        postalCode:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        addressTwo:
-          type: string
-        addressOne:
-          type: string
-      type: object
-    CarrierContactData:
-      allOf:
-      - $ref: '#/components/schemas/BaseContactData'
-      - properties:
-          carrierId:
-            type: string
-        required:
-        - carrierId
-        type: object
-    DuplicatePayload:
-      properties:
-        customer:
-          $ref: '#/components/schemas/Customer'
-        error:
-          type: string
-          enum:
-          - DUPLICATE
-          nullable: false
-      required:
-      - customer
-      - error
-      type: object
     CustomerExternalIdentifier:
       properties:
         type:
@@ -284,6 +368,19 @@ components:
       - value
       type: object
       additionalProperties: false
+    CreateLocationPayload:
+      anyOf:
+      - $ref: '#/components/schemas/Location'
+      - $ref: '#/components/schemas/DuplicatePayload'
+    CarrierContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          carrierId:
+            type: string
+        required:
+        - carrierId
+        type: object
     BaseContactData:
       properties:
         name:
@@ -295,40 +392,20 @@ components:
         role:
           type: string
       type: object
-    Customer:
-      $ref: '#/components/schemas/WithId_CustomerData_'
-    MayHaveID_ContactData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/ContactData'
-    PortalSchedulingDetails:
+    V0Schedule.SchedulingDetails:
       properties:
-        portal:
-          $ref: '#/components/schemas/Portal'
-      required:
-      - portal
-      type: object
-    CustomerData:
-      properties:
-        contacts:
-          items:
-            $ref: '#/components/schemas/Contact'
-          type: array
-        name:
+        maxDaysAhead:
+          type: number
+          format: double
+        notes:
           type: string
-        externalIds:
+        methods:
           items:
-            $ref: '#/components/schemas/CustomerExternalIdentifier'
+            $ref: '#/components/schemas/SchedulingMethod'
           type: array
       required:
-      - name
-      - externalIds
+      - methods
       type: object
-    LocationContactData:
-      $ref: '#/components/schemas/BaseContactData'
     DayHours:
       properties:
         type:
@@ -349,53 +426,8 @@ components:
       - startTime
       type: object
       additionalProperties: false
-    MayHaveID_LocationData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/LocationData'
-    CreateLocationInput:
-      properties:
-        location:
-          $ref: '#/components/schemas/LocationData'
-      required:
-      - location
-      type: object
-    CustomerContactData:
-      allOf:
-      - $ref: '#/components/schemas/BaseContactData'
-      - properties:
-          customerId:
-            type: string
-        required:
-        - customerId
-        type: object
-    UpdateLocationInput:
-      properties:
-        location:
-          $ref: '#/components/schemas/LocationData'
-      required:
-      - location
-      type: object
-    FacilityHours:
-      properties:
-        sunday:
-          $ref: '#/components/schemas/DayHours'
-        saturday:
-          $ref: '#/components/schemas/DayHours'
-        friday:
-          $ref: '#/components/schemas/DayHours'
-        thursday:
-          $ref: '#/components/schemas/DayHours'
-        wednesday:
-          $ref: '#/components/schemas/DayHours'
-        tuesday:
-          $ref: '#/components/schemas/DayHours'
-        monday:
-          $ref: '#/components/schemas/DayHours'
-      type: object
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
     LocationData:
       properties:
         name:
@@ -420,38 +452,6 @@ components:
       - address
       - externalIds
       type: object
-    V0Schedule.SchedulingDetails:
-      properties:
-        maxDaysAhead:
-          type: number
-          format: double
-        notes:
-          type: string
-        methods:
-          items:
-            $ref: '#/components/schemas/SchedulingMethod'
-          type: array
-      required:
-      - methods
-      type: object
-    Location:
-      $ref: '#/components/schemas/MayHaveID_LocationData_'
-    LocationExternalIdentifier:
-      properties:
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/LocationExternalIdentifierType'
-          - type: string
-          description: 'Typically one of the LocationExternalIdentifierType enum values
-
-            but subject to change'
-        value:
-          type: string
-      required:
-      - type
-      - value
-      type: object
-      additionalProperties: false
   securitySchemes:
     basic:
       scheme: basic

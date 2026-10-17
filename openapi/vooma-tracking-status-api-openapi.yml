@@ -34,33 +34,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    MovementExternalIdentifier:
-      properties:
-        type:
-          anyOf:
-          - $ref: '#/components/schemas/MovementExternalIdentifierType'
-          - type: string
-        value:
-          type: string
-      required:
-      - type
-      - value
-      type: object
-      additionalProperties: false
-    MovementExternalIdentifierType:
+    TrackingStatusLocationType.CITYSTATE:
       enum:
-      - CUSTOM
+      - CITYSTATE
       type: string
-    TrackingStatusLocationType.GEOCOORDINATES:
-      enum:
-      - GEOCOORDINATES
-      type: string
-    CreateTrackingStatusInput:
+    TrackingStatusLocation:
+      anyOf:
+      - $ref: '#/components/schemas/GeoCoordinatesLocation'
+      - $ref: '#/components/schemas/CityStateLocation'
+    GeoCoordinates:
       properties:
-        trackingStatus:
-          $ref: '#/components/schemas/TrackingStatusData'
+        longitude:
+          type: number
+          format: double
+        latitude:
+          type: number
+          format: double
       required:
-      - trackingStatus
+      - longitude
+      - latitude
       type: object
     TrackingStatusData:
       properties:
@@ -78,57 +70,10 @@ components:
       - timestamp
       - movement
       type: object
-    CityStateLocation:
-      properties:
-        state:
-          type: string
-        city:
-          type: string
-        type:
-          $ref: '#/components/schemas/TrackingStatusLocationType.CITYSTATE'
-      required:
-      - state
-      - city
-      - type
-      type: object
-    GeoCoordinates:
-      properties:
-        longitude:
-          type: number
-          format: double
-        latitude:
-          type: number
-          format: double
-      required:
-      - longitude
-      - latitude
-      type: object
-    TrackingStatusMovement:
-      properties:
-        externalIds:
-          items:
-            $ref: '#/components/schemas/MovementExternalIdentifier'
-          type: array
-      required:
-      - externalIds
-      type: object
-    TrackingStatusLocationType.CITYSTATE:
+    MovementExternalIdentifierType:
       enum:
-      - CITYSTATE
+      - CUSTOM
       type: string
-    GeoCoordinatesLocation:
-      allOf:
-      - $ref: '#/components/schemas/GeoCoordinates'
-      - properties:
-          type:
-            $ref: '#/components/schemas/TrackingStatusLocationType.GEOCOORDINATES'
-        required:
-        - type
-        type: object
-    TrackingStatusLocation:
-      anyOf:
-      - $ref: '#/components/schemas/GeoCoordinatesLocation'
-      - $ref: '#/components/schemas/CityStateLocation'
     TrackingStatusMetadata:
       properties:
         currentState:
@@ -156,6 +101,61 @@ components:
         carrierName:
           type: string
       type: object
+    TrackingStatusMovement:
+      properties:
+        externalIds:
+          items:
+            $ref: '#/components/schemas/MovementExternalIdentifier'
+          type: array
+      required:
+      - externalIds
+      type: object
+    CityStateLocation:
+      properties:
+        state:
+          type: string
+        city:
+          type: string
+        type:
+          $ref: '#/components/schemas/TrackingStatusLocationType.CITYSTATE'
+      required:
+      - state
+      - city
+      - type
+      type: object
+    GeoCoordinatesLocation:
+      allOf:
+      - $ref: '#/components/schemas/GeoCoordinates'
+      - properties:
+          type:
+            $ref: '#/components/schemas/TrackingStatusLocationType.GEOCOORDINATES'
+        required:
+        - type
+        type: object
+    CreateTrackingStatusInput:
+      properties:
+        trackingStatus:
+          $ref: '#/components/schemas/TrackingStatusData'
+      required:
+      - trackingStatus
+      type: object
+    MovementExternalIdentifier:
+      properties:
+        type:
+          anyOf:
+          - $ref: '#/components/schemas/MovementExternalIdentifierType'
+          - type: string
+        value:
+          type: string
+      required:
+      - type
+      - value
+      type: object
+      additionalProperties: false
+    TrackingStatusLocationType.GEOCOORDINATES:
+      enum:
+      - GEOCOORDINATES
+      type: string
   securitySchemes:
     basic:
       scheme: basic

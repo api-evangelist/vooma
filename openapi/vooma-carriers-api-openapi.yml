@@ -83,8 +83,31 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GetCarrierPayload:
-      $ref: '#/components/schemas/V0Carrier.GetCarrierPayload'
+    Equipment:
+      $ref: '#/components/schemas/V0Equipment.Equipment'
+    LocationContactData:
+      $ref: '#/components/schemas/BaseContactData'
+    TemperatureUnits:
+      enum:
+      - F
+      - C
+      type: string
+    MayHaveID_ContactData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/ContactData'
+    CustomerContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          customerId:
+            type: string
+        required:
+        - customerId
+        type: object
     EquipmentType:
       enum:
       - BOX_TRUCK
@@ -107,35 +130,21 @@ components:
       - FLATBED_OR_STEP_DECK
       - OTHER
       type: string
-    Dimension:
-      $ref: '#/components/schemas/V0Dimensions.Dimension'
-    Equipment:
-      $ref: '#/components/schemas/V0Equipment.Equipment'
-    MayHaveID_CarrierData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/CarrierData'
+    CarrierEquipment:
+      properties:
+        trailerNumber:
+          type: string
+        truckNumber:
+          type: string
+        equipment:
+          $ref: '#/components/schemas/Equipment'
+      required:
+      - equipment
+      type: object
+    GetCarrierPayload:
+      $ref: '#/components/schemas/V0Carrier.GetCarrierPayload'
     UpdateCarrierInput:
       $ref: '#/components/schemas/V0Carrier.UpdateCarrierInput'
-    ContactData:
-      anyOf:
-      - $ref: '#/components/schemas/CarrierContactData'
-      - $ref: '#/components/schemas/CustomerContactData'
-      - $ref: '#/components/schemas/LocationContactData'
-    Contact:
-      $ref: '#/components/schemas/V0Contact.Contact'
-    TemperatureUnits:
-      enum:
-      - F
-      - C
-      type: string
-    V0Contact.Contact:
-      $ref: '#/components/schemas/MayHaveID_ContactData_'
-    Carrier:
-      $ref: '#/components/schemas/MayHaveID_CarrierData_'
     Temperature:
       properties:
         units:
@@ -149,6 +158,8 @@ components:
       required:
       - units
       type: object
+    Carrier:
+      $ref: '#/components/schemas/MayHaveID_CarrierData_'
     DimensionUnits:
       enum:
       - IN
@@ -162,22 +173,27 @@ components:
       required:
       - carrier
       type: object
-    V0Carrier.CreateCarrierInput:
+    CarrierData:
       properties:
-        carrier:
-          $ref: '#/components/schemas/CarrierData'
+        equipment:
+          items:
+            $ref: '#/components/schemas/CarrierEquipment'
+          type: array
+        contacts:
+          items:
+            $ref: '#/components/schemas/CarrierContact'
+          type: array
+        dotNumber:
+          type: string
+        mcNumber:
+          type: string
+        name:
+          type: string
       required:
-      - carrier
+      - name
       type: object
-    CarrierContactData:
-      allOf:
-      - $ref: '#/components/schemas/BaseContactData'
-      - properties:
-          carrierId:
-            type: string
-        required:
-        - carrierId
-        type: object
+    V0Contact.Contact:
+      $ref: '#/components/schemas/MayHaveID_ContactData_'
     V0Dimensions.Dimension:
       properties:
         value:
@@ -210,6 +226,51 @@ components:
       - type
       type: object
       additionalProperties: false
+    CreateCarrierInput:
+      $ref: '#/components/schemas/V0Carrier.CreateCarrierInput'
+    CarrierContact:
+      properties:
+        contact:
+          $ref: '#/components/schemas/Contact'
+        type:
+          type: string
+          enum:
+          - DRIVER
+          - DISPATCH
+      required:
+      - contact
+      - type
+      type: object
+    Dimension:
+      $ref: '#/components/schemas/V0Dimensions.Dimension'
+    ContactData:
+      anyOf:
+      - $ref: '#/components/schemas/CarrierContactData'
+      - $ref: '#/components/schemas/CustomerContactData'
+      - $ref: '#/components/schemas/LocationContactData'
+    V0Carrier.CreateCarrierInput:
+      properties:
+        carrier:
+          $ref: '#/components/schemas/CarrierData'
+      required:
+      - carrier
+      type: object
+    MayHaveID_CarrierData_:
+      allOf:
+      - properties:
+          id:
+            type: string
+        type: object
+      - $ref: '#/components/schemas/CarrierData'
+    CarrierContactData:
+      allOf:
+      - $ref: '#/components/schemas/BaseContactData'
+      - properties:
+          carrierId:
+            type: string
+        required:
+        - carrierId
+        type: object
     V0Carrier.GetCarrierPayload:
       properties:
         carrier:
@@ -228,69 +289,8 @@ components:
         role:
           type: string
       type: object
-    MayHaveID_ContactData_:
-      allOf:
-      - properties:
-          id:
-            type: string
-        type: object
-      - $ref: '#/components/schemas/ContactData'
-    LocationContactData:
-      $ref: '#/components/schemas/BaseContactData'
-    CarrierData:
-      properties:
-        equipment:
-          items:
-            $ref: '#/components/schemas/CarrierEquipment'
-          type: array
-        contacts:
-          items:
-            $ref: '#/components/schemas/CarrierContact'
-          type: array
-        dotNumber:
-          type: string
-        mcNumber:
-          type: string
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    CustomerContactData:
-      allOf:
-      - $ref: '#/components/schemas/BaseContactData'
-      - properties:
-          customerId:
-            type: string
-        required:
-        - customerId
-        type: object
-    CarrierEquipment:
-      properties:
-        trailerNumber:
-          type: string
-        truckNumber:
-          type: string
-        equipment:
-          $ref: '#/components/schemas/Equipment'
-      required:
-      - equipment
-      type: object
-    CarrierContact:
-      properties:
-        contact:
-          $ref: '#/components/schemas/Contact'
-        type:
-          type: string
-          enum:
-          - DRIVER
-          - DISPATCH
-      required:
-      - contact
-      - type
-      type: object
-    CreateCarrierInput:
-      $ref: '#/components/schemas/V0Carrier.CreateCarrierInput'
+    Contact:
+      $ref: '#/components/schemas/V0Contact.Contact'
   securitySchemes:
     basic:
       scheme: basic
